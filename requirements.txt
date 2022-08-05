@@ -1,0 +1,12 @@
+asgiref==3.4.1
+certifi==2021.5.30
+defusedxml==0.7.1
+Django==3.2.6
+idna==3.3
+Pillow==8.2.0
+python-dateutil==2.8.2
+pytz==2021.1
+requests==2.26.0
+six==1.16.0
+sqlparse==0.4.1
+urllib3==1.26.6
