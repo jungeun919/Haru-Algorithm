@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="{% url 'postDate' %}" method="get">
+        {% csrf_token %}
+        <input type="date" placeholder="Search" name="qDate" value="{{qDate}}">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="container">
+        {% for post in posts %}
+        <div class="card">
+            <div class="card-body">
+                {{post.question}}<br>
+                {{post.category}}<br>
+                {{post.pub_date}}
+                <a href="{% url 'detail' post.id %}">...more</a><br>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if posts.has_previous %}
+    <a href="?page=1">First</a>
+    <a href="?page={{posts.previous_page_number}}">Previous</a>
+    {% endif %}
+
+    <span>{{posts.number}}</span>
+    <span>of</span>
+    <span>{{posts.paginator.num_pages}}</span>
+
+    {% if posts.has_next %}
+    <a href="?page={{posts.next_page_number}}">Next</a>
+    <a href="?page={{posts.paginator.num_pages}}">Last</a>
+    {% endif %}
+</body>
+
+</html>
