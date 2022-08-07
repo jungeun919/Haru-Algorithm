@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% for i, status, output, error in display_data %}
+    {% if status == True %}
+    <div>
+        <div>
+            <h3>Testcase {{ i }} success</h3>
+        </div>
+        {% else %}
+        <div>
+            <div>
+                <h3>Testcase {{ i }} fail</h3>
+            </div>
+            {% endif %}
+
+            <div>
+                <h2>Output:</h2>
+                <p>
+                <pre>{{ output | safe }}</pre>
+                <h2>Errors:</h2>
+                <p>
+                <pre>{{ error | safe }}</pre>
+            </div>
+        </div>
+        {% endfor %}
+</body>
+
+</html>
