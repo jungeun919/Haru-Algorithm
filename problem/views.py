@@ -30,26 +30,26 @@ def problem(request):
     if Problem.objects.filter(problem_date = problem_date):
         problem_set = Problem.objects.filter(problem_date = problem_date).first()
 
-        problem_list_set = problem_set.problem_text.split('\'')
-        del problem_list_set[0::2]
+        description_list_set = problem_set.problem_text.split('\'')
+        del description_list_set[0::2]
         input_list_set = problem_set.problem_input.split('\'')
         del input_list_set[0::2]
         output_list_set = problem_set.problem_output.split('\'')
         del output_list_set[0::2]
 
-        example_set = Example.objects.get(problem = problem_set)
-        example_input_set = example_set.example_input.replace('\r', '').split('\'')
-        del example_input_set[0::2]
-        example_output_set = example_set.example_output.split('\'')
-        del example_output_set[0::2]
+        sample_set = Example.objects.get(problem = problem_set)
+        sample_input_set = sample_set.example_input.replace('\r', '').split('\'')
+        del sample_input_set[0::2]
+        sample_output_set = sample_set.example_output.split('\'')
+        del sample_output_set[0::2]
 
         return render(request, 'problems.html', {
             'problem_title': problem_set.problem_title,
-            'problem_list': problem_list_set, 
+            'description_list': description_list_set, 
             'input_list': input_list_set,
-            'output_list': problem_list_set,
-            'sample_inputs': example_input_set,
-            'sample_outputs': example_output_set,
+            'output_list': output_list_set,
+            'problem_sample_input': sample_input_set,
+            'problem_sample_output': sample_output_set,
         })
     else: 
         try:    
