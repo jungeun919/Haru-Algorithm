@@ -9,6 +9,9 @@ import random
 import requests
 
 # Create your views here.
+def intro(request):
+    return render(request, 'intro.html')
+
 def problem(request):
     while True:
         num = str(random.randrange(1000, 25377))
