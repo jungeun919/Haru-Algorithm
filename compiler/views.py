@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils import timezone
 from .forms import CodeExecutorForm
-# from post.models import Post
+from post.models import Post
 from .compilerUtils import Compiler, Language, generate_test_case
 
 from problem.models import Problem, Example
@@ -46,13 +46,13 @@ def runCode(request):
             lan = Language(int(form.cleaned_data['language']))
 
             # 게시물 저장
-            # post = Post()
-            # post.question = problem.problem_num
-            # post.category = 'greedy'
-            # post.code = request.POST['code']
-            # post.pub_date = timezone.now()
-            # post.disclosure = 'private'
-            # post.save()
+            post = Post()
+            post.question = problem.problem_num
+            post.category = 'greedy'
+            post.code = request.POST['code']
+            post.pub_date = timezone.now()
+            post.disclosure = 'private'
+            post.save()
 
             # 채점
             if lan == Language.PYTHON:
@@ -60,10 +60,10 @@ def runCode(request):
                 executor.set_language(lan)
                 execution_result = executor.execute()
 
-                # template_data['post_id'] = post.id
-                # template_data['question'] = post.question
-                # template_data['category'] = post.category
-                # template_data['code'] = post.code
+                template_data['post_id'] = post.id
+                template_data['question'] = post.question
+                template_data['category'] = post.category
+                template_data['code'] = post.code
 
                 template_data['result'] = execution_result.name
                 executor.delete_code_file()
