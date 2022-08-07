@@ -11,6 +11,9 @@ from datetime import date
 
 import socket
 
+def intro(request):
+    return render(request, 'compiler/intro.html')
+
 # 컴파일 실행
 def runCode(request):
     template_data = {}
