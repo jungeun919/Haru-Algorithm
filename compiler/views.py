@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.utils import timezone
 from .forms import CodeExecutorForm
 from post.models import Post
+from .models import User
 from .compilerUtils import Compiler, Language, generate_test_case
 
 from problem.models import Problem, Example
@@ -16,16 +17,38 @@ def intro(request):
 
 # 컴파일 실행
 def runCode(request):
+    # 유저 판별 (최대 입력 횟수 : 2)
+    hostname = socket.gethostbyname(socket.gethostname())
+    print("hostname: " + hostname)
+
     template_data = {}
 
     # 오늘 날짜에 해당하는 문제 가져오기
     today = date.today()
+
     problem = Problem.objects.filter(problem_date=today).get()
     example = Example.objects.filter(problem=problem).get()
     print("problem:", problem.problem_text)
     print("example", example.example_input)
 
     if request.method == 'POST':
+        if User.objects.all().filter(hostname=hostname, current_date=today):
+            user = User.objects.all().filter(hostname=hostname).get()
+            if user.visit >= 2:
+                return render(request, 'compiler/error.html', {'error': 'You have exceeded 2 chances to enter the correct answer.'})
+            else:
+                user.hostname = hostname
+                user.visit += 1
+                user.current_date = today
+                user.save()
+
+        else: # 없으면 저장
+            User(
+                hostname = hostname,
+                visit = 1,
+                current_date = today
+            ).save()
+        
         form = CodeExecutorForm(request.POST)
 
         if form.is_valid():
