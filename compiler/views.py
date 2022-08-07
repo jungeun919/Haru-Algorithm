@@ -34,20 +34,19 @@ def runCode(request):
     if request.method == 'POST':
         if User.objects.all().filter(hostname=hostname, current_date=today):
             user = User.objects.all().filter(hostname=hostname).get()
-            if user.visit >= 2:
-                return render(request, 'compiler/error.html', {'error': 'You have exceeded 2 chances to enter the correct answer.'})
-            else:
-                user.hostname = hostname
-                user.visit += 1
-                user.current_date = today
-                user.save()
+            
+            user.hostname = hostname
+            user.visit += 1
+            user.current_date = today
+            user.save()
 
         else: # 없으면 저장
-            User(
+            user = User(
                 hostname = hostname,
                 visit = 1,
                 current_date = today
-            ).save()
+            )
+            user.save()
         
         form = CodeExecutorForm(request.POST)
 
@@ -90,6 +89,7 @@ def runCode(request):
                 template_data['question'] = post.question
                 template_data['category'] = post.category
                 template_data['code'] = post.code
+                template_data['user_visit'] = user.visit
 
                 template_data['result'] = execution_result.name
                 executor.delete_code_file()

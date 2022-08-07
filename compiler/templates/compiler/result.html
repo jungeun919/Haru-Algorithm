@@ -24,6 +24,8 @@
     </form>
     {% endif %}
     <!-- success일 경우 -->
+
+    실패 횟수: {{ user_visit }}
     
     {% for i, status, output, error in display_data %}
     {% if status == True %}
