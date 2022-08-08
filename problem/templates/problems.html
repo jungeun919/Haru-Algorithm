@@ -10,19 +10,19 @@
     <h1>{{problem_title}}</h1>
 
     <h2>문제</h2>
-    {% for description in description_list %}
-        {{description}}<br>
-    {% endfor %}
+    {% autoescape off %}
+        {{ problem_description }}
+    {% endautoescape %}
 
     <h2>입력</h2>
-    {% for input in input_list %}
-        {{input}}<br>
-    {% endfor %}
-
+    {% autoescape off %}
+        {{ problem_input }}
+    {% endautoescape %}
+    
     <h2>출력</h2>
-    {% for output in output_list %}
-        {{output}}<br>
-    {% endfor %}
+    {% autoescape off %}
+        {{ problem_output }}<br>
+    {% endautoescape %}
 
     <h2>예제 입력</h2>
     {% for sample_input in problem_sample_input %}
@@ -33,5 +33,7 @@
     {% for sample_output in problem_sample_output %}
         {{sample_output}}<br>
     {% endfor %}
+
+    <a href="{% url 'compiler' %}">컴파일러</a>
 </body>
 </html>

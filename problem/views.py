@@ -23,19 +23,15 @@ def problem(request):
             if problem_language == '다국어':
                 continue
         except:
+            problem_img = soup.select('#problem_description > p >img')
+            if len(problem_img) > 0:
+                print(problem_img[0].text)
             break
 
     problem_date = date.today()
 
     if Problem.objects.filter(problem_date = problem_date):
         problem_set = Problem.objects.filter(problem_date = problem_date).first()
-
-        description_list_set = problem_set.problem_text.split('\'')
-        del description_list_set[0::2]
-        input_list_set = problem_set.problem_input.split('\'')
-        del input_list_set[0::2]
-        output_list_set = problem_set.problem_output.split('\'')
-        del output_list_set[0::2]
 
         sample_set = Example.objects.get(problem = problem_set)
         sample_input_set = sample_set.example_input.replace('\r', '').split('\'')
@@ -45,9 +41,9 @@ def problem(request):
 
         return render(request, 'problems.html', {
             'problem_title': problem_set.problem_title,
-            'description_list': description_list_set, 
-            'input_list': input_list_set,
-            'output_list': output_list_set,
+            'problem_description': problem_set.problem_text, 
+            'problem_input': problem_set.problem_input,
+            'problem_output': problem_set.problem_output,
             'problem_sample_input': sample_input_set,
             'problem_sample_output': sample_output_set,
         })
@@ -55,20 +51,14 @@ def problem(request):
         try:    
             problem_title = soup.select('#problem_title')[0].text
 
-            problem_description = soup.select('#problem_description > p')
-            description_list = []
-            for description in problem_description:
-                description_list.append(description.text)
+            problem_description_cw = soup.select('#problem_description')
+            problem_description = str(problem_description_cw)[1:-1]
 
-            problem_input = soup.select('#problem_input > p')
-            input_list = []
-            for input in problem_input:
-                input_list.append(input.text)
+            problem_input_cw = soup.select('#problem_input')
+            problem_input = str(problem_input_cw)[1:-1]
 
-            problem_output = soup.select('#problem_output > p')
-            output_list = []
-            for output in problem_output:
-                output_list.append(output.text)
+            problem_output_cw = soup.select('#problem_output')
+            problem_output = str(problem_output_cw)[1:-1]
 
             problem_sample_input = soup.select('#sample-input-1')
             sample_input_list = []
@@ -85,9 +75,9 @@ def problem(request):
             Problem(problem_date = problem_date,
                     problem_num = num,
                     problem_title = problem_title,
-                    problem_text = description_list,
-                    problem_input = input_list,
-                    problem_output = output_list).save()
+                    problem_text = problem_description,
+                    problem_input = problem_input,
+                    problem_output = problem_output).save()
 
             Example(problem = Problem.objects.get(problem_date=problem_date),
                     example_input = problem_sample_input,
@@ -95,9 +85,9 @@ def problem(request):
 
             return render(request, 'problems.html', {
                 'problem_title': problem_title,
-                'description_list': description_list, 
-                'input_list': input_list,
-                'output_list': output_list,
+                'problem_description': problem_description , 
+                'problem_input': problem_input,
+                'problem_output': problem_output,
                 'problem_sample_input': problem_sample_input,
                 'problem_sample_output': problem_sample_output,
             })
