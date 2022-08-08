@@ -34,7 +34,7 @@ def problem(request):
         problem_set = Problem.objects.filter(problem_date = problem_date).first()
 
         sample_set = Example.objects.get(problem = problem_set)
-        sample_input_set = sample_set.example_input.replace('\r', '').split('\'')
+        sample_input_set = sample_set.example_input.split('\'')
         del sample_input_set[0::2]
         sample_output_set = sample_set.example_output.split('\'')
         del sample_output_set[0::2]
@@ -60,17 +60,19 @@ def problem(request):
             problem_output_cw = soup.select('#problem_output')
             problem_output = str(problem_output_cw)[1:-1]
 
-            problem_sample_input = soup.select('#sample-input-1')
+            problem_sample_input_cw = soup.select('#sample-input-1')
             sample_input_list = []
-            for sample_input in problem_sample_input:
+            for sample_input in problem_sample_input_cw:
                 sample_input_list.append(sample_input.text.strip())
-            problem_sample_input = sample_input_list[0].split('\n')
+            problem_sample_input_1 = sample_input_list[0].split('\n')
+            problem_sample_input = [input.strip() for input in problem_sample_input_1]
 
             problem_sample_output = soup.select('#sample-output-1')
             sample_output_list = []
             for sample_output in problem_sample_output:
                 sample_output_list.append(sample_output.text.strip())
-            problem_sample_output = sample_output_list[0].split('\n')
+            problem_sample_output_1 = sample_output_list[0].split('\n')
+            problem_sample_output = [output.strip() for output in problem_sample_output_1]
 
             Problem(problem_date = problem_date,
                     problem_num = num,
