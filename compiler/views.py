@@ -34,20 +34,15 @@ def runCode(request):
     if request.method == 'POST':
         if User.objects.all().filter(hostname=hostname, current_date=today):
             user = User.objects.all().filter(hostname=hostname).get()
-            
-            user.hostname = hostname
-            user.visit += 1
-            user.current_date = today
-            user.save()
 
-        else: # 없으면 저장
+        else: # 유저 없으면 저장
             user = User(
                 hostname = hostname,
-                visit = 1,
+                visit = 0, # 실패횟수
                 current_date = today
             )
             user.save()
-        
+
         form = CodeExecutorForm(request.POST)
 
         if form.is_valid():
@@ -95,6 +90,14 @@ def runCode(request):
                 executor.delete_code_file()
                 if executor.hasExecuted:
                     checked_values = executor.compare_outputs()
+                    if checked_values[0] == False:
+                        # 실패했을 경우에만 횟수 업데이트
+                        user.hostname = hostname
+                        user.visit += 1
+                        user.current_date = today
+                        user.save()
+                        template_data['user_visit'] = user.visit
+
                     display_data = []
                     outputs = executor.get_output()
                     errors = executor.get_errors()
@@ -109,6 +112,7 @@ def runCode(request):
                     return render(request, 'compiler/result.html', template_data)
                 else:
                     return render(request, 'compiler/error.html', {'error': 'Execution failed'})
+
         else:
             return HttpResponse("Form is not valid")
 
