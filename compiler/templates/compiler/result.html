@@ -10,7 +10,7 @@
 
 <body>
     <!-- success일 경우 -->
-    {% if test_cases_total == test_cases_passed %}
+    {% if result == 'ACC' %}
     <form action="{% url 'postUpdate' %}" method="get">
         <input type="hidden" name="post_id" value="{{ post_id }}">
         <input type="hidden" name="question" value="{{ question }}">
