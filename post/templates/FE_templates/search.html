@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haru Algorithm</title>
+    <link rel="stylesheet" type="text/css" href="./search.css">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+</head>
+<body>
+    <script>
+        document.getElementById('current_date').valueAsDate = new Date();
+    </script>
+    <div>
+        <div class="TopNav">
+            <div class="logo">haru algorithm</div>
+            <div class="about_us">About us</div>
+        </div>
+        <div class="MiddleNav">
+            <a href="#"><input type="radio" name="tabs" id="tab1" checked>
+                <label for="tab1">제목</label></a>
+                <a href="#"><input type="radio" name="tabs" id="tab2">
+                <label for="tab2">날짜</label></a>
+                <a href="#"><input type="radio" name="tabs" id="tab3">
+                <label for="tab3">카테고리</label></a>
+        </div>
+        <div class="content">
+            <div class="main">
+               <div class="search-box">
+                    <form action="{% url 'posts' %}" method="get">
+                        {% csrf_token %}
+                        <input class="search-text" type="text" placeholder="검색어를 입력해주세요" name="qTitle" value="{{qTitle}}">
+                        <button type="button" class="search-btn" type="sumit"><img class="search-img" src="./search.png"></button>
+                    </form>
+                    <!-- <form action="." method="post">
+                        <input type="date" id="current_date">
+                    </form> -->
+               </div>
+
+               <div class="post">
+                <div class="post_name">
+                    <li>제목</li>
+                    <li>카테고리</li>
+                    <li>컴파일 시간</li>
+                    <li>날짜</li>
+                </div>
+
+                {% for post in posts %}
+                <a id="box_href" href="{% url 'detail' post.id %}">
+                    <div class="post_box">
+                        {{post.question}}
+                        {{post.category}}
+                        {{post.pub_date}}
+                    </div>
+                </a>
+                {% endfor %}
+               </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

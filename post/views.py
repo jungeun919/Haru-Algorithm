@@ -53,4 +53,4 @@ def getPostDate(request):
 # 풀이 상세
 def detailPost(request, id):
     post = get_object_or_404(Post, pk=id)
-    return render(request, 'post/detail.html', {'post': post})
+    return render(request, 'FE_templates/detail.html', {'post': post})

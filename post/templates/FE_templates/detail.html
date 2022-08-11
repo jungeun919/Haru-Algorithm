@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haru Algorithm</title>
+    <link rel="stylesheet" type="text/css" href="./detail.css">
+</head>
+<body>
+    <div>
+        <div class="TopNav">
+            <div class="logo">haru algorithm</div>
+            <div class="about_us">About us</div>
+        </div>
+        <div class="MiddleNav">
+            <a href="{% url 'posts' %}"><input type="radio" name="tabs" id="tab1" checked>
+            <label for="tab1">검색</label></a>
+            <!-- <a href="#"><input type="radio" name="tabs" id="tab2">
+            <label for="tab2">입력</label></a> -->
+        </div>
+        <div class="content">
+            <div class="main">
+                <div class="detail_top">
+                    <div class="title">{{post.question}}</div>
+                    <div class="date">
+                        <li>{{post.pub_date}}</li>
+                        <li>#{{post.category}}</li>
+                    </div>
+                </div>
+                </div>
+
+                <div class="detail_content">
+                    <div class="code_box">
+                        {{post.code}}
+                    </div>
+                    <div class="code_detail">
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- {% block content %}
+        {% endblock %} -->
+    </div>
+</body>
+</html>

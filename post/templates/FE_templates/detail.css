@@ -1,0 +1,132 @@
+@import url('http://fonts.cdnfonts.com/css/gilbert');
+@font-face {
+    font-family: 'SCoreDream';
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff2) format('woff2'),
+         url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff) format('woff');
+    font-display: swap;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+html,body{
+    height:100vh;
+}
+body{
+    margin:0;
+
+}
+.TopNav{
+    position:fixed;
+    width:100%;
+    height: 96px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    margin-left:30px;
+    font-family: 'Gilbert Color', sans-serif;
+    font-size:45px;
+    width:80%;
+
+}
+.about_us{
+
+    width:10%;
+    float:right;
+    font-size:36px;
+    font-family: 'Gilbert', sans-serif;
+}
+
+.MiddleNav{
+    margin-top: 96px;
+    position:fixed;
+    width:100%;
+    height:79px;
+    background-color: #415CF2;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 25px;
+    display:flex;
+    align-items: center;
+    list-style:none;
+    z-index: 5;
+}
+.MiddleNav >a{
+    text-decoration: none;
+    color:rgba(225, 225, 238, 0.406);
+    padding-left:50px;
+}
+.MiddleNav > a> input{
+    display:none;
+}
+
+.MiddleNav input:checked + label {
+    /* 해당 메뉴가 선택된 상태인지 아닌지를 사용자에게 알려줄 수 있음 */
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+.content{
+    background:rgba(128, 128, 128, 0.115);
+    height:85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top:175px;
+    position:absolute;
+}
+.main{
+
+    width: 80%;
+}
+.detail_top{
+    width:100%;
+    height: 80px;  
+    padding-top: 20px;
+}
+
+.title{
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 40px;
+}
+
+.date{
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 20px;
+    list-style:none;
+    display:flex;
+}
+
+.date >li:last-child{
+    margin-left: 20px;
+}
+
+.detail_content{
+    width:80%;
+}
+
+.code_box{
+    padding:15px;
+    margin-top: 50px;
+    background-color:white;
+    width:100%;
+    height: fit-content;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    border: 1px solid rgba(128, 128, 128, 0.309);
+    box-sizing: border-box;
+    padding:15px;
+}
+
+.code_detail{
+    margin-top: 30px;
+    width:100%;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+}
