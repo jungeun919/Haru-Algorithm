@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haru Algorithm</title>
+    <link rel="stylesheet" href="{% static 'correct.css' %}">
+</head>
+<body>
+    <div>
+        <div class="TopNav">
+            <a href="#"><div class="logo"><img class="logo_img"src="./logo.png"></div></a>
+            <a href="#" id="about_link">About us</a>
+        </div>
+        <!-- <div class="MiddleNav">
+            <a href="#"><input type="radio" name="tabs" id="tab1" checked>
+            <label for="tab1">문제</label></a>
+            <a href="#"><input type="radio" name="tabs" id="tab2">
+            <label for="tab2">입력</label></a>
+            <a href="#"><input type="radio" name="tabs" id="tab3">
+            <label for="tab3">출력</label></a>
+            <a href="#"><input type="radio" name="tabs" id="tab4">
+            <label for="tab4">예시</label></a>
+            <a href="#"><input type="radio" name="tabs" id="tab5">
+            <label for="tab5">제출</label></a>
+        </div> -->
+        <form action="{% url 'postUpdate' %}" method="get">
+        <div class="content">
+            <div class="main">
+                <div class="correct_title">
+                    <img class="check_img" src="./check.png">
+                    정답입니다
+                </div>
+            <div class="correct_main">
+                <div class="correct_check">
+                    코드 공개여부
+                    <select>
+                        <option>코드공개</option>
+                        <option>코드비공개</option>
+                    </select>   
+                </div>
+                <div class="post_title">
+                    제목
+                    <input class="title_input" type="text"/>
+                </div>
+                <div class="post_content">
+                    본문
+                    <textarea class="content_input" type="text"></textarea>
+                </div>
+            </div>
+            <button class="post_button" type="button">업로드하기</button>
+            </div>
+        </div>
+    </form>
+        <!-- {% block content %}
+        {% endblock %} -->
+    </div>
+</body>
+</html>

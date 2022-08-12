@@ -33,7 +33,7 @@ def getPosts(request):
     paginator = Paginator(posts, 3)
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)
-    return render(request, 'post/posts.html', {'posts': posts, 'qTitle': qTitle})
+    return render(request, 'FE_templates/search.html', {'posts': posts, 'qTitle': qTitle})
 
 # 전체 풀이 + 날짜 검색
 def getPostDate(request):
@@ -48,7 +48,7 @@ def getPostDate(request):
     paginator = Paginator(posts, 3)
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)
-    return render(request, 'post/postDate.html', {'posts': posts, 'qDate': qDate})
+    return render(request, 'FE_templates/search_date.html', {'posts': posts, 'qDate': qDate})
 
 # 풀이 상세
 def detailPost(request, id):

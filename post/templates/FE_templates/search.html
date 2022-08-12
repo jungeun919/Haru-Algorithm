@@ -14,18 +14,15 @@
         document.getElementById('current_date').valueAsDate = new Date();
     </script>
     <div>
-        <div class="TopNav">
-            <div class="logo">haru algorithm</div>
-            <div class="about_us">About us</div>
-        </div>
-        <div class="MiddleNav">
+        {% include "./component/TopNav.html" %}
+        <!-- <div class="MiddleNav">
             <a href="#"><input type="radio" name="tabs" id="tab1" checked>
                 <label for="tab1">제목</label></a>
                 <a href="#"><input type="radio" name="tabs" id="tab2">
                 <label for="tab2">날짜</label></a>
                 <a href="#"><input type="radio" name="tabs" id="tab3">
                 <label for="tab3">카테고리</label></a>
-        </div>
+        </div> -->
         <div class="content">
             <div class="main">
                <div class="search-box">

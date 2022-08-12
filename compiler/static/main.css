@@ -1,0 +1,164 @@
+@import url('http://fonts.cdnfonts.com/css/gilbert');
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold-webfont.woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular-webfont.woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Light-webfont.woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-6Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-1Thin';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GilbertBold';
+    src: url('/HaruAlgorithm/harualgorithm/static/admin/fonts/GilbertBoldPreview5.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GilbertColorBold';
+    src: url('/HaruAlgorithm/harualgorithm/static/admin/fonts/GilbertColorBoldPreview5.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* #header_top {
+    height: 96px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: white;
+}
+
+.logo {
+    font-family: 'GilbertColorBold';
+    position:fixed;
+    left: 50px;
+    top: 0px;
+    font-size: 60px;
+    text-decoration-line: none;
+}
+
+.Aboutus {
+    font-family: 'GilbertBold';
+    position: relative;
+    float: right;
+    top: 20px;
+    right: 20px;
+    color: #707070;
+    font-size: 36px;
+    text-decoration-line: none;
+} */
+/*공통으로 적용되는 header css*/
+
+#circle1 {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width : 1000px;
+    height : 980px;
+    border-radius: 50%;
+    background-color: #da3ab4;
+    opacity: 0.9;
+    position: fixed;
+    top: 110px;
+    left: -200px;
+    z-index: -1;
+}
+
+#circle2 {
+    width : 1500px;
+    height : 1500px;
+    border-radius: 50%;
+    background-color: #06b6ce;
+    opacity: 0.9;
+    position: fixed;
+    top: -150px;
+    right: -260px;
+    z-index: -1;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-family: 'S-CoreDream-6Bold';
+    /* position: fixed; */
+    color:white;
+    font-size: 60px;
+    float: left;
+    /* left: 150px;
+    top: 500px; */
+}
+
+.s-title {
+    font-family: 'S-CoreDream-3Light';
+    /* position: fixed; */
+    color:white;
+    font-size: 40px;
+    line-height: 1.3em;
+    /* float: left; */
+    /* left: 150px;
+    top: 600px; */
+}
+
+.enter {
+    font-family: 'S-CoreDream-6Bold';
+    /* position: fixed; */
+    border: 0;
+    outline: 0;
+    background-color: white;
+    color: balck;
+    font-size: 35px;
+    border-radius: 10px;
+    padding: 25px;
+    float: left;
+    /* left: 150px;
+    top: 750px; */
+}
+
+.main_logo {
+    /* position: fixed;
+    top: 200px;
+    right: -100px;
+    width: 1100px; */
+    width:72%;
+    height: 55%;
+    margin-bottom: 200px;
+}

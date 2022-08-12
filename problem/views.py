@@ -95,3 +95,6 @@ def problem(request):
             })
         except:
             return redirect('problem')
+
+def url(request):
+    return render(request, 'FE_templates/index.html')

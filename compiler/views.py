@@ -13,7 +13,7 @@ from datetime import date
 import socket
 
 def intro(request):
-    return render(request, 'compiler/intro.html')
+    return render(request, 'FE_templates/main.html')
 
 # 컴파일 실행
 def runCode(request):

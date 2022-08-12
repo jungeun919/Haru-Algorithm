@@ -9,15 +9,11 @@
 </head>
 <body>
     <div>
-        <div class="TopNav">
-            <div class="logo">haru algorithm</div>
-            <div class="about_us">About us</div>
-        </div>
+        {% include "./component/TopNav.html" %}
+
         <div class="MiddleNav">
             <a href="{% url 'posts' %}"><input type="radio" name="tabs" id="tab1" checked>
             <label for="tab1">검색</label></a>
-            <!-- <a href="#"><input type="radio" name="tabs" id="tab2">
-            <label for="tab2">입력</label></a> -->
         </div>
         <div class="content">
             <div class="main">

@@ -1,0 +1,252 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold-webfont.woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular-webfont.woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Light-webfont.woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-6Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-1Thin';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GilbertBold';
+    src: url('/HaruAlgorithm/harualgorithm/static/admin/fonts/GilbertBoldPreview5.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GilbertColorBold';
+    src: url('/HaruAlgorithm/harualgorithm/static/admin/fonts/GilbertColorBoldPreview5.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Light';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+html {
+    height: 150%;
+    background-color: #f5f9fc;
+}
+
+#header_top {
+    height: 96px;
+    background-color: white;
+}
+
+.logo {
+    font-family: 'GilbertColorBold'; /*폰트차이확인 후 색 수정*/
+    position:relative;
+    left: 50px;
+    top: 0px;
+    font-size: 60px;
+    text-decoration-line: none;
+}
+
+.Aboutus {
+    font-family: 'GilbertBold';
+    position: relative;
+    float: right;
+    top: 20px;
+    right: 20px;
+    color: #707070;
+    font-size: 36px;
+    text-decoration-line: none;
+}
+
+#nav_top {
+    background-color: #2745f2;
+    height: 79px;
+}
+
+.nav-link {
+    position:relative;
+    top: 8px;
+    left: 198px;
+    font-family: 'Pretendard-Bold';
+    font-size: 36px;
+    margin-right: 30px;
+}
+/*여기까지 공통으로 적용되는 nav부분*/
+
+/*본문 body부분*/
+section {
+    height: 200%; /*html 세로사이즈와 맞추기*/
+    width: 100%;
+    background-color: #f5f9fc;
+    padding-left: 198px;
+    padding-right: 198px;
+}
+
+.xlogo {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 300px;
+    left: 46%;
+}
+
+.incorrect1 {
+    font-family: 'Pretendard-Bold';
+    text-decoration-line: none;
+    color: #2745f2;
+    font-size: 36px;
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    text-align: center;
+}
+
+.category {
+    font-family: 'Pretendard-Bold';
+    text-decoration-line: none;
+    color: #2745f2;
+    font-size: 24px;
+    position: relative;
+    top: 300px;
+}
+
+.box1 {
+    position: relative;
+    top: 300px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+    height: 36px;
+    width: 84px;
+    padding: 5px;
+}
+
+.box1_font {
+    font-family: 'Pretendard-Light';
+    font-size: 20px;
+    color: grey;
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.sscode {
+    font-family: 'Pretendard-Bold';
+    text-decoration-line: none;
+    color: #2745f2;
+    font-size: 24px;
+    position: relative;
+    top: 350px;
+}
+
+.copybutton {
+    align-content: center;
+    top: 300px;
+    left: 150px;
+    font-size: 18px;
+    color: white;
+    background-color: #415cf2;
+    font-family: 'Pretendard-Light';
+    border-radius: 8px;
+    border: 0;
+    outline: 0;
+    box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+    width: 76px;
+    height: 27px;
+    position: relative;
+}
+
+.code_box {
+    position: relative;
+    top: 320px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+    height: 660px;
+    width: 100%;
+    padding: 100px;
+}
+
+.rescore {
+    box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+    background-color: #2745f2;
+    font-family: 'Pretendard-Bold';
+    font-size: 20px;
+    color: white;
+    position: relative;
+    top: 435px;
+    width: 100%;
+    height: 88px;
+    border: 0;
+    outline: 0;
+    padding: 15px;
+}
+
+/*footer부분*/
+/*footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #2745f2;
+    display: flex;
+    justify-content: center;
+    height: 230px;
+    width: 100%;
+}
+
+.f-logo {
+    width: 300px;
+    height: 100px;
+    margin: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+.Copyright {
+    font-family: 'S-CoreDream-1Thin';
+    text-decoration-line: none;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    margin:10px;
+}*/
