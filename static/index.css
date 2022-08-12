@@ -19,7 +19,7 @@ body{
 
 }
 
-.TopNav{
+/* .TopNav{
     background-color: white;
     width:100%;
     height: 96px;
@@ -58,11 +58,10 @@ body{
 #about_link:hover{
     background-color: #415CF2;
     color:white;
-    /* transition: 1s; */
+
     transform: scale(1.1);
-    /* height:60px;
-    width: 140px; */
-}
+
+} */
 
 .MiddleNav{
     width:100%;
@@ -106,6 +105,7 @@ body{
 /* 문제 css */
 .main{
     height: 100%;
+    margin-top: 20px;
 }
 .main_box{
     width: 100%;
@@ -123,6 +123,26 @@ body{
 .problem{
     width:80vw;
     height:60vh;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    display:flex;
+    overflow-y: scroll;
+    padding:30px;
+    box-sizing: border-box;
+}
+.problem_input{
+    width:80vw;
+    height:200px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    display:flex;
+    overflow-y: scroll;
+    padding:30px;
+    box-sizing: border-box;
+}
+.problem_output{
+    width:80vw;
+    height:200px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     display:flex;
@@ -177,6 +197,13 @@ body{
 }
 
 .submit_box{
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: 'SCoreDream';
+    font-weight:600;
+    font-size:15px;
+    border:none;
+    outline: none;
     width:80vw;
     height: 500px;
     background-color:white;
@@ -247,3 +274,4 @@ body{
     font-weight: 600; 
     margin-bottom: 10px;
 }
+
