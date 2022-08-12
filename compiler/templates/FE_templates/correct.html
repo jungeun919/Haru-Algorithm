@@ -7,13 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haru Algorithm</title>
     <link rel="stylesheet" href="{% static 'correct.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
 </head>
 <body>
     <div>
-        <div class="TopNav">
-            <a href="#"><div class="logo"><img class="logo_img"src="./logo.png"></div></a>
-            <a href="#" id="about_link">About us</a>
-        </div>
+        {% include "./component/TopNav.html" %}
         <!-- <div class="MiddleNav">
             <a href="#"><input type="radio" name="tabs" id="tab1" checked>
             <label for="tab1">문제</label></a>
@@ -50,7 +48,7 @@
                     <textarea class="content_input" type="text"></textarea>
                 </div>
             </div>
-            <button class="post_button" type="button">업로드하기</button>
+            <button class="post_button" type="submit">업로드하기</button>
             </div>
         </div>
     </form>
