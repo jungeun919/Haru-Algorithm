@@ -12,14 +12,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
     <!-- <title>오답2차 페이지</title> -->
 </head>
 
 <body>
-    <header id="header_top">
-        <a class="logo" href="main.html">haru algorithm</a>
-        <a class="Aboutus" href="#">About us</a>
-    </header>
+    {% include "./component/TopNav.html" %}
 
     <!-- <nav class="nav" id="nav_top">
         <p class="nav-link" href="#">문제</p>
