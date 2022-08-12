@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils import timezone
@@ -72,6 +73,8 @@ def runCode(request):
             post.code = request.POST['code']
             post.pub_date = timezone.now()
             post.disclosure = 'private'
+            post.title = NULL
+            post.body = NULL
             post.save()
 
             # 채점
