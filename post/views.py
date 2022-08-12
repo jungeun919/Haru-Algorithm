@@ -17,6 +17,16 @@ def postUpdate(request):
         update_post.code = request.GET.get('code')
         update_post.pub_date = timezone.now()
         update_post.disclosure = 'public'
+        title = request.GET.get('title')
+        if title:
+            update_post.title = title
+        else:
+            update_post.title = 'Unnamed Title'
+        body = request.GET.get('body')
+        if body:
+            update_post.body = body
+        else:
+            update_post.body = 'Body is empty.'
         update_post.save()
     return redirect('posts')
 
