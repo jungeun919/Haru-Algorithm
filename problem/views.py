@@ -39,7 +39,7 @@ def problem(request):
         sample_output_set = sample_set.example_output.split('\'')
         del sample_output_set[0::2]
 
-        return render(request, 'problems.html', {
+        return render(request, 'FE_templates/index.html', {
             'problem_title': problem_set.problem_title,
             'problem_description': problem_set.problem_text, 
             'problem_input': problem_set.problem_input,
@@ -85,7 +85,7 @@ def problem(request):
                     example_input = problem_sample_input,
                     example_output = problem_sample_output).save()
 
-            return render(request, 'problems.html', {
+            return render(request, 'FE_templates/index.html', {
                 'problem_title': problem_title,
                 'problem_description': problem_description , 
                 'problem_input': problem_input,
@@ -98,3 +98,4 @@ def problem(request):
 
 def url(request):
     return render(request, 'FE_templates/index.html')
+

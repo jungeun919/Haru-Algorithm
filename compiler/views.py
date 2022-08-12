@@ -109,7 +109,7 @@ def runCode(request):
                         temp_tuple = (i+1, checked_values[i], outputs[i], e)
                         display_data.append(temp_tuple)
                     template_data['display_data'] = display_data
-                    return render(request, 'compiler/result.html', template_data)
+                    return render(request, 'FE_templates/correct.html', template_data)
                 else:
                     return render(request, 'compiler/error.html', {'error': 'Execution failed'})
 
@@ -120,4 +120,4 @@ def runCode(request):
     else:
         form = CodeExecutorForm()
         template_data['form'] = form
-        return render(request, 'compiler/writeCode.html', template_data)
+        return render(request, 'compiler/WriteCode.html', template_data)

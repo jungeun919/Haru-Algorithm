@@ -12,23 +12,12 @@
 <body>
     <div>
         {% include "./component/TopNav.html" %}
-        <!-- <div class="MiddleNav">
-            <a href="#"><input type="radio" name="tabs" id="tab1" checked>
-            <label for="tab1">문제</label></a>
-            <a href="#"><input type="radio" name="tabs" id="tab2">
-            <label for="tab2">입력</label></a>
-            <a href="#"><input type="radio" name="tabs" id="tab3">
-            <label for="tab3">출력</label></a>
-            <a href="#"><input type="radio" name="tabs" id="tab4">
-            <label for="tab4">예시</label></a>
-            <a href="#"><input type="radio" name="tabs" id="tab5">
-            <label for="tab5">제출</label></a>
-        </div> -->
-        <form action="{% url 'postUpdate' %}" method="get">
-        <div class="content">
+        <form action="{% url 'postUpdate' %}" method="post">
+            {% csrf_token %}
+            <div class="content">
             <div class="main">
                 <div class="correct_title">
-                    <img class="check_img" src="./check.png">
+                    <img class="check_img" src="{% static 'check.png' %}">
                     정답입니다
                 </div>
             <div class="correct_main">

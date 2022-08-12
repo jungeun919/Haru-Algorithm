@@ -10,12 +10,12 @@
 </head>
 <body>
     <div class="MiddleNav">
-        <a href="#"><input type="radio" name="tabs" id="tab1" checked>
+        <a href="{% url 'solution' %}"><input type="radio" name="tabs" id="tab1" checked>
             <label for="tab1">제목</label></a>
-            <a href="#"><input type="radio" name="tabs" id="tab2">
+            <a href="{% url 'solutionDate' %}"><input type="radio" name="tabs" id="tab2">
             <label for="tab2">날짜</label></a>
-            <a href="#"><input type="radio" name="tabs" id="tab3">
-            <label for="tab3">카테고리</label></a>
+            <!-- <a href="#"><input type="radio" name="tabs" id="tab3">
+            <label for="tab3">카테고리</label></a> -->
     </div>
 </body>
 </html>

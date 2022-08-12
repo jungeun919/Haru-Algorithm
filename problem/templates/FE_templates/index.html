@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="{% static 'TopNav.css' %}">
 </head>
 <body>
-    <div>
+    <!-- <form action="{% url 'compiler' %}" method="post"> -->
+        {% csrf_token %}
+        <div>
 
         {% include "./component/TopNav.html" %}
         
@@ -95,15 +97,15 @@
                     </div>
                 </div>
                 <a>소스코드</a>
-                <textarea class="submit_box"></textarea>
-
+                <textarea class="submit_box">{{ form.code }}</textarea>
                 <div>
-                    <a href="{% url 'compiler' %}"><button class="submitbutton" type="button">제출하기</button></a>
+                    <a href="{% url 'compiler' %}"><button class="submitbutton" type="submit">제출하기</button></a>
                 </div>
             </div>
         </div>
     </div>
     </div>
     </div>
+    <!-- </form> -->
 </body>
 </html>

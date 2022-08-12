@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haru Algorithm</title>
-    <link rel="stylesheet" type="text/css" href="./search_date.css">
+    <link rel="stylesheet" href="{% static 'search_date.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+    <link rel="stylesheet" href="{% static 'MiddelNav.css' %}">
      <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
 </head>
 <body>
@@ -14,14 +17,7 @@
     </script>
     <div>
         {% include "./component/TopNav.html" %}
-        <div class="MiddleNav">
-            <a href="#"><input type="radio" name="tabs" id="tab1" checked>
-                <label for="tab1">제목</label></a>
-                <a href="#"><input type="radio" name="tabs" id="tab2">
-                <label for="tab2">날짜</label></a>
-                <a href="#"><input type="radio" name="tabs" id="tab3">
-                <label for="tab3">카테고리</label></a>
-        </div>
+        {% include "./component/MiddelNav.html" %}
         <div class="content">
             <div class="main">
                <div class="search-box">
@@ -30,6 +26,7 @@
                         <button type="button" class="search-btn" type="sumit"><img class="search-img" src="./search.png"></button>
                     </form> -->
                     <form action="{% url 'posts' %}" method="post">
+                        {% csrf_token %}
                         <input type="date" class="date_box" id="date_box">
                         <!-- <button type="button" class="search-btn" type="sumit"><img class="search-img" src="./search.png"></button> -->
                     </form>
@@ -42,11 +39,16 @@
                     <li>컴파일 시간</li>
                     <li>날짜</li>
                 </div>
-                <a id="box_href" href="#">
+
+                {% for post in posts %}
+                <a id="box_href" href="{% url 'detail' post.id %}">
                     <div class="post_box">
+                        {{post.question}}
+                        {{post.category}}
+                        {{post.pub_date}}
                     </div>
                 </a>
-               </div>
+                {% endfor %}
             </div>
         </div>
 

@@ -4,5 +4,6 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path('', views.url, name='problem'),
+    path('', views.problem, name='problem'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
