@@ -1,4 +1,7 @@
 .MiddleNav{
+    position:absolute;
+    top:96px;
+    position: fixed;
     width:100%;
     height:79px;
     background-color: #415CF2;
@@ -10,16 +13,21 @@
     list-style:none;
     
 }
-.MiddleNav >a{
+.MiddleNav > li>a{
+    text-decoration: none;
+    background-color: none;
+    width: 60px;
+    height: 100%;
     text-decoration: none;
     color:rgba(225, 225, 238, 0.406);
     padding-left:50px;
-}
-.MiddleNav > a> input{
-    display:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.MiddleNav input:checked + label {
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-  }
+
+.active {
+    color:white;
+}
+

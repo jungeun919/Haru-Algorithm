@@ -6,16 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haru Algorithm</title>
-    <link rel="stylesheet" href="{% static 'Middel.css' %}">
+
 </head>
+
 <body>
+<script>
+
+var http = window.location.href;
+var a_link = $("#menu-link").attr("href");
+if (http==a_link){
+    alert("같다");
+}
+alert("같음");
+
+</script>
     <div class="MiddleNav">
-        <a href="{% url 'solution' %}"><input type="radio" name="tabs" id="tab1" checked>
-            <label for="tab1">제목</label></a>
-            <a href="{% url 'solutionDate' %}"><input type="radio" name="tabs" id="tab2">
-            <label for="tab2">날짜</label></a>
-            <!-- <a href="#"><input type="radio" name="tabs" id="tab3">
-            <label for="tab3">카테고리</label></a> -->
+        <li ><a id="menu-link" onclick="click()" href="http://127.0.0.1:8000/post/solution">제목</a></li>
+        <li><a id="menu-link" href="http://127.0.0.1:8000/post/solutionDate">날짜</a></li>
     </div>
-</body>
+</body> 
 </html>
