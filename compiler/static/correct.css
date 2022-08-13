@@ -152,3 +152,57 @@ select,option{
     transition: all 250ms linear;
     text-shadow: 4px 4px 3px rgba(255, 255, 255, 0.203);
 }
+
+
+
+#d2{
+    width:80%;
+}
+.d2_post_title{
+
+    margin-top: 20px;
+    color: #415CF2;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    cursor: url(https://cur.cursors-4u.net/smilies/smi-1/smi99.ani), url(https://cur.cursors-4u.net/smilies/smi-1/smi99.png), auto !important;
+}
+.d2_title_input{
+    z-index: 3;
+    pointer-events : none;
+    width:100%;
+    height:49px;   
+    box-sizing: border-box;
+    margin-top: 10px;
+    border:none;
+    background-color: rgba(128, 128, 128, 0.205);
+    cursor: url(https://cur.cursors-4u.net/smilies/smi-1/smi99.ani), url(https://cur.cursors-4u.net/smilies/smi-1/smi99.png), auto !important;
+}
+.d2_content_input{
+    background-color: rgba(128, 128, 128, 0.205);
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    padding:15px;
+    vertical-align: top;
+    box-sizing: border-box;
+    height: 390px;
+    outline:none;
+    margin-top: 10px;
+    border:none;
+    cursor: url(https://cur.cursors-4u.net/smilies/smi-1/smi99.ani), url(https://cur.cursors-4u.net/smilies/smi-1/smi99.png), auto !important;
+}
+.d2_post_button{
+    text-decoration:none;
+    margin-top: 30px;   
+    height: 52px;
+    background-color: #415CF2;
+    border:none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:23px;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    color:white;
+    box-sizing: border-box;
+
+}
