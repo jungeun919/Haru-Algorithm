@@ -34,7 +34,7 @@ def runCode(request):
 
     if request.method == 'POST':
         if User.objects.all().filter(hostname=hostname, current_date=today):
-            user = User.objects.all().filter(hostname=hostname).get()
+            user = User.objects.all().filter(hostname=hostname, current_date=today).get()
 
         else: # 유저 없으면 저장
             user = User(
