@@ -7,10 +7,10 @@ from django.db.models import Q
 # 공개 여부 업데이트 (default : private)
 # compiler/template/result.html에서 호출
 def postUpdate(request):
-    disclosure = request.GET.get('disclosure')
+    disclosure = request.GET.get('disclosure') # 1: public, 2: private
     post_id = request.GET.get('post_id')
 
-    if (disclosure == 'public'):
+    if (disclosure == '1'):
         update_post = Post.objects.get(id=post_id)
         update_post.question = request.GET.get('question')
         update_post.category = request.GET.get('category')
