@@ -14,10 +14,10 @@ import socket
 
 
 def intro(request):
-    return render(request, 'compiler/intro.html')
+    return render(request, 'FE_templates/main.html')
 
 # 컴파일 실행
-def runCode(request):
+def runCode(request): 
 
     problem_data_set = crawling()
 
@@ -124,7 +124,7 @@ def runCode(request):
     else:
         form = CodeExecutorForm()
         template_data['form'] = form
-        return render(request, 'compiler/writeCode.html',
+        return render(request, 'FE_templates/index.html',
         {   'form': template_data['form'],
             'problem_title': problem_data_set['problem_title'],
             'problem_description': problem_data_set['problem_description'], 

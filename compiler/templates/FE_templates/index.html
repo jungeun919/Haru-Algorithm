@@ -13,6 +13,7 @@
 <body>
 
     <!-- <form action="{% url 'compiler' %}" method="post"> -->
+        {% csrf_token %}
         <div>
 
         {% include "./component/TopNav.html" %}
@@ -87,32 +88,31 @@
             </div>
             
 
-            <form action="compiler" method="post">
-            {% csrf_token %}
+
             <div class="submit_main">
                 <div class="language_box">
                     <a>언어</a>
                     <div class="language_dropbox">
-                        <div name="language" id="dropbox">{{ form.language }}</div>                      
+                        <select name="language" id="dropbox">
+                            <option value="python">Python</option>
+                          </select>                          
                     </div>
                 </div>
                 <a>소스코드</a>
-                <div class="textarea_wrap"><textarea id='lineCounter' wrap='off' readonly>1</textarea>
-                    <div class="form_wrap" wrap='off'>{{ form.code }}</div></div>              
+                <p class="textarea_wrap"><textarea id='lineCounter' wrap='off' readonly>1</textarea>
+                    <textarea id='codeEditor' wrap='off'></textarea></p>              
 
                 <div>
-                    <input class="submitbutton" value ="제출하기" type="submit"/>
+                    <a href="{% url 'compiler' %}"><button class="submitbutton" type="submit">제출하기</button></a>
                 </div>
             </div>
-            </form>
-            
         </div>
     </div>
     </div>
     </div>
     <!-- </form> -->
     <script type="text/javascript">
-        var codeEditor = document.getElementById('id_code');
+        var codeEditor = document.getElementById('codeEditor');
 var lineCounter = document.getElementById('lineCounter');
 codeEditor.addEventListener('scroll', () => {
     lineCounter.scrollTop = codeEditor.scrollTop;
