@@ -1,5 +1,4 @@
-from asyncio.windows_events import NULL
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.utils import timezone
 from .forms import CodeExecutorForm
@@ -8,16 +7,20 @@ from .models import User
 from .compilerUtils import Compiler, Language, generate_test_case
 
 from problem.models import Problem, Example
-from problem.views import problem
 from datetime import date
+from problem.views import crawling
 
 import socket
 
+
 def intro(request):
-    return render(request, 'FE_templates/main.html')
+    return render(request, 'compiler/intro.html')
 
 # 컴파일 실행
 def runCode(request):
+
+    problem_data_set = crawling()
+
     # 유저 판별 (최대 입력 횟수 : 2)
     hostname = socket.gethostbyname(socket.gethostname())
     print("hostname: " + hostname)
@@ -39,7 +42,7 @@ def runCode(request):
         else: # 유저 없으면 저장
             user = User(
                 hostname = hostname,
-                visit = 0, # 실패횟수
+                fail = 0, # 실패횟수
                 current_date = today
             )
             user.save()
@@ -54,12 +57,10 @@ def runCode(request):
             expected_output = example.example_output
 
             input_string = input_data[1:-2]
-            input_list = [x.strip() for x in input_string.split(sep=",")]
-            input_data = [x.strip("' ") for x in input_list]
+            input_data = [x.strip("' ") for x in input_string.split(sep=",")]
 
             expected_string = expected_output[1:-2]
-            expected_list = [x.strip() for x in expected_string.split(sep=",")]
-            expected_output = [x.strip("' ") for x in expected_list]
+            expected_output = [x.strip("' ") for x in expected_string.split(sep=",")]
 
             test_case = generate_test_case(input_data, expected_output)
 
@@ -73,8 +74,8 @@ def runCode(request):
             post.code = request.POST['code']
             post.pub_date = timezone.now()
             post.disclosure = 'private'
-            post.title = NULL
-            post.body = NULL
+            post.title = 0
+            post.body = 0
             post.save()
 
             # 채점
@@ -87,7 +88,7 @@ def runCode(request):
                 template_data['question'] = post.question
                 template_data['category'] = post.category
                 template_data['code'] = post.code
-                template_data['user_visit'] = user.visit
+                template_data['fail'] = user.fail
 
                 template_data['result'] = execution_result.name
                 executor.delete_code_file()
@@ -96,10 +97,10 @@ def runCode(request):
                     if checked_values[0] == False:
                         # 실패했을 경우에만 횟수 업데이트
                         user.hostname = hostname
-                        user.visit += 1
+                        user.fail += 1
                         user.current_date = today
                         user.save()
-                        template_data['user_visit'] = user.visit
+                        template_data['fail'] = user.fail
 
                     display_data = []
                     outputs = executor.get_output()
@@ -112,7 +113,7 @@ def runCode(request):
                         temp_tuple = (i+1, checked_values[i], outputs[i], e)
                         display_data.append(temp_tuple)
                     template_data['display_data'] = display_data
-                    return render(request, 'FE_templates/correct.html', template_data)
+                    return render(request, 'compiler/result.html', template_data)
                 else:
                     return render(request, 'compiler/error.html', {'error': 'Execution failed'})
 
@@ -123,4 +124,12 @@ def runCode(request):
     else:
         form = CodeExecutorForm()
         template_data['form'] = form
-        return render(request, 'compiler/WriteCode.html', template_data)
+        return render(request, 'compiler/writeCode.html',
+        {   'form': template_data['form'],
+            'problem_title': problem_data_set['problem_title'],
+            'problem_description': problem_data_set['problem_description'], 
+            'problem_input': problem_data_set['problem_input'], 
+            'problem_output': problem_data_set['problem_output'], 
+            'problem_sample_input': problem_data_set['problem_sample_input'],
+            'problem_sample_output': problem_data_set['problem_sample_output'] 
+        })

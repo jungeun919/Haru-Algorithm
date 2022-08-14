@@ -4,6 +4,6 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path('', views.problem, name='problem'),
+    path('', views.crawling, name='crawling'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

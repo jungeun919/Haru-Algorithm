@@ -8,8 +8,9 @@ from .models import *
 import random
 import requests
 
+
 # Create your views here.
-def problem(request):
+def crawling():
     while True:
         num = str(random.randrange(1000, 25377))
         base = 'https://www.acmicpc.net/problem/'
@@ -29,6 +30,7 @@ def problem(request):
             break
 
     problem_date = date.today()
+    problem_data_set = {}
 
     if Problem.objects.filter(problem_date = problem_date):
         problem_set = Problem.objects.filter(problem_date = problem_date).first()
@@ -39,14 +41,16 @@ def problem(request):
         sample_output_set = sample_set.example_output.split('\'')
         del sample_output_set[0::2]
 
-        return render(request, 'FE_templates/index.html', {
+        problem_data_set = {
             'problem_title': problem_set.problem_title,
             'problem_description': problem_set.problem_text, 
             'problem_input': problem_set.problem_input,
             'problem_output': problem_set.problem_output,
             'problem_sample_input': sample_input_set,
-            'problem_sample_output': sample_output_set,
-        })
+            'problem_sample_output': sample_output_set
+        }
+        return problem_data_set
+
     else: 
         try:    
             problem_title = soup.select('#problem_title')[0].text
@@ -85,17 +89,15 @@ def problem(request):
                     example_input = problem_sample_input,
                     example_output = problem_sample_output).save()
 
-            return render(request, 'FE_templates/index.html', {
+            problem_data_set = {
                 'problem_title': problem_title,
-                'problem_description': problem_description , 
+                'problem_description': problem_description, 
                 'problem_input': problem_input,
                 'problem_output': problem_output,
                 'problem_sample_input': problem_sample_input,
-                'problem_sample_output': problem_sample_output,
-            })
+                'problem_sample_output': problem_sample_output
+            }
+            return problem_data_set
+
         except:
-            return redirect('problem')
-
-def url(request):
-    return render(request, 'FE_templates/index.html')
-
+            return redirect('crawling')
