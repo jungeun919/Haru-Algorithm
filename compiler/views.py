@@ -1,4 +1,3 @@
-from distutils.log import error
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils import timezone
@@ -42,7 +41,7 @@ def runCode(request):
         else: # 유저 없으면 저장
             user = User(
                 hostname = hostname,
-                visit = 0, # 실패횟수
+                fail = 0, # 실패횟수
                 current_date = today
             )
             user.save()
@@ -57,12 +56,10 @@ def runCode(request):
             expected_output = example.example_output
 
             input_string = input_data[1:-2]
-            input_list = [x.strip() for x in input_string.split(sep=",")]
-            input_data = [x.strip("' ") for x in input_list]
+            input_data = [x.strip("' ") for x in input_string.split(sep=",")]
 
             expected_string = expected_output[1:-2]
-            expected_list = [x.strip() for x in expected_string.split(sep=",")]
-            expected_output = [x.strip("' ") for x in expected_list]
+            expected_output = [x.strip("' ") for x in expected_string.split(sep=",")]
 
             test_case = generate_test_case(input_data, expected_output)
 
@@ -90,7 +87,7 @@ def runCode(request):
                 template_data['question'] = post.question
                 template_data['category'] = post.category
                 template_data['code'] = post.code
-                template_data['user_visit'] = user.visit
+                template_data['fail'] = user.fail
 
                 template_data['result'] = execution_result.name
                 executor.delete_code_file()
@@ -99,10 +96,10 @@ def runCode(request):
                     if checked_values[0] == False:
                         # 실패했을 경우에만 횟수 업데이트
                         user.hostname = hostname
-                        user.visit += 1
+                        user.fail += 1
                         user.current_date = today
                         user.save()
-                        template_data['user_visit'] = user.visit
+                        template_data['fail'] = user.fail
 
                     display_data = []
                     outputs = executor.get_output()
@@ -120,7 +117,7 @@ def runCode(request):
                     return render(request, 'compiler/error.html', {'error': 'Execution failed'})
 
         else:
-            return "error"
+            return HttpResponse("Form is not valid")
 
     # 폼 띄우기
     else:
