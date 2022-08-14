@@ -13,8 +13,6 @@
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 <body>
-    <form action="{% url 'posts' %}" method="get">
-        {% csrf_token %}
 
     <div>
         {% include "./component/TopNav.html" %}
@@ -41,21 +39,23 @@
                     <li>날짜</li>
                 </div>
 
-                {% for post in posts %}
-                <a id="box_href" href="{% url 'detail' post.id %}">
-                    <div class="post_box">
-                        {{post.question}}
-                        {{post.category}}
-                        {{post.pub_date}}
-                    </div>
-                </a>
-                {% endfor %}
                </div>
+
+               <div>
+               {% for post in posts %}
+               <a id="box_href" href="{% url 'detail' post.id %}">
+                   <div class="post_box">
+                       {{post.question}}
+                       {{post.category}}
+                       {{post.pub_date}}
+                   </div>
+               </a>
+               {% endfor %}
+                </div>
             </div>
         </div>
 
     </div>
-    </form>
 </body>
 
 </html>

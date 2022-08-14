@@ -8,28 +8,13 @@
     <title>Haru Algorithm</title>
     <link rel="stylesheet" href="{% static 'correct.css' %}">
     <link rel="stylesheet" href="{% static 'TopNav.css' %}">
-    <script type="text/javascript">
-    
-    // option선택시 내용 바꿔줌
-        function Change(){
-        var key = test.value;
-        if(key=="true"){
-        document.all["d1"].style.display="block";
-        document.all["d2"].style.display="none";
-        }
-        if(key=="false"){
-        document.all["d1"].style.display="none";
-        document.all["d2"].style.display="block";
-        }
 
-    }
-	</script>
 </head>
 <body>
+
+
     <div>
         {% include "./component/TopNav.html" %}
-        <form action="{% url 'postUpdate' %}" method="post">
-            {% csrf_token %}
             <div class="content">
             <div class="main">
                 <div class="correct_title">
@@ -39,25 +24,29 @@
             <div class="correct_main">
                 <div class="correct_check">
                     코드 공개여부
-                    <select>
-                        <option value="true">코드공개</option>
-                        <option value="false">코드비공개</option>
+                    <select select id="test" onchange="Change()">
+                        <option value="1">코드공개</option>
+                        <option value="2">코드비공개</option>
                     </select>   
                 </div>
 
-                <div id ="d1" style="display:block">
-                    <div class="post_title">
+                <form action="{% url 'postUpdate' %}" method="post">
+                    {% csrf_token %}
+
+                <div id="d1" style="display:block">
+                    <div   class="post_title">
                         제목
-                        <input class="title_input" type="text"/>
+                        <input name="title" class="title_input" type="text"/>
                     </div>
                     <div class="post_content">
                         본문
-                        <textarea class="content_input" type="text"></textarea>
+                        <textarea name="body" class="content_input" type="text"></textarea>
                     </div>
                     <button class="post_button" type="submit">업로드하기</button>
                 </div>
+            </form>
 
-                <div id ="d2" style="display:block">
+                <div id="d2" style="display:none">
                     <div class="d2_post_title">
                         제목
                         <div class="d2_title_input" ></div>
@@ -66,16 +55,33 @@
                         본문
                         <div class="d2_content_input" type="text"></div>
                     </div>
-                    <a href="#" class="d2_post_button" >게시판으로 이동하기</a>
+                    <a href="{% url 'posts' %}" class="d2_post_button" >게시판으로 이동하기</a>
                 </div>
 
             </div>
 
             </div>
         </div>
-    </form>
         <!-- {% block content %}
         {% endblock %} -->
     </div>
+
+    <script type="text/javascript">
+    
+        // option선택시 내용 바꿔줌
+            function Change(){
+            var key = test.value;
+            if(key==1){
+            document.all["d1"].style.display="block";
+            document.all["d2"].style.display="none";
+            }
+            if(key==2){
+            document.all["d1"].style.display="none";
+            document.all["d2"].style.display="block";
+            }
+    
+        }
+        </script>
+
 </body>
 </html>

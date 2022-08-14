@@ -17,7 +17,7 @@ def intro(request):
     return render(request, 'FE_templates/main.html')
 
 # 컴파일 실행
-def runCode(request): 
+def runCode(request):
 
     problem_data_set = crawling()
 
@@ -113,12 +113,14 @@ def runCode(request):
                         temp_tuple = (i+1, checked_values[i], outputs[i], e)
                         display_data.append(temp_tuple)
                     template_data['display_data'] = display_data
-                    return render(request, 'compiler/result.html', template_data)
+
+                    if template_data['result'] == 'ACC':                   
+                        return render(request, 'FE_templates/correct.html', template_data)
+                    else:
+                        return render(request, 'compiler/error.html', template_data)
+                    
                 else:
                     return render(request, 'compiler/error.html', {'error': 'Execution failed'})
-
-        else:
-            return HttpResponse("Form is not valid")
 
     # 폼 띄우기
     else:

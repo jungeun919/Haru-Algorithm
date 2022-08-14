@@ -84,6 +84,7 @@ body{
     justify-content: center;
 }
 .search-box >form{
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -100,6 +101,7 @@ body{
 }
 
 .search-btn{
+    cursor: pointer;
     height: 62px;
     width: 60px;
     border-radius: 0 50px 50px 0;
