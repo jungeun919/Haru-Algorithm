@@ -42,12 +42,12 @@ def crawling():
         del sample_output_set[0::2]
 
         problem_data_set = {
-            'problem_title': problem_title,
-            'problem_description': problem_description, 
-            'problem_input': problem_input,
-            'problem_output': problem_output,
-            'problem_sample_input': problem_sample_input,
-            'problem_sample_output': problem_sample_output
+            'problem_title': problem_set.problem_title,
+            'problem_description': problem_set.problem_text, 
+            'problem_input': problem_set.problem_input,
+            'problem_output': problem_set.problem_output,
+            'problem_sample_input': sample_input_set,
+            'problem_sample_output': sample_output_set
         }
         return problem_data_set
 
