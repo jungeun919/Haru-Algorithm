@@ -41,23 +41,15 @@ def crawling():
         sample_output_set = sample_set.example_output.split('\'')
         del sample_output_set[0::2]
 
-        problem_data_set['problem_title'] = problem_set.problem_title
-        problem_data_set['problem_description'] = problem_set.problem_text
-        problem_data_set['problem_input'] = problem_set.problem_input
-        problem_data_set['problem_output'] = problem_set.problem_output
-        problem_data_set['problem_sample_input'] = sample_input_set
-        problem_data_set['problem_sample_output'] = sample_output_set
-
+        problem_data_set = {
+            'problem_title': problem_title,
+            'problem_description': problem_description, 
+            'problem_input': problem_input,
+            'problem_output': problem_output,
+            'problem_sample_input': problem_sample_input,
+            'problem_sample_output': problem_sample_output
+        }
         return problem_data_set
-        
-        # return render(request, 'problems.html', {
-        #     'problem_title': problem_set.problem_title,
-        #     'problem_description': problem_set.problem_text, 
-        #     'problem_input': problem_set.problem_input,
-        #     'problem_output': problem_set.problem_output,
-        #     'problem_sample_input': sample_input_set,
-        #     'problem_sample_output': sample_output_set,
-        # })
 
     else: 
         try:    
@@ -97,23 +89,15 @@ def crawling():
                     example_input = problem_sample_input,
                     example_output = problem_sample_output).save()
 
-            problem_data_set = {}
-            problem_data_set['problem_title'] = problem_set.problem_title
-            problem_data_set['problem_description'] = problem_set.problem_text
-            problem_data_set['problem_input'] = problem_set.problem_input
-            problem_data_set['problem_output'] = problem_set.problem_output
-            problem_data_set['problem_sample_input'] = sample_input_set
-            problem_data_set['problem_sample_output'] = sample_output_set
-
+            problem_data_set = {
+                'problem_title': problem_title,
+                'problem_description': problem_description, 
+                'problem_input': problem_input,
+                'problem_output': problem_output,
+                'problem_sample_input': problem_sample_input,
+                'problem_sample_output': problem_sample_output
+            }
             return problem_data_set
 
-            # return render(request, 'problems.html', {
-            #     'problem_title': problem_title,
-            #     'problem_description': problem_description , 
-            #     'problem_input': problem_input,
-            #     'problem_output': problem_output,
-            #     'problem_sample_input': problem_sample_input,
-            #     'problem_sample_output': problem_sample_output,
-            # })
         except:
-            return redirect('problem')
+            return redirect('crawling')
