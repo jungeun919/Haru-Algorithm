@@ -1,4 +1,4 @@
-from asyncio.windows_events import NULL
+from distutils.log import error
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils import timezone
@@ -8,16 +8,19 @@ from .models import User
 from .compilerUtils import Compiler, Language, generate_test_case
 
 from problem.models import Problem, Example
-from problem.views import problem
 from datetime import date
+from problem.views import crawling
 
 import socket
+
 
 def intro(request):
     return render(request, 'compiler/intro.html')
 
 # 컴파일 실행
 def runCode(request):
+
+    problem_data_set = crawling()
     # 유저 판별 (최대 입력 횟수 : 2)
     hostname = socket.gethostbyname(socket.gethostname())
     print("hostname: " + hostname)
@@ -73,8 +76,8 @@ def runCode(request):
             post.code = request.POST['code']
             post.pub_date = timezone.now()
             post.disclosure = 'private'
-            post.title = NULL
-            post.body = NULL
+            post.title = 0
+            post.body = 0
             post.save()
 
             # 채점
@@ -117,10 +120,18 @@ def runCode(request):
                     return render(request, 'compiler/error.html', {'error': 'Execution failed'})
 
         else:
-            return HttpResponse("Form is not valid")
+            return "error"
 
     # 폼 띄우기
     else:
         form = CodeExecutorForm()
         template_data['form'] = form
-        return render(request, 'compiler/writeCode.html', template_data)
+        return render(request, 'compiler/writeCode.html',
+        {   'form': template_data['form'],
+            'problem_title': problem_data_set['problem_title'],
+            'problem_description': problem_data_set['problem_description'], 
+            'problem_input': problem_data_set['problem_input'], 
+            'problem_output': problem_data_set['problem_output'], 
+            'problem_sample_input': problem_data_set['problem_sample_input'],
+            'problem_sample_output': problem_data_set['problem_sample_output'] 
+        })

@@ -8,6 +8,33 @@
 </head>
 
 <body>
+    <h1>{{problem_title}}</h1>
+
+    <h2>문제</h2>
+    {% autoescape off %}
+        {{ problem_description }}
+    {% endautoescape %}
+
+    <h2>입력</h2>
+    {% autoescape off %}
+        {{ problem_input }}
+    {% endautoescape %}
+    
+    <h2>출력</h2>
+    {% autoescape off %}
+        {{ problem_output }}<br>
+    {% endautoescape %}
+
+    <h2>예제 입력</h2>
+    {% for sample_input in problem_sample_input %}
+        {{sample_input}}<br>
+    {% endfor %}
+
+    <h2>예제 출력</h2>
+    {% for sample_output in problem_sample_output %}
+        {{sample_output}}<br>
+    {% endfor %}
+    
     <form action="compiler" method="post">
         {% csrf_token %}
         <table>
