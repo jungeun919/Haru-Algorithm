@@ -36,14 +36,15 @@ def runCode(request):
     print("example", example.example_input)
 
     if request.method == 'POST':
-        if User.objects.all().filter(hostname=hostname, current_date=today):
-            user = User.objects.all().filter(hostname=hostname, current_date=today).get()
+        if User.objects.all().filter(hostname=hostname, current_date=today, level=level):
+            user = User.objects.all().filter(hostname=hostname, current_date=today, level=level).get()
 
         else: # 유저 없으면 저장
             user = User(
                 hostname = hostname,
                 fail = 0, # 실패횟수
-                current_date = today
+                current_date = today,
+                level = level
             )
             user.save()
 
@@ -99,6 +100,7 @@ def runCode(request):
                         user.hostname = hostname
                         user.fail += 1
                         user.current_date = today
+                        user.level = level
                         user.save()
                         template_data['fail'] = user.fail
 
