@@ -32,8 +32,10 @@ def runCode(request):
 
     problem = Problem.objects.filter(problem_date=today, problem_level=level).first()
     example = Example.objects.get(problem=problem)
+    print("level",problem_data_set)
     print("problem:", problem.problem_text)
     print("example", example.example_input)
+
 
     if request.method == 'POST':
         if User.objects.all().filter(hostname=hostname, current_date=today, level=level):
@@ -117,7 +119,7 @@ def runCode(request):
                     template_data['display_data'] = display_data
 
                     if template_data['result'] == 'ACC':                   
-                        return render(request, 'compiler/result.html', template_data)
+                        return render(request, 'FE_templates/correct.html', template_data)
                     else:
                         return render(request, 'compiler/error.html', template_data)
                     
@@ -131,7 +133,7 @@ def runCode(request):
     else:
         form = CodeExecutorForm()
         template_data['form'] = form
-        return render(request, 'compiler/writeCode.html',
+        return render(request, 'FE_templates/index.html',
         {   
             'level': level,
             'form': template_data['form'],

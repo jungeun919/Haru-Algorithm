@@ -141,17 +141,23 @@
     top: 600px; */
 }
 
+
+
 .enter {
+    display:flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'S-CoreDream-6Bold';
     /* position: fixed; */
     border: 0;
     outline: 0;
     background-color: white;
-    color: balck;
-    font-size: 35px;
+    color: black;
+    font-size: 30px;
     border-radius: 10px;
-    padding: 25px;
     float: left;
+    width: 60%;
+    height: 80px;
     /* left: 150px;
     top: 750px; */
 }
@@ -164,4 +170,26 @@
     width:72%;
     height: 55%;
     margin-bottom: 200px;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+}
+
+#level >option:hover{
+    background-color: none;
+}
+
+#level{
+    appearance: none;   
+    background-color: none;
+    font-family: 'S-CoreDream-6Bold';
+    font-size: 20px;
+    border:none;
+    outline: none;
+    text-align: center;
+    height: 50px;
+    margin-bottom: 30px;
+    width: 80%;
 }
