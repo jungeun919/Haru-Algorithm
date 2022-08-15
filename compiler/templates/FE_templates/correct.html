@@ -14,7 +14,7 @@
 
 
     <div>
-        <form action="{% url 'postUpdate' %}" method="post">
+        <form action="{% url 'postUpdate' %}" method="get">
         {% csrf_token %}
         {% include "./component/TopNav.html" %}
             <div class="content">
@@ -29,7 +29,15 @@
                     <select id="test" name="disclosure" onchange="Change()">
                         <option value="1">공개</option>
                         <option value="2">비공개</option>
-                    </select>   
+                    </select>
+
+                    <!-- 추가 -->
+                    <input type="hidden" name="post_id" value="{{ post_id }}">
+                    <input type="hidden" name="question" value="{{ question }}">
+                    <input type="hidden" name="category" value="{{ category }}">
+                    <input type="hidden" name="code" value="{{ code }}">
+                    <!-- 추가 -->
+
                 </div>
                 <div id="d1" style="display:block">
                     <div   class="post_title">

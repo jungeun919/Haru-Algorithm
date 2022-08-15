@@ -23,8 +23,8 @@
                <div class="search-box">
                     <form action="{% url 'posts' %}" method="get">
                         {% csrf_token %}
-                        <input class="search-text" type="text" placeholder="검색어를 입력해주세요" name="qTitle" value="{{qTitle}}">
-                        <button type="button" class="search-btn" type="sumit"><img class="search-img" src="{% static 'search.png '%}"></button>
+                        <input class="search-text" type="search" placeholder="검색어를 입력해주세요" name="qTitle" value="{{qTitle}}">
+                        <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
                     </form>
                     <!-- <form action="." method="post">
                         <input type="date" id="current_date">
@@ -34,24 +34,36 @@
                <div class="post">
                 <div class="post_name">
                     <li>제목</li>
-                    <li>카테고리</li>
-                    <li>컴파일 시간</li>
                     <li>날짜</li>
                 </div>
 
+                <div class="post_wrap">
                 {% for post in posts %}
                 <a id="box_href" href="{% url 'detail' post.id %}">
                     <div class="post_box">
-                        {{post.question}}
-                        {{post.category}}
-                        {{post.pub_date}}
+                        <li>{{post.title}}</li>
+                        <li>{{post.pub_date | date:'Y-m-d'}}</li>
                     </div>
                 </a>
                 {% endfor %}
-
+                </div>
                </div>
+               <div class="page">
+               {% if posts.has_previous %}
+               <!-- <a id ="start" href="?page=1"><<</a> -->
+               <a id ="pre" href="?page={{posts.previous_page_number}}"><</a>
+               {% endif %}
+                
 
-               <div>
+               <span class="now_page">{{posts.number}}</span>
+
+               <!-- <span>of</span> -->
+               <!-- <span>{{posts.paginator.num_pages}}</span> -->
+           
+               {% if posts.has_next %}
+               <a id ="next" href="?page={{posts.next_page_number}}">></a>
+               <!-- <a id ="last" href="?page={{posts.paginator.num_pages}}">>></a> -->
+               {% endif %}
 
                 </div>
             </div>

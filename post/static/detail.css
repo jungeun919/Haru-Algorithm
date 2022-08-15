@@ -43,8 +43,10 @@ body{
 }
 
 .MiddleNav{
-    margin-top: 96px;
-    position:fixed;
+    z-index:5;
+    position:absolute;
+    top:96px;
+    position: fixed;
     width:100%;
     height:79px;
     background-color: #415CF2;
@@ -54,16 +56,30 @@ body{
     display:flex;
     align-items: center;
     list-style:none;
-    z-index: 5;
+    
 }
-.MiddleNav >a{
+.MiddleNav > li>a{
+    text-decoration: none;
+    background-color: none;
+    width: 60px;
+    height: 100%;
     text-decoration: none;
     color:rgba(225, 225, 238, 0.406);
     padding-left:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.MiddleNav > a> input{
-    display:none;
+
+
+.MiddleNav > li>a:active{
+    color:white;
 }
+.MiddleNav > li>a:hover{
+    color:white;
+}
+
+
 
 .MiddleNav input:checked + label {
     /* 해당 메뉴가 선택된 상태인지 아닌지를 사용자에게 알려줄 수 있음 */
@@ -71,8 +87,9 @@ body{
     color: rgb(255, 255, 255);
   }
 .content{
+    width:100%;
     background:rgba(128, 128, 128, 0.115);
-    height:85vh;
+    height:100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,7 +97,6 @@ body{
     position:absolute;
 }
 .main{
-
     width: 80%;
 }
 .detail_top{
@@ -103,9 +119,9 @@ body{
     display:flex;
 }
 
-.date >li:last-child{
+/* .date >li:last-child{
     margin-left: 20px;
-}
+} */
 
 .detail_content{
     width:80%;

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haru Algorithm</title>
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
     <link rel="stylesheet" type="text/css" href="./detail.css">
 </head>
 <body>
@@ -12,16 +15,16 @@
         {% include "./component/TopNav.html" %}
 
         <div class="MiddleNav">
-            <a href="{% url 'posts' %}"><input type="radio" name="tabs" id="tab1" checked>
-            <label for="tab1">검색</label></a>
+            
+                <li><a href="{% url 'posts' %}">검색</a></li>
         </div>
         <div class="content">
             <div class="main">
                 <div class="detail_top">
                     <div class="title">{{post.question}}</div>
                     <div class="date">
-                        <li>{{post.pub_date}}</li>
-                        <li>#{{post.category}}</li>
+                        <li>{{post.pub_date | date:'Y-m-d'}}</li>
+                        <!-- <li>#{{post.category}}</li> -->
                     </div>
                 </div>
                 </div>
