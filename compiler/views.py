@@ -11,15 +11,15 @@ from datetime import date
 from problem.views import crawling
 
 import socket
-
+from django.db.models import Q
 
 def intro(request):
     return render(request, 'compiler/intro.html')
 
 # 컴파일 실행
 def runCode(request):
-
-    problem_data_set = crawling()
+    level = request.GET.get('level')
+    problem_data_set = crawling(level)
 
     # 유저 판별 (최대 입력 횟수 : 2)
     hostname = socket.gethostbyname(socket.gethostname())
@@ -30,8 +30,8 @@ def runCode(request):
     # 오늘 날짜에 해당하는 문제 가져오기
     today = date.today()
 
-    problem = Problem.objects.filter(problem_date=today).get()
-    example = Example.objects.filter(problem=problem).get()
+    problem = Problem.objects.filter(problem_date=today, problem_level=level).first()
+    example = Example.objects.get(problem=problem)
     print("problem:", problem.problem_text)
     print("example", example.example_input)
 

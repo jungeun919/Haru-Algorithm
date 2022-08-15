@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="{% url 'compiler' %}">문제 풀기</a>
+    <form action = 'compiler'>
+        <select name="level" id="level">
+            <option value="bronze">Bronze</option>
+            <option value="silver">Silver</option>
+            <option value="gold">Gold</option>
+            <option value="platinum">Platinum</option>
+            <option value="diamond">Diamond</option>
+            <option value="ruby">Ruby</option>
+        </select>
+        <input type="submit">
+    </form>
 </body>
 </html>
