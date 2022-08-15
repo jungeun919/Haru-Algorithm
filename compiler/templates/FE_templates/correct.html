@@ -14,6 +14,8 @@
 
 
     <div>
+        <form action="{% url 'postUpdate' %}" method="post">
+        {% csrf_token %}
         {% include "./component/TopNav.html" %}
             <div class="content">
             <div class="main">
@@ -25,14 +27,10 @@
                 <div class="correct_check">
                     코드 공개여부
                     <select select id="test" onchange="Change()">
-                        <option value="1">코드공개</option>
-                        <option value="2">코드비공개</option>
+                        <option name="disclosure" value="1">공개</option>
+                        <option value="2">비공개</option>
                     </select>   
                 </div>
-
-                <form action="{% url 'postUpdate' %}" method="post">
-                    {% csrf_token %}
-
                 <div id="d1" style="display:block">
                     <div   class="post_title">
                         제목
@@ -44,7 +42,6 @@
                     </div>
                     <button class="post_button" type="submit">업로드하기</button>
                 </div>
-            </form>
 
                 <div id="d2" style="display:none">
                     <div class="d2_post_title">
@@ -64,6 +61,7 @@
         </div>
         <!-- {% block content %}
         {% endblock %} -->
+    </form>
     </div>
 
     <script type="text/javascript">
