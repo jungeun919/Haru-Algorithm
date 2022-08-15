@@ -130,7 +130,9 @@ def runCode(request):
         form = CodeExecutorForm()
         template_data['form'] = form
         return render(request, 'compiler/writeCode.html',
-        {   'form': template_data['form'],
+        {   
+            'level': level,
+            'form': template_data['form'],
             'problem_title': problem_data_set['problem_title'],
             'problem_description': problem_data_set['problem_description'], 
             'problem_input': problem_data_set['problem_input'], 

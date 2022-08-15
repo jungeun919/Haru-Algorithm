@@ -47,7 +47,7 @@ def list_crawling(level):
             Level(silver = list(map(int, silver))).save()
         else:
             Level.objects.all().update(silver = list(map(int, silver)))              
-        print(len(list(map(int, silver))))
+        # print(len(list(map(int, silver))))
     elif level == 'gold':
         gold = []
         for problem_level in range(11, 16):
@@ -66,7 +66,7 @@ def list_crawling(level):
             Level(gold = list(map(int, gold))).save()
         else:
             Level.objects.all().update(gold = list(map(int, gold)))
-        print(len(list(map(int, gold))))
+        # print(len(list(map(int, gold))))
     elif level == 'platinum':
         platinum = []
         for problem_level in range(16, 21):
@@ -85,7 +85,7 @@ def list_crawling(level):
             Level(platinum = list(map(int, platinum))).save()
         else:
             Level.objects.all().update(platinum = list(map(int, platinum)))
-        print(len(list(map(int, platinum))))
+        # print(len(list(map(int, platinum))))
     elif level == 'diamond':
         diamond = []
         for problem_level in range(21, 26):
@@ -104,7 +104,7 @@ def list_crawling(level):
             Level(diamond = list(map(int, diamond))).save()
         else:
             Level.objects.all().update(diamond = list(map(int, diamond)))
-        print(len(list(map(int, diamond))))
+        # print(len(list(map(int, diamond))))
     elif level == 'ruby':
         ruby = []
         for problem_level in range(26, 31):
@@ -123,7 +123,7 @@ def list_crawling(level):
             Level(ruby = list(map(int, ruby))).save()
         else:
             Level.objects.all().update(ruby = list(map(int, ruby)))
-        print(len(list(map(int, ruby))))
+        # print(len(list(map(int, ruby))))
     
 
 
@@ -163,6 +163,7 @@ def crawling(level):
         level_list = list(map(int, level_list_set.diamond[1:-1].split(', ')))
     if level == 'ruby':
         level_list = list(map(int, level_list_set.ruby[1:-1].split(', ')))
+    print(level_list)
 
     while True:
         num = str(random.choice(level_list))
@@ -229,7 +230,6 @@ def crawling(level):
             problem_sample_output_1 = sample_output_list[0].split('\n')
             problem_sample_output = [output.strip() for output in problem_sample_output_1]
 
-            print(Problem.objects.filter(problem_date=problem_date, problem_level=level))
             Problem(problem_date = problem_date,
                     problem_num = num,
                     problem_level = level,
