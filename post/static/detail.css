@@ -18,29 +18,6 @@ body{
     margin:0;
 
 }
-.TopNav{
-    position:fixed;
-    width:100%;
-    height: 96px;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo{
-    margin-left:30px;
-    font-family: 'Gilbert Color', sans-serif;
-    font-size:45px;
-    width:80%;
-
-}
-.about_us{
-
-    width:10%;
-    float:right;
-    font-size:36px;
-    font-family: 'Gilbert', sans-serif;
-}
 
 .MiddleNav{
     z-index:5;
@@ -81,20 +58,15 @@ body{
 
 
 
-.MiddleNav input:checked + label {
-    /* 해당 메뉴가 선택된 상태인지 아닌지를 사용자에게 알려줄 수 있음 */
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-  }
 .content{
+    position:absolute;
+    height:100%;
     width:100%;
     background:rgba(128, 128, 128, 0.115);
-    height:100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     top:175px;
-    position:absolute;
 }
 .main{
     width: 80%;
@@ -119,12 +91,10 @@ body{
     display:flex;
 }
 
-/* .date >li:last-child{
-    margin-left: 20px;
-} */
 
 .detail_content{
     width:80%;
+    margin-bottom: 40px;
 }
 
 .code_box{
@@ -145,4 +115,5 @@ body{
     width:100%;
     font-weight: 600; 
     font-family: 'SCoreDream';
+    margin-bottom: 40px;
 }

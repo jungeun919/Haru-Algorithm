@@ -19,30 +19,10 @@ body{
     overflow:hidden;
 
 }
-/* .TopNav{
-    width:100%;
-    height: 96px;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo{
-    margin-left:30px;
-    font-family: 'Gilbert Color', sans-serif;
-    font-size:45px;
-    width:80%;
-
-}
-.about_us{
-
-    width:10%;
-    float:right;
-    font-size:36px;
-    font-family: 'Gilbert', sans-serif;
-}
-
 .MiddleNav{
+    position:absolute;
+    top:96px;
+    position: fixed;
     width:100%;
     height:79px;
     background-color: #415CF2;
@@ -54,20 +34,27 @@ body{
     list-style:none;
     
 }
-.MiddleNav >a{
+.MiddleNav > li>a{
+    text-decoration: none;
+    background-color: none;
+    width: 60px;
+    height: 100%;
     text-decoration: none;
     color:rgba(225, 225, 238, 0.406);
     padding-left:50px;
-}
-.MiddleNav > a> input{
-    display:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.MiddleNav input:checked + label {
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-  }
-  */
+#menu-link1{
+    color:white;
+}
+.active {
+    color:white;
+}
+
+
 .content{
     position:absolute;
     top:175px;
@@ -75,7 +62,13 @@ body{
     height: 100vh;
     width:100%;
 } 
+input[type=search]::-webkit-search-cancel-button {
 
+    width: 60px; height: 60px;
+    cursor: pointer;
+    margin-right: 10%;
+
+}
 .search-box{
     padding-top: 6%;
     width:100%;
@@ -224,10 +217,10 @@ body{
     background-color: rgba(128, 128, 128, 0.179);
 }
 
-#pre,#start,#next,#last{
+#pre{
     border-radius: 50%;
-    margin-left:2px;
-    margin-right:2px;
+    margin-left:-40px;
+    margin-right:10px;
     color: black;
     text-decoration: none;
     outline:none;
@@ -239,3 +232,17 @@ body{
     background-color: #415cf257;
 }
 
+#next{
+    border-radius: 50%;
+    margin-right:-38px;
+    margin-left:10px;
+    color: black;
+    text-decoration: none;
+    outline:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #415cf257;
+}

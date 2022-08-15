@@ -8,27 +8,51 @@
     <title>Haru Algorithm</title>
     <link rel="stylesheet" href="{% static 'search_date.css' %}">
     <link rel="stylesheet" href="{% static 'TopNav.css' %}">
-    <link rel="stylesheet" href="{% static 'MiddelNav.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'MiddelNav.css' %}"> -->
      <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet">
+
 </head>
 <body>
     <script>
-        // document.getElementById('date_box').value = new Date();
+
+        //오늘 날짜 가져오기
+            function getDate() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            if(dd<10) {
+                dd = '0'+dd
+            } 
+
+            if(mm<10) {
+                mm = '0'+mm
+            } 
+
+            today = yyyy + '-' + mm + '-' + dd;
+            console.log(today);
+            document.getElementById("date_box1").value = today;
+            }
+
+
+            window.onload = function() {
+            getDate();
+            };
     </script>
     <div>
         {% include "./component/TopNav.html" %}
-        {% include "./component/MiddelNav.html" %}
+        <div class="MiddleNav">
+            <li ><a id="menu-link1" onclick="click()" href="{% url 'posts' %}">제목</a></li>
+            <li><a id="menu-link2" href="{% url 'postDate' %}">날짜</a></li>
+        </div>
         <div class="content">
             <div class="main">
                <div class="search-box">
-                    <!-- <form action="." method="post">
-                        <input class="search-text" type="text" placeholder="검색어를 입력해주세요">
-                        <button type="button" class="search-btn" type="sumit"><img class="search-img" src="./search.png"></button>
-                    </form> -->
                     <form action="{% url 'postDate' %}" method="get">
                         {% csrf_token %}
-                        <input type="date" class="date_box" id="date_box"  name="qDate" value="{{qDate}}">
-                        <button type="submit" class="search-btn"></button>
+                        <input type="date" onlode="getDate()" class="date_box" id="date_box1"  name="qDate" value="{{qDate}}">
+                        <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
                         <!-- <button type="button" class="search-btn" type="sumit"><img class="search-img" src="./search.png"></button> -->
                     </form>
                </div>
