@@ -8,7 +8,31 @@
 </head>
 
 <body>
-    <p>{{ error }}</p>
+    실패 횟수: {{ fail }}
+    
+    {% for i, status, output, error in display_data %}
+    {% if status == True %}
+    <div>
+        <div>
+            <h3>Testcase {{ i }} success</h3>
+        </div>
+        {% else %}
+        <div>
+            <div>
+                <h3>Testcase {{ i }} fail</h3>
+            </div>
+            {% endif %}
+
+            <div>
+                <h2>Output:</h2>
+                <p>
+                <pre>{{ output | safe }}</pre>
+                <h2>Errors:</h2>
+                <p>
+                <pre>{{ error | safe }}</pre>
+            </div>
+        </div>
+        {% endfor %}
 </body>
 
 </html>

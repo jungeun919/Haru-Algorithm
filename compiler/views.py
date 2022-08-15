@@ -11,15 +11,15 @@ from datetime import date
 from problem.views import crawling
 
 import socket
-
+from django.db.models import Q
 
 def intro(request):
     return render(request, 'FE_templates/main.html')
 
 # 컴파일 실행
 def runCode(request):
-
-    problem_data_set = crawling()
+    level = request.GET.get('level')
+    problem_data_set = crawling(level)
 
     # 유저 판별 (최대 입력 횟수 : 2)
     hostname = socket.gethostbyname(socket.gethostname())
@@ -30,20 +30,21 @@ def runCode(request):
     # 오늘 날짜에 해당하는 문제 가져오기
     today = date.today()
 
-    problem = Problem.objects.filter(problem_date=today).get()
-    example = Example.objects.filter(problem=problem).get()
+    problem = Problem.objects.filter(problem_date=today, problem_level=level).first()
+    example = Example.objects.get(problem=problem)
     print("problem:", problem.problem_text)
     print("example", example.example_input)
 
     if request.method == 'POST':
-        if User.objects.all().filter(hostname=hostname, current_date=today):
-            user = User.objects.all().filter(hostname=hostname, current_date=today).get()
+        if User.objects.all().filter(hostname=hostname, current_date=today, level=level):
+            user = User.objects.all().filter(hostname=hostname, current_date=today, level=level).get()
 
         else: # 유저 없으면 저장
             user = User(
                 hostname = hostname,
                 fail = 0, # 실패횟수
-                current_date = today
+                current_date = today,
+                level = level
             )
             user.save()
 
@@ -99,6 +100,7 @@ def runCode(request):
                         user.hostname = hostname
                         user.fail += 1
                         user.current_date = today
+                        user.level = level
                         user.save()
                         template_data['fail'] = user.fail
 
@@ -115,19 +117,24 @@ def runCode(request):
                     template_data['display_data'] = display_data
 
                     if template_data['result'] == 'ACC':                   
-                        return render(request, 'FE_templates/correct.html', template_data)
+                        return render(request, 'compiler/result.html', template_data)
                     else:
                         return render(request, 'compiler/error.html', template_data)
                     
                 else:
                     return render(request, 'compiler/error.html', {'error': 'Execution failed'})
 
+        else:
+            return HttpResponse("Form is not valid")
+
     # 폼 띄우기
     else:
         form = CodeExecutorForm()
         template_data['form'] = form
-        return render(request, 'FE_templates/index.html',
-        {   'form': template_data['form'],
+        return render(request, 'compiler/writeCode.html',
+        {   
+            'level': level,
+            'form': template_data['form'],
             'problem_title': problem_data_set['problem_title'],
             'problem_description': problem_data_set['problem_description'], 
             'problem_input': problem_data_set['problem_input'], 

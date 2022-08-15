@@ -9,8 +9,6 @@
 </head>
 
 <body>
-    <!-- success일 경우 -->
-    {% if result == 'ACC' %}
     <form action="{% url 'postUpdate' %}" method="get">
         <input type="hidden" name="post_id" value="{{ post_id }}">
         <input type="hidden" name="question" value="{{ question }}">
@@ -18,8 +16,10 @@
         <input type="hidden" name="code" value="{{ code }}">
 
         <p>코드 공개 여부</p>
-        <label><input type="radio" name="disclosure" value="public" checked="checked">공개</label>
-        <label><input type="radio" name="disclosure" value="private">비공개</label>
+        <select name="disclosure">
+            <option value="1">공개</option>
+            <option value="2">비공개</option>
+        </select>
 
         <p>제목</p>
         <p><input type="text" name="title"></p>
@@ -28,34 +28,6 @@
         
         <p><input type="submit" value="Upload"></p>
     </form>
-    {% endif %}
-    <!-- success일 경우 -->
-
-    실패 횟수: {{ fail }}
-    
-    {% for i, status, output, error in display_data %}
-    {% if status == True %}
-    <div>
-        <div>
-            <h3>Testcase {{ i }} success</h3>
-        </div>
-        {% else %}
-        <div>
-            <div>
-                <h3>Testcase {{ i }} fail</h3>
-            </div>
-            {% endif %}
-
-            <div>
-                <h2>Output:</h2>
-                <p>
-                <pre>{{ output | safe }}</pre>
-                <h2>Errors:</h2>
-                <p>
-                <pre>{{ error | safe }}</pre>
-            </div>
-        </div>
-        {% endfor %}
 </body>
 
 </html>
