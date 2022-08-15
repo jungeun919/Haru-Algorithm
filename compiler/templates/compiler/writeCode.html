@@ -35,7 +35,7 @@
         {{sample_output}}<br>
     {% endfor %}
     
-    <form action="compiler" method="post">
+    <form action="compiler?level={{level}}" method="post">
         {% csrf_token %}
         <table>
             <tr>
