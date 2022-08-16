@@ -53,6 +53,7 @@
                     <form action="{% url 'postDate' %}" method="get">
                         {% csrf_token %}
                         <input type="date" onlode="getDate()" class="date_box" id="date_box1"  name="qDate" value="{{qDate}}">
+                        <a class = "close_btn" href="{% url 'postDate'%}">x</a>
                         <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
                         <!-- <button type="button" class="search-btn" type="sumit"><img class="search-img" src="./search.png"></button> -->
                     </form>

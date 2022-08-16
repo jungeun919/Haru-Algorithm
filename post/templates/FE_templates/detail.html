@@ -20,10 +20,10 @@
         </div>
         <div class="content">
             <div class="main">
-                <div class="detail_top">
+                <div class="detail_top" >
                     <div class="title">{{post.title}}</div>
                     <div class="date">
-                        <li id="level">#{{post.level}}</li>
+                        <li>#<input id="level" value="{{post.level}}" disabled></li>
                         <li><img class="img" src="{% static 'img.png' %}">{{post.pub_date | date:'Y-m-d'}}</li>
                         <!-- <li>#{{post.category}}</li> -->
                     </div>
@@ -47,8 +47,7 @@
 
     <script type="text/javascript">
     
-            var key = document.getElementById("level").value;
-
+            var key =  document.getElementById("level").value;
             if(key=="bronze"){
             document.all["level"].style.color="#ad5600";
             }

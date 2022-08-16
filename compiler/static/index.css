@@ -215,18 +215,24 @@ body{
     background-color:white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 } */
-
+/* .button_wrap{
+    display:flex;
+    width: 100%;
+    justify-content: center;
+} */
 .submitbutton{
     margin-top: 30px;
     margin-bottom: 50px;
+    /* border-radius: 30px; */
     width:100%;
-    height: 50px;
+    height: 60px;
     background-color: #415CF2;
     color: white;
     font-family: 'SCoreDream';
     font-weight:600;
     font-size: 20px;
     border:none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
 }
 
 /* 예시입력, 예시출력~*/

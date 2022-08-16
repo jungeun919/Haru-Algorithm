@@ -27,15 +27,18 @@
                <div class="search-box">
                 <form action="{% url 'postLevel' %}" method="get">
                     {% csrf_token %}
-                    <select class="search-text" name="qLevel">
-                        <option value="bronze">Bronze</option>
-                        <option value="silver">Silver</option>
-                        <option value="gold">Gold</option>
-                        <option value="platinum">Platinum</option>
-                        <option value="diamond">Diamond</option>
-                        <option value="ruby">Ruby</option>
-                    </select>
+                        <select class="search-text" name="qLevel" style="color: #ad5600;" name="level" id="level" onchange="Change()">
+                            <option style="color: #ad5600;" value="bronze">Bronze</option>
+                            <option style="color: #38546e;" value="silver">Silver</option>
+                            <option style="color: #f9a518" value="gold">Gold</option>
+                            <option style="color: #51fdbd;" value="platinum">Platinum</option>
+                            <option style="color: #41caff;" id="diamond" value="diamond" >Diamond</option>
+                            <option style="color: #ff3071;" value="ruby">Ruby</option>
+                        </select>
+                        <a class = "close_btn" href="{% url 'postLevel'%}">x</a>
+                    <div class="button_wrap">
                     <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
+                    </div>
                 </form>
                </div>
 
@@ -81,6 +84,32 @@
         </div>
 
     </div>
+        <script type="text/javascript">
+    
+        // option선택시 내용 바꿔줌
+            function Change(){
+            var key = level.value;
+            if(key=="bronze"){
+            document.all["level"].style.color="#ad5600";
+            }
+            if(key=="silver"){
+            document.all["level"].style.color="#38546e";
+            }
+            if(key=="gold"){
+            document.all["level"].style.color="#f9a518";
+            }
+            if(key=="platinum"){
+            document.all["level"].style.color="#51fdbd";
+            }
+            if(key=="diamond"){
+            document.all["level"].style.color="#41caff";
+            }
+            if(key=="ruby"){
+            document.all["level"].style.color="#ff3071";
+            }
+    
+        }
+        </script>
 </body>
 
 </html>

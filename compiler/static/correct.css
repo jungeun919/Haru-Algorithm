@@ -37,7 +37,7 @@ body{
 }
 .correct_check{
     width:100%;
-    font-size: 16px;
+    font-size: 22px;
     display: flex;
     /* justify-content: center;
     align-items: center; */
@@ -60,6 +60,7 @@ body{
     align-items: center;
 }
 select,option{
+    font-size:18px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     outline:none;
     margin-top: 10px;
@@ -82,19 +83,20 @@ select,option{
     width: 80%;
 }
 .post_title{
-
     margin-top: 25px;
     width:100%;
     font-weight: 600; 
     font-family: 'SCoreDream';
     display:flex;
     flex-direction: column;
-    font-size: 16px;
+    font-size: 22px;
     color: #415CF2;
 }
 .title_input{
+    font-size:18px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;   
     height:49px;
-    padding:15px;
+    padding:30px;
     box-sizing: border-box;
     outline:none;
     margin-top: 10px;
@@ -103,10 +105,12 @@ select,option{
     font-family: 'SCoreDream';
 }
 .content_input{
+    font-size:18px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
     resize: none;
     font-weight: 600; 
     font-family: 'SCoreDream';
-    padding:15px;
+    padding:30px;
     vertical-align: top;
     box-sizing: border-box;
     height: 350px;
@@ -115,19 +119,20 @@ select,option{
     border:none;
 }
 .post_content{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
     margin-top: 25px;
     width:100%;
     font-weight: 600; 
     font-family: 'SCoreDream';
     display:flex;
     flex-direction: column;
-    font-size: 16px;
+    font-size: 22px;
     color: #415CF2;
 }
 .post_button{
     margin-top: 30px;   
     width: 100%;
-    height: 52px;
+    height: 60px;
     background-color: #415CF2;
     border:none;
     display:flex;
@@ -139,6 +144,7 @@ select,option{
     color:white;
     box-sizing: border-box;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
     /* border: 3px solid #415CF2;
     background-image: -webkit-linear-gradient(50deg, #415CF2 50%, transparent 50%);
     background-image: linear-gradient(30deg, #415CF2 50%, transparent 50%);
@@ -152,7 +158,7 @@ select,option{
 
 .post_button:hover{
     /* background-color: #415cf293; */
-    color: rgba(255, 255, 255, 0.308);
+    color: rgba(255, 255, 255, 0.562);
     transition: all 250ms linear;
     text-shadow: 4px 4px 3px rgba(255, 255, 255, 0.203);
 }
@@ -171,6 +177,7 @@ select,option{
     cursor: url(https://cur.cursors-4u.net/smilies/smi-1/smi99.ani), url(https://cur.cursors-4u.net/smilies/smi-1/smi99.png), auto !important;
 }
 .d2_title_input{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
     z-index: 3;
     pointer-events : none;
     width:100%;
@@ -182,6 +189,7 @@ select,option{
     cursor: url(https://cur.cursors-4u.net/smilies/smi-1/smi99.ani), url(https://cur.cursors-4u.net/smilies/smi-1/smi99.png), auto !important;
 }
 .d2_content_input{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
     background-color: rgba(128, 128, 128, 0.205);
     font-weight: 600; 
     font-family: 'SCoreDream';
@@ -195,9 +203,10 @@ select,option{
     cursor: url(https://cur.cursors-4u.net/smilies/smi-1/smi99.ani), url(https://cur.cursors-4u.net/smilies/smi-1/smi99.png), auto !important;
 }
 .d2_post_button{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
     text-decoration:none;
     margin-top: 30px;   
-    height: 52px;
+    height: 60px;
     background-color: #415CF2;
     border:none;
     display:flex;

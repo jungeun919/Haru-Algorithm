@@ -77,7 +77,6 @@ body{
     height: 62px;
     width: 60px;
     border-radius: 0 50px 50px 0;
-    margin-left: -60px;
     border: none;
     padding: 15px;
     background-color: #415cf257;
@@ -194,4 +193,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: 600; 
     font-family: 'SCoreDream';
     font-size: 15px;
+}
+.close_btn{
+    width: 50px;
+    height: 60px;
+    font-weight: 600;
+    font-family: 'SCoreDream';
+    font-size: 19px;
+    text-decoration: none;
+    margin-left: -158px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin-right: 49px;
 }

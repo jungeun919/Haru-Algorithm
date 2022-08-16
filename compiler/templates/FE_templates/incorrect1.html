@@ -23,10 +23,22 @@
         <div class="incorrect_content">
         <div class="top_section">
         <img src="{% static 'xlogo.png' %}" class="xlogo">
-        <p class="incorrect1">오답입니다! ({{ fail }}/2)</p>
-        </div>
-        <div>        
-        <form action="compiler?level={{level}}" method="post"></form>
+        <p class="incorrect1">오답입니다! </p>      
+    </div>
+        <p class="fail_count"><br>실패횟수: {{ fail }}</p>
+  
+        <div>
+            {% for i, status, output, error in display_data %}
+            {% if status == True %}
+
+                {% else %}
+                    {% endif %}
+                        <h2 class ="error_title">에러</h2>
+
+                        <div class="error_box">{{ error | safe | linebreaksbr}}</div>
+
+                {% endfor %}
+        <form action="compiler?level={{level}}" method="post">
             <div class="language_box">
                 <a>언어</a>
                 <div class="language_dropbox">
@@ -41,12 +53,16 @@
                 <div class="textarea_wrap"><textarea id='lineCounter' wrap='off' readonly>1</textarea>
                     <div class="form_wrap" wrap='off'>{{ form.code }}</div></div>              
 
-                <div>
+                <div class="button_wrap">
                     <input class="submitbutton" value ="재채점하기" type="submit"/>
+                    {% if fail > 2 %}
+                        <a href="{% url 'posts'%}" class="checkbutton" value ="정답확인">정답확인</a>
+                    {% endif %}
+                 </div>
                 </div>
             </div>
             </form>
-    </div>
+            
     </section>
 
     <script>//복사버튼 구현-전체복사

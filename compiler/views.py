@@ -128,7 +128,7 @@ def runCode(request):
                         form = CodeExecutorForm()
                         template_data['form'] = form
                         template_data['level'] = level
-                        return render(request, 'compiler/error.html', template_data)
+                        return render(request, 'FE_templates/incorrect1.html', template_data)
                     
                 else:
                     return render(request, 'FE_templates/incorrect2.html', {'error': 'Execution failed'})
