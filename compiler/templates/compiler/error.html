@@ -33,6 +33,32 @@
             </div>
         </div>
         {% endfor %}
+
+        <form action="compiler?level={{level}}" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.language.label }}</td>
+                    <td>{{ form.language }}</td>
+                    <td>{{ form.language.errors }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.code.label }}</td>
+                    <td>
+                        <div>{{ form.code }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ form.code.errors }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Submit Code">
+                        <input type="reset" value="Clear All">
+                    </td>
+                </tr>
+            </table>
+        </form>
 </body>
 
 </html>
