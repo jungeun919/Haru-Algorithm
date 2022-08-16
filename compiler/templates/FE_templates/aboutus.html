@@ -13,15 +13,15 @@
 <body>
     {% include "./component/TopNav.html" %}
 
-        <div class="about">
-            <img src="{% static 'light.png' %}" class="light">
-            <img src="{% static 'team_logo.png' %}" class="team_logo">
-            <p class="explanation">You want to know about us? Hover on each item and<br>
-                Our Creativity Kit will tell you mere about us!</p>
-        </div>
+    <div class="about">
+        <img src="{% static 'light.png' %}" class="light">
+        <img src="{% static 'team_logo.png' %}" class="team_logo">
+        <p class="explanation">You want to know about us? Hover on each item and<br>
+            Our Creativity Kit will tell you mere about us!</p>
+    </div>
 
-        <!--말풍선-->
-        <!-- <div class="box1">
+    <!--말풍선-->
+    <!-- <div class="box1">
             <a class="name">김지연</a><a class="age"> (21)</a>
             <a class="intro"><br>
                 삼육대학교 인공지능융합학부<br>
@@ -33,7 +33,7 @@
             <a class="num">k65860</a>
         </div> -->
 
-        <!-- <div class="box2">
+    <!-- <div class="box2">
             <a class="name">박미란</a><a class="age"> (24)</a>
             <a class="intro"><br>
                 삼육대학교 컴퓨터메카트로닉스<br>
@@ -81,28 +81,105 @@
             <a class="num">drawpark</a>
         </div> -->
 
-        <!--캐릭터이미지-->
-        <div class="all_box">
+<div class="all">
+    <span class="top">
+        <span id="box2" class="box2" style="display: none;">
+            <a class="name">박미란</a><a class="age"> (24)</a>
+            <a class="intro"><br>
+                삼육대학교 컴퓨터메카트로닉스<br>
+                멋쟁이사자처럼대학 10기<br>
+                하루알고리즘 Front-End 개발<br></a>
+            <img src="{% static 'call.png' %}" class="call">
+            <a class="num">010-6418-1431<br></a>
+            <img src="{% static 'github.png' %}" class="github">
+            <a class="num">Park-Mi-Ran</a>
+        </span>
+
+        <span id="box1" class="box1" style="display: none;">
+            <a class="name">김지연</a><a class="age"> (21)</a>
+            <a class="intro"><br>
+                삼육대학교 인공지능융합학부<br>
+                멋쟁이사자처럼대학 10기<br>
+                하루알고리즘 Front-End 개발<br></a>
+            <img src="{% static 'call.png' %}" class="call">
+            <a class="num">010-4589-6586<br></a>
+            <img src="{% static 'github.png' %}" class="github">
+            <a class="num">k65860</a>
+        </span>
+
+        <span id="box3" class="box3" style="display: none;">
+            <a class="name">이지수</a><a class="age"> (26)</a>
+            <a class="intro"><br>
+                삼육대학교 IT융합공학과<br>
+                멋쟁이사자처럼대학 10기<br>
+                하루알고리즘 Back-End 개발<br></a>
+            <img src="{% static 'call.png' %}" class="call">
+            <a class="num">010-6414-0136<br></a>
+            <img src="{% static 'github.png' %}" class="github">
+            <a class="num">jisoolee11</a>
+        </span>
+    </span>
+
+    <span class="all_box">
+        <button onclick="toggleBtn2()" id="miran_toggle">
             <img src="{% static 'miran_park.png' %}" class="miran">
-            <div class="top_box">
+        </button>
+
+        <span class="top_box">
+            <button onclick="toggleBtn1()" id="jiyeon_toggle">
                 <img src="{% static 'jiyeon_kim.png' %}" class="jiyeon">
+            </button>
+
+            <button onclick="toggleBtn5()" id="geunyoung_toggle">
                 <img src="{% static 'geunyoung_park.png' %}" class="geunyoung">
-            </div>
-            <div class="bot_box">
-                <img src="{% static 'jeongeun_choi.png' %}" class="jeongeun">
-                <img src="{% static 'jisoo_lee.jpg' %}" class="jisoo">
-            </div>
-        </div>
+            </button>
+        </span>
+        <span class="bot_box">
+            <button onclick="toggleBtn3()" id="jisoo_toggle">
+                <img src="{% static 'jisoo_lee.png' %}" class="jisoo">
+            </button>
+
+            <button onclick="toggleBtn4()" id="jeongeun_toggle">
+                <img src="{% static 'jeongeun_choi.jpg' %}" class="jeongeun">
+            </button>
+        </span>
+    </span>
+
+    <span class="bot">
+        <span id="box4" class="box4" style="display: none;">
+            <a class="name">최정은</a><a class="age"> (23)</a>
+            <a class="intro"><br>
+                삼육대학교 IT융합공학과<br>
+                멋쟁이사자처럼대학 10기<br>
+                하루알고리즘 Back-End 개발<br></a>
+            <img src="{% static 'call.png' %}" class="call">
+            <a class="num">010-6211-8369<br></a>
+            <img src="{% static 'github.png' %}" class="github">
+            <a class="num">jungeun919</a>
+        </span>
+
+        <span id="box5" class="box5" style="display: none;">
+            <a class="name">박근영</a><a class="age"> (27)</a>
+            <a class="intro"><br>
+                삼육대학교 아트앤디자인학과<br>
+                멋쟁이사자처럼대학 10기<br>
+                하루알고리즘 UI 디자인<br></a>
+            <img src="{% static 'call.png' %}" class="call">
+            <a class="num">010-5625-9940<br></a>
+            <img src="{% static 'github.png' %}" class="github">
+            <a class="num">drawpark</a>
+        </span>
+    </span>
+</div>
 
     <div class="bottom">
-
-        <span class="bot_text">haru algorithm은 멋쟁이 사자처럼 대학 소속 삼육대학교 학생들이 해커톤에 지원하기 위해 
+        <span class="bot_text">haru algorithm은 멋쟁이 사자처럼 대학 소속 삼육대학교 학생들이 해커톤에 지원하기 위해
             2022년 8월 20일<br>에 제작한 코딩테스트 플랫폼입니다.<br>
-            원하는 꿈에 한 걸음씩 다가가고 싶은 저희와 같은 사람들을 위해 간단하게 하루마다 하나의 
+            원하는 꿈에 한 걸음씩 다가가고 싶은 저희와 같은 사람들을 위해 간단하게 하루마다 하나의
             랜덤 알고리즘 문제<br>를 제공하며 채점 받아볼 수 있습니다.<br>
-            어떤 문제를 먼저 풀어야 할지 고민할 필요 없이 하루 한 문제씩 지속적으로 다양한 유형의 
+            어떤 문제를 먼저 풀어야 할지 고민할 필요 없이 하루 한 문제씩 지속적으로 다양한 유형의
             문제를 학습해보세요!<br>
-            문제를 풀거나 풀이를 볼 때 로그인 및 포인트 사용이 필요 없을 뿐만 아니라 간단한 UI로 
+            문제를 풀거나 풀이를 볼 때 로그인 및 포인트 사용이 필요 없을 뿐만 아니라 간단한 UI로
             누구나 쉽게 이용할 수 <br>있습니다.
             <img src="{% static 'com.png' %}" class="com">
         </span>
@@ -114,6 +191,61 @@
             <br>멋쟁이사자처럼 대학 소속 | 대표 연락처 010 - 6418 - 1431 | 이메일 gpfk6636@likelion.org
         </p>
     </footer>
+
+    <script>
+        function toggleBtn1() { //김지연버튼
+            // 토글 할 버튼 선택 (btn1)
+            const btn1 = document.getElementById('box1');
+            // btn1 숨기기 (display: none)
+            if (box1.style.display !== 'none') {
+                box1.style.display = 'none';
+            }
+            // btn` 보이기 (display: block)
+            else {
+                box1.style.display = 'block';
+            }
+        }
+
+        function toggleBtn2() { //박미란
+            const btn1 = document.getElementById('box2');
+            if (box2.style.display !== 'none') {
+                box2.style.display = 'none';
+            }
+            else {
+                box2.style.display = 'block';
+            }
+        }
+
+        function toggleBtn3() { //이지수
+            const btn3 = document.getElementById('box3');
+            if (box3.style.display !== 'none') {
+                box3.style.display = 'none';
+            }
+            else {
+                box3.style.display = 'block';
+            }
+        }
+
+        function toggleBtn4() { //최정은
+            const btn4 = document.getElementById('box4');
+            if (box4.style.display !== 'none') {
+                box4.style.display = 'none';
+            }
+            else {
+                box4.style.display = 'block';
+            }
+        }
+
+        function toggleBtn5() { //박근영
+            const btn5 = document.getElementById('box5');
+            if (box5.style.display !== 'none') {
+                box5.style.display = 'none';
+            }
+            else {
+                box5.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 
 </html>
