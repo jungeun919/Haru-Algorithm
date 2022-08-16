@@ -23,7 +23,8 @@
                 <div class="detail_top">
                     <div class="title">{{post.title}}</div>
                     <div class="date">
-                        <li>{{post.pub_date | date:'Y-m-d'}}</li>
+                        <li id="level">#{{post.level}}</li>
+                        <li><img class="img" src="{% static 'img.png' %}">{{post.pub_date | date:'Y-m-d'}}</li>
                         <!-- <li>#{{post.category}}</li> -->
                     </div>
                 </div>
@@ -43,5 +44,31 @@
         <!-- {% block content %}
         {% endblock %} -->
     </div>
+
+    <script type="text/javascript">
+    
+            var key = document.getElementById("level").value;
+
+            if(key=="bronze"){
+            document.all["level"].style.color="#ad5600";
+            }
+            if(key=="silver"){
+            document.all["level"].style.color="#38546e";
+            }
+            if(key=="gold"){
+            document.all["level"].style.color="#f9a518";
+            }
+            if(key=="platinum"){
+            document.all["level"].style.color="#51fdbd";
+            }
+            if(key=="diamond"){
+            document.all["level"].style.color="#41caff";
+            }
+            if(key=="ruby"){
+            document.all["level"].style.color="#ff3071";
+            }
+    
+    </script>
+
 </body>
 </html>

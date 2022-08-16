@@ -45,6 +45,7 @@
         <div class="MiddleNav">
             <li ><a id="menu-link1" onclick="click()" href="{% url 'posts' %}">제목</a></li>
             <li><a id="menu-link2" href="{% url 'postDate' %}">날짜</a></li>
+            <li><a id="menu-link3" href="{% url 'postLevel' %}">레벨</a></li>
         </div>
         <div class="content">
             <div class="main">
@@ -60,6 +61,7 @@
                <div class="post">
                 <div class="post_name">
                     <li>제목</li>
+                    <li>레벨</li>
                     <li>날짜</li>
                 </div>
                 <div class="post_wrap">
@@ -67,7 +69,8 @@
                 {% for post in posts %}
                 <a id="box_href" href="{% url 'detail' post.id %}">
                     <div class="post_box">
-                        <li>{{post.title}}</li>
+                        <li>{{post.title}}</li>                        
+                        <li>{{post.level}}</li>
                         <li>{{post.pub_date | date:'Y-m-d'}}</li>
                     </div>
                 </a>

@@ -57,7 +57,7 @@ def getPostDate(request):
     else:
         posts = post_list
 
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 4)
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)
     return render(request, 'FE_templates/search_date.html', {'posts': posts, 'qDate': qDate})
@@ -72,10 +72,10 @@ def getPostLevel(request):
     else:
         posts = post_list
 
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 4)
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)
-    return render(request, 'post/postLevel.html', {'posts': posts, 'qLevel': qLevel})
+    return render(request, 'FE_templates/search_level.html', {'posts': posts, 'qLevel': qLevel})
 
 # 풀이 상세
 def detailPost(request, id):
