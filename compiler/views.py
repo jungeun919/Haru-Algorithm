@@ -120,6 +120,9 @@ def runCode(request):
                     if template_data['result'] == 'ACC':                   
                         return render(request, 'compiler/result.html', template_data)
                     else:
+                        form = CodeExecutorForm()
+                        template_data['form'] = form
+                        template_data['level'] = level
                         return render(request, 'compiler/error.html', template_data)
                     
                 else:
