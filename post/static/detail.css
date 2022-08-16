@@ -79,17 +79,30 @@ body{
     font-weight: 600; 
     font-family: 'SCoreDream';
     font-size: 40px;
+    color:#415CF2 ;
 }
 #level{
+    text-align: center;
     background: transparent;
     outline:none;
     border:none; 
     font-weight: 600; 
     font-family: 'SCoreDream';
     font-size: 20px;
+    width: 90px;
 
 }
-
+.box{  
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: white;
+    border-radius: 50px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 123px;
+}
 .date{
     font-weight: 600; 
     font-family: 'SCoreDream';
@@ -97,13 +110,18 @@ body{
     list-style:none;
     display:flex;
 }
-.date>li{
+.shop{
     display:flex;
+    margin-right:9px;
     justify-content: center;
     align-items: center;
 }
 .date>li:last-child{
-    margin-left: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color: #828282;
 }
 .img{
     margin-right: 5px;
@@ -129,9 +147,11 @@ body{
 }
 
 .code_detail{
+    color:gray;
     margin-top: 30px;
     width:100%;
     font-weight: 600; 
     font-family: 'SCoreDream';
     margin-bottom: 40px;
 }
+

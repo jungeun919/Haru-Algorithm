@@ -23,7 +23,7 @@
                 <div class="detail_top" >
                     <div class="title">{{post.title}}</div>
                     <div class="date">
-                        <li>#<input id="level" value="{{post.level}}" disabled></li>
+                        <li class="shop">#</li><div class="box"><input id="level" value="{{post.level}}" disabled></div>
                         <li><img class="img" src="{% static 'img.png' %}">{{post.pub_date | date:'Y-m-d'}}</li>
                         <!-- <li>#{{post.category}}</li> -->
                     </div>
