@@ -137,7 +137,7 @@ def runCode(request):
     else:
         form = CodeExecutorForm()
         template_data['form'] = form
-        return render(request, 'FE_templates/index.html','FE_templates/incorrect1.html',
+        return render(request, 'FE_templates/index.html',
         {   
             'level': level,
             'form': template_data['form'],
