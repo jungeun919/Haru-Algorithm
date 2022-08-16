@@ -9,9 +9,16 @@
 </head>
 
 <body>
-    <form action="{% url 'postDate' %}" method="get">
+    <form action="{% url 'postLevel' %}" method="get">
         {% csrf_token %}
-        <input type="date" placeholder="Search" name="qDate" value="{{qDate}}">
+        <select name="qLevel">
+            <option value="bronze">Bronze</option>
+            <option value="silver">Silver</option>
+            <option value="gold">Gold</option>
+            <option value="platinum">Platinum</option>
+            <option value="diamond">Diamond</option>
+            <option value="ruby">Ruby</option>
+        </select>
         <button type="submit">Search</button>
     </form>
 

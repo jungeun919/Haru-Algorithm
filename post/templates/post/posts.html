@@ -20,8 +20,11 @@
         <div class="card">
             <div class="card-body">
                 {{post.question}}<br>
-                {{post.category}}<br>
-                {{post.pub_date}}
+                <!-- {{post.category}}<br> -->
+                {{post.pub_date | date:'Y-m-d'}}<br>
+                {{post.title}}<br>
+                {{post.body}}<br>
+                {{post.level}}
                 <a href="{% url 'detail' post.id %}">...more</a><br>
             </div>
         </div>

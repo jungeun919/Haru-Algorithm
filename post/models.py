@@ -4,6 +4,7 @@ from django.db import models
 class Post(models.Model):
     question = models.CharField(max_length=100)
     category = models.CharField(max_length=50)
+    level = models.CharField(max_length=30)
     code = models.TextField()
     pub_date = models.DateTimeField()
     disclosure = models.CharField(max_length=10, null=True) # 공개여부
