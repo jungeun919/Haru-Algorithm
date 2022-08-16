@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +9,16 @@
 </head>
 
 <body>
-    <form action="{% url 'posts' %}" method="get">
+    <form action="{% url 'postLevel' %}" method="get">
         {% csrf_token %}
-        <input type="search" placeholder="Search" name="qTitle" value="{{qTitle}}">
+        <select name="qLevel">
+            <option value="bronze">Bronze</option>
+            <option value="silver">Silver</option>
+            <option value="gold">Gold</option>
+            <option value="platinum">Platinum</option>
+            <option value="diamond">Diamond</option>
+            <option value="ruby">Ruby</option>
+        </select>
         <button type="submit">Search</button>
     </form>
 

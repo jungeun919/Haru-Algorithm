@@ -74,6 +74,7 @@ def runCode(request):
             post = Post()
             post.question = problem.problem_num
             post.category = 'greedy'
+            post.level = problem.problem_level
             post.code = request.POST['code']
             post.pub_date = timezone.now()
             post.disclosure = 'private'

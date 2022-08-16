@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.utils import timezone
+
+from problem.models import Problem
 from .models import Post
 from django.db.models import Q
 
@@ -36,7 +38,7 @@ def getPosts(request):
 
     qTitle = request.GET.get('qTitle', '')
     if qTitle:
-        posts = post_list.filter(Q(question__icontains=qTitle) | Q(category__icontains=qTitle))
+        posts = post_list.filter(Q(title__icontains=qTitle))
     else:
         posts = post_list
 
@@ -59,6 +61,21 @@ def getPostDate(request):
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)
     return render(request, 'FE_templates/search_date.html', {'posts': posts, 'qDate': qDate})
+
+# 전체 풀이 + 레벨 검색
+def getPostLevel(request):
+    post_list = Post.objects.all().filter(disclosure='public').order_by('-pub_date')
+
+    qLevel = request.GET.get('qLevel', '')
+    if qLevel:
+        posts = post_list.filter(Q(level__icontains=qLevel))
+    else:
+        posts = post_list
+
+    paginator = Paginator(posts, 3)
+    pagenum = request.GET.get('page')
+    posts = paginator.get_page(pagenum)
+    return render(request, 'post/postLevel.html', {'posts': posts, 'qLevel': qLevel})
 
 # 풀이 상세
 def detailPost(request, id):
