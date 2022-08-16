@@ -40,7 +40,7 @@ def getPosts(request):
     else:
         posts = post_list
 
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 4)
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)
     return render(request, 'FE_templates/search.html', {'posts': posts, 'qTitle': qTitle})
