@@ -16,6 +16,9 @@ from django.db.models import Q
 def intro(request):
     return render(request, 'FE_templates/main.html')
 
+def aboutus(request):
+    return render(request, 'FE_templates/aboutus.html')
+
 # 컴파일 실행
 def runCode(request):
     level = request.GET.get('level')
@@ -122,10 +125,10 @@ def runCode(request):
                     if template_data['result'] == 'ACC':                   
                         return render(request, 'FE_templates/correct.html', template_data)
                     else:
-                        return render(request, 'compiler/error.html', template_data)
+                        return render(request, 'FE_templates/incorrect1.html', template_data)
                     
                 else:
-                    return render(request, 'compiler/error.html', {'error': 'Execution failed'})
+                    return render(request, 'FE_templates/incorrect2.html', {'error': 'Execution failed'})
 
         else:
             return HttpResponse("Form is not valid")
@@ -134,7 +137,7 @@ def runCode(request):
     else:
         form = CodeExecutorForm()
         template_data['form'] = form
-        return render(request, 'FE_templates/index.html',
+        return render(request, 'FE_templates/index.html','FE_templates/incorrect1.html',
         {   
             'level': level,
             'form': template_data['form'],

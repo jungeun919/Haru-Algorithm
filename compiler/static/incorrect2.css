@@ -69,8 +69,10 @@
 }
 
 html {
-    height: 150%;
     background-color: #f5f9fc;
+}
+body{
+    margin:0;
 }
 
 #header_top {
@@ -115,19 +117,22 @@ html {
 
 /*본문 body부분*/
 section {
-    height: 200%; /*html 세로사이즈와 맞추기*/
-    width: 100%;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: #f5f9fc;
-    padding-left: 198px;
-    padding-right: 198px;
-}
+    display:flex;
 
+}
+.incorrect_content{
+    margin-top: 15%;
+    width: 80%;
+}
 .xlogo {
     width: 48px;
     height: 48px;
-    position: absolute;
-    top: 300px;
-    left: 46%;
+
 }
 
 .incorrect1 {
@@ -135,29 +140,16 @@ section {
     text-decoration-line: none;
     color: #2745f2;
     font-size: 36px;
-    position: absolute;
-    top: 300px;
-    left: 50%;
+
     text-align: center;
 }
 
-.category {
-    font-family: 'Pretendard-Bold';
-    text-decoration-line: none;
-    color: #2745f2;
-    font-size: 24px;
-    position: relative;
-    top: 300px;
-}
-
 .box1 {
-    position: relative;
-    top: 300px;
     background-color: white;
     border-radius: 5px;
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
     height: 36px;
-    width: 84px;
+    width: 140px;
     padding: 5px;
 }
 
@@ -169,19 +161,60 @@ section {
     margin-bottom: 0;
 }
 
+.box1_2 {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+    height: 36px;
+    width: 170px;
+    padding: 5px;
+}
+
+.box1_2font {
+    font-family: 'Pretendard-Light';
+    font-size: 20px;
+    color: grey;
+    padding-left: 20px;
+}
+
+.lang {
+    font-family: 'Pretendard-Bold';
+    text-decoration-line: none;
+    color: #2745f2;
+    font-size: 24px;
+    
+}
+
+.box3 {
+    font-family: 'Pretendard-Light';
+    text-align: center;
+    font-size: 25px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+    height: 36px;
+    width: 150px;
+    border-style: none;
+    color: #828282;
+    border: 0;
+    outline: 0;
+}
+
+.box3_font {
+    font-family: 'Pretendard-Light';
+    color: #828282;
+    font-size: 20px;
+}
+
 .sscode {
     font-family: 'Pretendard-Bold';
     text-decoration-line: none;
     color: #2745f2;
     font-size: 24px;
-    position: relative;
-    top: 350px;
 }
 
 .copybutton {
     align-content: center;
-    top: 300px;
-    left: 150px;
     font-size: 18px;
     color: white;
     background-color: #415cf2;
@@ -192,12 +225,9 @@ section {
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
     width: 76px;
     height: 27px;
-    position: relative;
 }
 
 .code_box {
-    position: relative;
-    top: 320px;
     background-color: white;
     border-radius: 5px;
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
@@ -207,46 +237,23 @@ section {
 }
 
 .rescore {
+    margin-top: 25px;
+    width:100%;
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
     background-color: #2745f2;
     font-family: 'Pretendard-Bold';
     font-size: 20px;
     color: white;
-    position: relative;
-    top: 435px;
-    width: 100%;
     height: 88px;
     border: 0;
     outline: 0;
     padding: 15px;
 }
 
-/*footer부분*/
-/*footer {
-    position: fixed;
-    bottom: 0;
-    background-color: #2745f2;
-    display: flex;
+.top_section{
+    display:flex;
+    align-content: center;
     justify-content: center;
-    height: 230px;
-    width: 100%;
-}
+    width:100%;
 
-.f-logo {
-    width: 300px;
-    height: 100px;
-    margin: 10px;
-    position: absolute;
-    display: flex;
-    justify-content: center;
 }
-.Copyright {
-    font-family: 'S-CoreDream-1Thin';
-    text-decoration-line: none;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    position: relative;
-    top: 100px;
-    margin:10px;
-}*/

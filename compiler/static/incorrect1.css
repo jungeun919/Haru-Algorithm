@@ -69,8 +69,10 @@
 }
 
 html {
-    height: 150%;
     background-color: #f5f9fc;
+}
+body{
+    margin:0;
 }
 
 #header_top {
@@ -115,19 +117,22 @@ html {
 
 /*본문 body부분*/
 section {
-    height: 200%; /*html 세로사이즈와 맞추기*/
-    width: 100%;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: #f5f9fc;
-    padding-left: 198px;
-    padding-right: 198px;
-}
+    display:flex;
 
+}
+.incorrect_content{
+    margin-top: 10%;
+    width: 80%;
+}
 .xlogo {
     width: 48px;
     height: 48px;
-    position: absolute;
-    top: 300px;
-    left: 46%;
+
 }
 
 .incorrect1 {
@@ -135,24 +140,11 @@ section {
     text-decoration-line: none;
     color: #2745f2;
     font-size: 36px;
-    position: absolute;
-    top: 300px;
-    left: 50%;
+
     text-align: center;
 }
 
-.category {
-    font-family: 'Pretendard-Bold';
-    text-decoration-line: none;
-    color: #2745f2;
-    font-size: 24px;
-    position: relative;
-    top: 300px;
-}
-
 .box1 {
-    position: relative;
-    top: 300px;
     background-color: white;
     border-radius: 5px;
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
@@ -170,9 +162,6 @@ section {
 }
 
 .box1_2 {
-    position: relative;
-    top: 265px;
-    left: 180px;
     background-color: white;
     border-radius: 5px;
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
@@ -188,39 +177,11 @@ section {
     padding-left: 20px;
 }
 
-/*.limit {
-    font-family: 'S-CoreDream-6Bold';
-    text-decoration-line: none;
-    color: #2745f2;
-    font-size: 30px;
-    position: relative;
-    top: 250px;
-}
-
-.box2 {
-    position: relative;
-    top: 250px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
-    height: 300px;
-    width: 100%;
-    padding: 100px;
-}
-
-.box2_font {
-    font-family: 'S-CoreDream-6Bloc';
-    font-size: 20px;
-    color: grey;
-} */
-
 .lang {
     font-family: 'Pretendard-Bold';
     text-decoration-line: none;
     color: #2745f2;
     font-size: 24px;
-    position: relative;
-    top: 300px;
     
 }
 
@@ -237,17 +198,12 @@ section {
     color: #828282;
     border: 0;
     outline: 0;
-    position: relative;
-    top: 300px;
 }
 
 .box3_font {
     font-family: 'Pretendard-Light';
-    position: relative;
     color: #828282;
     font-size: 20px;
-    top: 265px;
-    left: 200px;
 }
 
 .sscode {
@@ -255,14 +211,10 @@ section {
     text-decoration-line: none;
     color: #2745f2;
     font-size: 24px;
-    position: relative;
-    top: 300px;
 }
 
 .copybutton {
     align-content: center;
-    top: 250px;
-    left: 130px;
     font-size: 18px;
     color: white;
     background-color: #415cf2;
@@ -273,12 +225,9 @@ section {
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
     width: 76px;
     height: 27px;
-    position: relative;
 }
 
 .code_box {
-    position: relative;
-    top: 280px;
     background-color: white;
     border-radius: 5px;
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
@@ -288,46 +237,128 @@ section {
 }
 
 .rescore {
+    margin-top: 25px;
+    width:100%;
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
     background-color: #2745f2;
     font-family: 'Pretendard-Bold';
     font-size: 20px;
     color: white;
-    position: relative;
-    top: 435px;
-    width: 100%;
     height: 88px;
     border: 0;
     outline: 0;
     padding: 15px;
 }
 
-/*footer부분*/
-/*footer {
-    position: fixed;
-    bottom: 0;
-    background-color: #2745f2;
-    display: flex;
+.top_section{
+    display:flex;
+    align-content: center;
     justify-content: center;
-    height: 230px;
-    width: 100%;
+    width:100%;
+
 }
 
-.f-logo {
-    width: 300px;
-    height: 100px;
-    margin: 10px;
-    position: absolute;
-    display: flex;
+.submitbutton{
+    display:flex;
     justify-content: center;
-}
-.Copyright {
-    font-family: 'S-CoreDream-1Thin';
-    text-decoration-line: none;
+    align-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width:100%;
+    height: 50px;
+    background-color: #415CF2;
     color: white;
+    font-family: 'SCoreDream';
+    font-weight:600;
     font-size: 20px;
-    text-align: center;
-    position: relative;
-    top: 100px;
-    margin:10px;
-}*/
+    border:none;
+}
+
+.submit_main{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+
+}
+
+
+.language_box{ 
+    margin-bottom:10px;
+
+}
+
+.language_box>a{
+    font-size:24px;
+    color:#415CF2;
+    font-family: 'SCoreDream';
+    font-weight: 600; 
+    margin-bottom:10px;
+}
+
+
+.submit_main>a{
+    font-size:24px;
+    color:#415CF2;
+    font-family: 'SCoreDream';
+    font-weight: 600; 
+    margin-bottom:10px;
+}
+#dropbox>select{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    outline: none;
+    border:none;
+    width: 10%;
+    height: 30%;
+    margin-bottom:10px;
+    margin-top:10px;
+    font-family: 'SCoreDream';
+    font-weight:600;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.textarea_wrap{
+    width:80vw;
+    display: flex;
+}
+
+#lineCounter:focus-visible,
+#codeEditor:focus-visible {
+    outline:none;
+}
+
+#lineCounter {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    resize: none;
+    margin:0;
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: 'SCoreDream';
+    font-weight:600;
+    font-size:15px;
+    border:none;
+    outline: none;
+    width:5%;
+    height: 500px;
+    background-color:#3E3D32;
+    color: #707070;
+    background-color: #d8d8d8;
+}
+.form_wrap{
+    width:95%;
+}
+#id_code {
+    resize: none;
+    margin:0;
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: 'SCoreDream';
+    font-weight:600;
+    font-size:15px;
+    border:none;
+    outline: none;
+    width:100%;
+    height: 500px;
+    background-color:white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
