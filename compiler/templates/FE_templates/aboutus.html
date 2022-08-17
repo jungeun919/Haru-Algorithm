@@ -82,8 +82,8 @@
         </div> -->
 
 <div class="all">
-    <span class="top">
-        <span id="box2" class="box2" style="display: none;">
+    <!-- <span class="top"> -->
+        <!-- <span id="box2" class="box2" style="display: none;">
             <a class="name">박미란</a><a class="age"> (24)</a>
             <a class="intro"><br>
                 삼육대학교 컴퓨터메카트로닉스<br>
@@ -93,9 +93,9 @@
             <a class="num">010-6418-1431<br></a>
             <img src="{% static 'github.png' %}" class="github">
             <a class="num">Park-Mi-Ran</a>
-        </span>
+        </span> -->
 
-        <span id="box1" class="box1" style="display: none;">
+        <!-- <span id="box1" class="box1" style="display: none;">
             <a class="name">김지연</a><a class="age"> (21)</a>
             <a class="intro"><br>
                 삼육대학교 인공지능융합학부<br>
@@ -105,9 +105,9 @@
             <a class="num">010-4589-6586<br></a>
             <img src="{% static 'github.png' %}" class="github">
             <a class="num">k65860</a>
-        </span>
+        </span> -->
 
-        <span id="box3" class="box3" style="display: none;">
+        <!-- <span id="box3" class="box3" style="display: none;">
             <a class="name">이지수</a><a class="age"> (26)</a>
             <a class="intro"><br>
                 삼육대학교 IT융합공학과<br>
@@ -117,36 +117,110 @@
             <a class="num">010-6414-0136<br></a>
             <img src="{% static 'github.png' %}" class="github">
             <a class="num">jisoolee11</a>
-        </span>
-    </span>
+        </span> -->
+    <!-- </span> -->
 
     <span class="all_box">
         <button onclick="toggleBtn2()" id="miran_toggle">
             <img src="{% static 'miran_park.png' %}" class="miran">
         </button>
+        <span id="box2" class="box2" style="display: none;">
+            <a class="name">박미란</a><a class="age"> (24)</a>
+            <a class="intro"><br>
+                삼육대학교 컴퓨터메카트로닉스<br>
+                멋쟁이사자처럼대학 10기<br>
+                하루알고리즘 Front-End 개발<br></a>
+            <div class = "number">
+            <img src="{% static 'call.png' %}" class="call">
+            <a class="num">010-6418-1431<br></a>
+            </div>
+            <div class="github_wrap">
+            <img src="{% static 'github.png' %}" class="github">
+            <a class="num">Park-Mi-Ran</a>
+            </div>
+        </span>
 
         <span class="top_box">
             <button onclick="toggleBtn1()" id="jiyeon_toggle">
                 <img src="{% static 'jiyeon_kim.png' %}" class="jiyeon">
             </button>
-
+            <span id="box1" class="box1" style="display: none;">
+                <a class="name">김지연</a><a class="age"> (21)</a>
+                <a class="intro"><br>
+                    삼육대학교 인공지능융합학부<br>
+                    멋쟁이사자처럼대학 10기<br>
+                    하루알고리즘 Front-End 개발<br></a>
+                <div class = "number">
+                <img src="{% static 'call.png' %}" class="call">
+                <a class="num">010-4589-6586<br></a>
+                </div>
+                <div class="github_wrap">
+                <img src="{% static 'github.png' %}" class="github">
+                <a class="num">k65860</a>
+                </div>
+            </span>
             <button onclick="toggleBtn5()" id="geunyoung_toggle">
                 <img src="{% static 'geunyoung_park.png' %}" class="geunyoung">
             </button>
+            <span id="box5" class="box5" style="display: none;">
+                <a class="name">박근영</a><a class="age"> (27)</a>
+                <a class="intro"><br>
+                    삼육대학교 아트앤디자인학과<br>
+                    멋쟁이사자처럼대학 10기<br>
+                    하루알고리즘 UI 디자인<br></a>
+                <div class = "number">
+                <img src="{% static 'call.png' %}" class="call">
+                <a class="num">010-5625-9940<br></a>
+                </div>
+                <div class="github_wrap">
+                <img src="{% static 'github.png' %}" class="github">
+                <a class="num">drawpark</a>
+                </div>
+            </span>
         </span>
         <span class="bot_box">
             <button onclick="toggleBtn3()" id="jisoo_toggle">
                 <img src="{% static 'jisoo_lee.png' %}" class="jisoo">
             </button>
+            <span id="box3" class="box3" style="display: none;">
+                <a class="name">이지수</a><a class="age"> (26)</a>
+                <a class="intro"><br>
+                    삼육대학교 IT융합공학과<br>
+                    멋쟁이사자처럼대학 10기<br>
+                    하루알고리즘 Back-End 개발<br></a>
+                <div class = "number">
+                <img src="{% static 'call.png' %}" class="call">
+                <a class="num">010-6414-0136<br></a>
+                </div>
+                <div class="github_wrap">
+                <img src="{% static 'github.png' %}" class="github">
+                <a class="num">jisoolee11</a>
+                </div>
+            </span>
 
             <button onclick="toggleBtn4()" id="jeongeun_toggle">
                 <img src="{% static 'jeongeun_choi.jpg' %}" class="jeongeun">
             </button>
+            <span id="box4" class="box4" style="display: none;">
+                <a class="name">최정은</a><a class="age"> (23)</a>
+                <a class="intro"><br>
+                    삼육대학교 IT융합공학과<br>
+                    멋쟁이사자처럼대학 10기<br>
+                    하루알고리즘 Back-End 개발<br></a>
+                <div class = "number">
+                <img src="{% static 'call.png' %}" class="call">
+                <a class="num">010-6211-8369<br></a>
+                </div>
+                <div class="github_wrap">
+                <img src="{% static 'github.png' %}" class="github">
+                <a class="num">jungeun919</a>
+                </div>
+            </span>
         </span>
     </span>
 
     <span class="bot">
-        <span id="box4" class="box4" style="display: none;">
+        <!-- <span id="box4" class="box4" style="display: none;">
             <a class="name">최정은</a><a class="age"> (23)</a>
             <a class="intro"><br>
                 삼육대학교 IT융합공학과<br>
@@ -156,9 +230,9 @@
             <a class="num">010-6211-8369<br></a>
             <img src="{% static 'github.png' %}" class="github">
             <a class="num">jungeun919</a>
-        </span>
+        </span> -->
 
-        <span id="box5" class="box5" style="display: none;">
+        <!-- <span id="box5" class="box5" style="display: none;">
             <a class="name">박근영</a><a class="age"> (27)</a>
             <a class="intro"><br>
                 삼육대학교 아트앤디자인학과<br>
@@ -168,7 +242,7 @@
             <a class="num">010-5625-9940<br></a>
             <img src="{% static 'github.png' %}" class="github">
             <a class="num">drawpark</a>
-        </span>
+        </span> -->
     </span>
 </div>
 
