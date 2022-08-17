@@ -4,6 +4,14 @@
     font-weight: 700;
     font-style: normal;
 }
+@font-face {
+    font-family: 'SCoreDream';
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff2) format('woff2'),
+         url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff) format('woff');
+    font-display: swap;
+}
+
 
 @font-face {
     font-family: 'Roboto';
@@ -431,6 +439,15 @@ section {
     overflow-y: scroll;
     padding:30px;
     box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'SCoreDream';
+    font-weight:300;
+}
+
+#problem_description>p{
+    font-size: 18px;
+    font-family: 'SCoreDream';
+    font-weight:300;
 }
 .problem_input{
     width:80vw;
@@ -441,6 +458,11 @@ section {
     overflow-y: scroll;
     padding:30px;
     box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'SCoreDream';
+    font-weight:300;
+
+    
 }
 .problem_output{
     width:80vw;
@@ -451,6 +473,9 @@ section {
     overflow-y: scroll;
     padding:30px;
     box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'SCoreDream';
+    font-weight:300;
 }
 
 .input_main{
@@ -510,4 +535,12 @@ section {
     font-family: 'SCoreDream';
     font-weight: 600; 
     margin-bottom: 10px;
+}
+
+.text-area{
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-family: 'SCoreDream';
+    font-weight:300;
 }

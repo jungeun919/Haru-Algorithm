@@ -10,36 +10,10 @@
 ::-webkit-scrollbar {
     display: none;
   }
-  
-html,body{
-    height:100vh;
-}
+
 body{
     margin:0;
-
-}
-.TopNav{
-    position:fixed;
-    width:100%;
-    height: 96px;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo{
-    margin-left:30px;
-    font-family: 'Gilbert Color', sans-serif;
-    font-size:45px;
-    width:80%;
-
-}
-.about_us{
-
-    width:10%;
-    float:right;
-    font-size:36px;
-    font-family: 'Gilbert', sans-serif;
+    background:rgba(128, 128, 128, 0.115);
 }
 
 .MiddleNav{
@@ -81,20 +55,15 @@ body{
 
 
 
-.MiddleNav input:checked + label {
-    /* 해당 메뉴가 선택된 상태인지 아닌지를 사용자에게 알려줄 수 있음 */
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-  }
 .content{
+    position:absolute;
+    /* height:100%; */
     width:100%;
-    background:rgba(128, 128, 128, 0.115);
-    height:100vh;
+    /* background:rgba(128, 128, 128, 0.115); */
     display: flex;
     flex-direction: column;
     align-items: center;
     top:175px;
-    position:absolute;
 }
 .main{
     width: 80%;
@@ -106,11 +75,34 @@ body{
 }
 
 .title{
+    margin-bottom: 10px;
     font-weight: 600; 
     font-family: 'SCoreDream';
     font-size: 40px;
+    color:#415CF2 ;
 }
+#level{
+    text-align: center;
+    background: transparent;
+    outline:none;
+    border:none; 
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 20px;
+    width: 90px;
 
+}
+.box{  
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: white;
+    border-radius: 50px;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 123px;
+}
 .date{
     font-weight: 600; 
     font-family: 'SCoreDream';
@@ -118,13 +110,27 @@ body{
     list-style:none;
     display:flex;
 }
-
-/* .date >li:last-child{
-    margin-left: 20px;
-} */
-
+.shop{
+    display:flex;
+    margin-right:9px;
+    justify-content: center;
+    align-items: center;
+}
+.date>li:last-child{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color: #828282;
+}
+.img{
+    margin-right: 5px;
+    width: 20px;
+    height:30px;
+}
 .detail_content{
     width:80%;
+    margin-bottom: 40px;
 }
 
 .code_box{
@@ -141,8 +147,11 @@ body{
 }
 
 .code_detail{
+    color:gray;
     margin-top: 30px;
     width:100%;
     font-weight: 600; 
     font-family: 'SCoreDream';
+    margin-bottom: 40px;
 }
+

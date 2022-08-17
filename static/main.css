@@ -144,6 +144,8 @@
 
 
 .enter {
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -154,9 +156,9 @@
     background-color: white;
     color: black;
     font-size: 30px;
-    border-radius: 10px;
+    border-radius: 100px;
     float: left;
-    width: 60%;
+    width: 80%;
     height: 80px;
     /* left: 150px;
     top: 750px; */
@@ -167,9 +169,10 @@
     top: 200px;
     right: -100px;
     width: 1100px; */
-    width:61%;
+    margin-right: 10%;
+    width:79%;
     height: 50%;
-    margin-bottom: 200px;
+    margin-bottom: 10%;
 }
 
 form{
@@ -177,12 +180,15 @@ form{
     flex-direction: column;
 }
 
-#level >option:hover{
-    background-color: none;
+#level >option{
+    border:none;
 }
 
 #level{
-    appearance: none;   
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 100px;
+    /* appearance: none;    */
     background-color: none;
     font-family: 'S-CoreDream-6Bold';
     font-size: 20px;

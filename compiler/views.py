@@ -128,10 +128,14 @@ def runCode(request):
                         form = CodeExecutorForm()
                         template_data['form'] = form
                         template_data['level'] = level
+                        template_data['problem_title'] = problem_data_set['problem_title']
+                        template_data['problem_description'] = problem_data_set['problem_description']
+                        template_data['problem_input'] = problem_data_set['problem_input']
+                        template_data['problem_output'] = problem_data_set['problem_output']
+                        template_data['problem_sample_input'] = problem_data_set['problem_sample_input']
+                        template_data['problem_sample_output'] = problem_data_set['problem_sample_output']
+                        
                         return render(request, 'FE_templates/incorrect1.html', template_data)
-                    
-                else:
-                    return render(request, 'FE_templates/incorrect2.html', {'error': 'Execution failed'})
 
         else:
             return HttpResponse("Form is not valid")

@@ -19,6 +19,42 @@ body{
     overflow:hidden;
 
 }
+.MiddleNav{
+    position:absolute;
+    top:96px;
+    position: fixed;
+    width:100%;
+    height:79px;
+    background-color: #415CF2;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 25px;
+    display:flex;
+    align-items: center;
+    list-style:none;
+    
+}
+.MiddleNav > li>a{
+    text-decoration: none;
+    background-color: none;
+    width: 60px;
+    height: 100%;
+    text-decoration: none;
+    color:rgba(225, 225, 238, 0.406);
+    padding-left:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu-link2{
+    color:white;
+}
+.active {
+    color:white;
+}
+
+
 .content{
     position:absolute;
     top:175px;
@@ -41,7 +77,6 @@ body{
     height: 62px;
     width: 60px;
     border-radius: 0 50px 50px 0;
-    margin-left: -60px;
     border: none;
     padding: 15px;
     background-color: #415cf257;
@@ -65,30 +100,7 @@ body{
     outline: none;
 }
 
-/* .search-btn{
-    height: 62px;
-    width: 60px;
-    border-radius: 0 50px 50px 0;
-    margin-left: -60px;
-    border: none;
-    padding: 15px;
-    background-color: #415cf257;
-} */
 
-
-/* input[type="date"]::-webkit-calendar-picker-indicator {
-    width:1000px;
-} */
-/* input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-    -webkit-appearance: none;
-} */
-
-
-/* /* input[type=date]::-webkit-datetime-edit-text {
-    -webkit-appearance: none;
-    display: none;
-} */
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0); 
     opacity: 1;
@@ -181,4 +193,71 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: 600; 
     font-family: 'SCoreDream';
     font-size: 15px;
+}
+.close_btn{
+    width: 50px;
+    height: 60px;
+    font-weight: 600;
+    font-family: 'SCoreDream';
+    font-size: 19px;
+    text-decoration: none;
+    margin-left: -158px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin-right: 49px;
+}
+
+
+.page{
+    margin-top: 25px;
+    width:100%;
+    display:flex;
+    justify-content: center;    
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 15px;
+}
+
+.page > .now_page{
+    border-radius: 50%;
+    margin-left:6px;
+    margin-right:6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(128, 128, 128, 0.179);
+}
+
+#pre{
+    border-radius: 50%;
+    margin-left:-40px;
+    margin-right:10px;
+    color: black;
+    text-decoration: none;
+    outline:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #415cf257;
+}
+
+#next{
+    border-radius: 50%;
+    margin-right:-38px;
+    margin-left:10px;
+    color: black;
+    text-decoration: none;
+    outline:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #415cf257;
 }
