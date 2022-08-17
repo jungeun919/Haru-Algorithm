@@ -144,7 +144,8 @@
 
 
 .enter {
-    box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -155,9 +156,9 @@
     background-color: white;
     color: black;
     font-size: 30px;
-    border-radius: 10px;
+    border-radius: 100px;
     float: left;
-    width: 60%;
+    width: 80%;
     height: 80px;
     /* left: 150px;
     top: 750px; */
@@ -184,7 +185,8 @@ form{
 }
 
 #level{
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 100px;
     /* appearance: none;    */
     background-color: none;

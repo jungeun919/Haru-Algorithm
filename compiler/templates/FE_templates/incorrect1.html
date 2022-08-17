@@ -38,6 +38,76 @@
                         <div class="error_box">{{ error | safe | linebreaksbr}}</div>
 
                 {% endfor %}
+                <div class="main_box">
+                    <div class="main">
+                        
+                        <div class="name">문제</div>
+                        
+                        <div class="problem">
+                            <div class="text-area">
+                                {% autoescape off %}
+                                {{ problem_description }}
+                                {% endautoescape %}
+                            </div>
+                        </div>
+                    
+                    </div>
+        
+                    <div class="main">
+                        
+                        <div class="name">입력</div>
+                        
+                        <div class="problem_input">
+                            <div class="text-area">
+                                {% autoescape off %}
+                                {{ problem_input }}
+                                {% endautoescape %}
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="main">
+                        
+                        <div class="name">출력</div>
+                        
+                        <div class="problem_output">
+                            <div class="text-area">
+                                {% autoescape off %}
+                                {{ problem_output }}<br>
+                                {% endautoescape %}
+                            </div>
+                        </div>
+                    
+                    </div>
+        
+                    <div class="input_main">
+                        <div class="ex_inputbox">
+                            <div class="input_name">
+                                예시입력
+                            </div>
+                        <div class="ex_input">
+                            {% for sample_input in problem_sample_input %}
+                            {{sample_input}}<br>
+                            {% endfor %}
+                        </div>
+                        </div>
+                            
+                    
+                        <div class="ex_outputbox">
+                            <div class="output_name">
+                                예시출력
+                            </div>
+                            <div class="ex_output">
+                                {% for sample_output in problem_sample_output %}
+                                {{sample_output}}<br>
+                                {% endfor %}
+                            </div>
+                    
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         <form action="compiler?level={{level}}" method="post">
             <div class="language_box">
                 <a>언어</a>
