@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+
+    {% include "./component/TopNav.html" %}
+
+    <section>
+        <div id="circle1">
+            <div class="1font">
+                <p class="title">학습 최적화</p>
+                <p class="s-title">내 미래를 위한<br>하루 한문제의 투자</a>
+
+                    <form action = 'compiler'>
+                    <select style="color: #ad5600;" name="level" id="level" onchange="Change()">
+                        <option style="color: #ad5600;" value="bronze">Bronze</option>
+                        <option style="color: #38546e;" value="silver">Silver</option>
+                        <option style="color: #f9a518" value="gold">Gold</option>
+                        <option style="color: #51fdbd;" value="platinum">Platinum</option>
+                        <option style="color: #41caff;" id="diamond" value="diamond" >Diamond</option>
+                        <option style="color: #ff3071;" value="ruby">Ruby</option>
+                    </select>
+                    <input type='submit' value='입장하기' class="enter" />
+                </form>
+            </div>
+        </div>
+
+        <div id="circle2">
+            <img src="{% static 'haru_logo.gif' %}" class="main_logo">
+        </div>
+    </section>
+    <script type="text/javascript">
+    
+        // option선택시 내용 바꿔줌
+            function Change(){
+            var key = level.value;
+            if(key=="bronze"){
+            document.all["level"].style.color="#ad5600";
+            }
+            if(key=="silver"){
+            document.all["level"].style.color="#38546e";
+            }
+            if(key=="gold"){
+            document.all["level"].style.color="#f9a518";
+            }
+            if(key=="platinum"){
+            document.all["level"].style.color="#51fdbd";
+            }
+            if(key=="diamond"){
+            document.all["level"].style.color="#41caff";
+            }
+            if(key=="ruby"){
+            document.all["level"].style.color="#ff3071";
+            }
+    
+        }
+        </script>
+</body>
+
+</html>

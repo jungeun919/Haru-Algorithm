@@ -42,10 +42,10 @@ def getPosts(request):
     else:
         posts = post_list
 
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 4)
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)
-    return render(request, 'post/posts.html', {'posts': posts, 'qTitle': qTitle})
+    return render(request, 'FE_templates/search.html', {'posts': posts, 'qTitle': qTitle})
 
 # 전체 풀이 + 날짜 검색
 def getPostDate(request):
@@ -57,10 +57,10 @@ def getPostDate(request):
     else:
         posts = post_list
 
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 4)
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)
-    return render(request, 'post/postDate.html', {'posts': posts, 'qDate': qDate})
+    return render(request, 'FE_templates/search_date.html', {'posts': posts, 'qDate': qDate})
 
 # 전체 풀이 + 레벨 검색
 def getPostLevel(request):
@@ -72,12 +72,12 @@ def getPostLevel(request):
     else:
         posts = post_list
 
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 4)
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)
-    return render(request, 'post/postLevel.html', {'posts': posts, 'qLevel': qLevel})
+    return render(request, 'FE_templates/search_level.html', {'posts': posts, 'qLevel': qLevel})
 
 # 풀이 상세
 def detailPost(request, id):
     post = get_object_or_404(Post, pk=id)
-    return render(request, 'post/detail.html', {'post': post})
+    return render(request, 'FE_templates/detail.html', {'post': post})

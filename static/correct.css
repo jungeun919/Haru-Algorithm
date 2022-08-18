@@ -1,0 +1,154 @@
+@import url('http://fonts.cdnfonts.com/css/gilbert');
+@font-face {
+    font-family: 'SCoreDream';
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff2) format('woff2'),
+         url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff) format('woff');
+    font-display: swap;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+html,body{
+    height:100vh;
+}
+body{
+    margin:0;
+    overflow:hidden;
+
+}
+
+.content{
+    position:absolute;
+    top:96px;
+    background:rgba(128, 128, 128, 0.115);
+    height: 100vh;
+    width:100%;
+}
+.main{
+    margin:0;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.correct_check{
+    width:100%;
+    font-size: 16px;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    flex-direction: column;
+    color: #415CF2;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+}
+
+.correct_title{
+    width: 100%;
+    height: 95px;
+    font-size: 29px;
+    color: #415CF2;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+select,option{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    outline:none;
+    margin-top: 10px;
+    border-radius: 30px;
+    text-align: center;
+    height: 40px;
+    width: 10%;
+    border:none;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+}
+
+.check_img{
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.correct_main{
+    width: 80%;
+}
+.post_title{
+    margin-top: 25px;
+    width:100%;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    display:flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: #415CF2;
+}
+.title_input{
+    padding:15px;
+    box-sizing: border-box;
+    outline:none;
+    margin-top: 10px;
+    border:none;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+}
+.content_input{
+    resize: none;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    padding:15px;
+    vertical-align: top;
+    box-sizing: border-box;
+    height: 390px;
+    outline:none;
+    margin-top: 10px;
+    border:none;
+}
+.post_content{
+    margin-top: 25px;
+    width:100%;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    display:flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: #415CF2;
+}
+.post_button{
+    margin-top: 30px;   
+    width: 80%;
+    height: 52px;
+    background-color: #415CF2;
+    border:none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:23px;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    color:white;
+    box-sizing: border-box;
+    cursor: pointer;
+    /* border: 3px solid #415CF2;
+    background-image: -webkit-linear-gradient(50deg, #415CF2 50%, transparent 50%);
+    background-image: linear-gradient(30deg, #415CF2 50%, transparent 50%);
+    background-size: 5000px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    -webkit-transition: background 1000ms ease-in-out;
+    transition: background 1000ms ease-in-out; */
+
+}
+
+.post_button:hover{
+    /* background-color: #415cf293; */
+    color: rgba(255, 255, 255, 0.308);
+    transition: all 250ms linear;
+    text-shadow: 4px 4px 3px rgba(255, 255, 255, 0.203);
+}

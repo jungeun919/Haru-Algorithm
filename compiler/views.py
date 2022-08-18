@@ -14,7 +14,10 @@ import socket
 from django.db.models import Q
 
 def intro(request):
-    return render(request, 'compiler/intro.html')
+    return render(request, 'FE_templates/main.html')
+
+def aboutus(request):
+    return render(request, 'FE_templates/aboutus.html')
 
 # 컴파일 실행
 def runCode(request):
@@ -32,8 +35,10 @@ def runCode(request):
 
     problem = Problem.objects.filter(problem_date=today, problem_level=level).first()
     example = Example.objects.get(problem=problem)
+    print("level",problem_data_set)
     print("problem:", problem.problem_text)
     print("example", example.example_input)
+
 
     if request.method == 'POST':
         if User.objects.all().filter(hostname=hostname, current_date=today, level=level):
@@ -118,15 +123,19 @@ def runCode(request):
                     template_data['display_data'] = display_data
 
                     if template_data['result'] == 'ACC':                   
-                        return render(request, 'compiler/result.html', template_data)
+                        return render(request, 'FE_templates/correct.html', template_data)
                     else:
                         form = CodeExecutorForm()
                         template_data['form'] = form
                         template_data['level'] = level
-                        return render(request, 'compiler/error.html', template_data)
-                    
-                else:
-                    return render(request, 'compiler/error.html', {'error': 'Execution failed'})
+                        template_data['problem_title'] = problem_data_set['problem_title']
+                        template_data['problem_description'] = problem_data_set['problem_description']
+                        template_data['problem_input'] = problem_data_set['problem_input']
+                        template_data['problem_output'] = problem_data_set['problem_output']
+                        template_data['problem_sample_input'] = problem_data_set['problem_sample_input']
+                        template_data['problem_sample_output'] = problem_data_set['problem_sample_output']
+                        
+                        return render(request, 'FE_templates/incorrect1.html', template_data)
 
         else:
             return HttpResponse("Form is not valid")
@@ -135,7 +144,7 @@ def runCode(request):
     else:
         form = CodeExecutorForm()
         template_data['form'] = form
-        return render(request, 'compiler/writeCode.html',
+        return render(request, 'FE_templates/index.html',
         {   
             'level': level,
             'form': template_data['form'],

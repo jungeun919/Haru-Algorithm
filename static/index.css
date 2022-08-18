@@ -1,0 +1,321 @@
+@import url('http://fonts.cdnfonts.com/css/gilbert');
+@font-face {
+    font-family: 'SCoreDream';
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff2) format('woff2'),
+         url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff) format('woff');
+    font-display: swap;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+html,body{
+    height:100vh;
+}
+body{
+    margin:0;
+
+}
+
+/* .TopNav{
+    background-color: white;
+    width:100%;
+    height: 96px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    margin:0;
+    display:flex;
+    align-items: center;
+}
+
+.logo_img{
+    margin-left:30px;
+    width: 273px;
+    height: 55px;
+}
+#about_link{
+    display:flex;
+    align-items: center;
+    background-color: #c7c9d59f;
+    border-radius: 60px;
+    color:white;
+    text-decoration: 0;
+    float:right;
+    height:55px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-right: 30px;
+    font-size:30px;
+    font-family: 'Gilbert', sans-serif;
+}
+
+#about_link:hover{
+    background-color: #415CF2;
+    color:white;
+
+    transform: scale(1.1);
+
+} */
+
+.MiddleNav{
+    width:100%;
+    height:79px;
+    background-color: #415CF2;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 25px;
+    display:flex;
+    align-items: center;
+    list-style:none;
+    
+}
+.MiddleNav >a{
+    text-decoration: none;
+    color:rgba(225, 225, 238, 0.406);
+    padding-left:50px;
+}
+.MiddleNav > a> input{
+    display:none;
+}
+
+.MiddleNav input:checked + label {
+    /* 해당 메뉴가 선택된 상태인지 아닌지를 사용자에게 알려줄 수 있음 */
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+.content{
+    position:absolute;
+    width:100%;
+    top:96px;
+    padding-top: 50px;
+    background:rgba(128, 128, 128, 0.115);
+    flex-direction: column;
+    align-items: center;
+    display:flex;
+
+
+}
+
+/* 문제 css */
+.main{
+    height: 100%;
+    margin-top: 20px;
+}
+.main_box{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.name{
+    margin-bottom:10px;
+    font-size:24px;
+    color:#415CF2;
+    font-family: 'SCoreDream';
+    font-weight: 600; 
+}
+.problem{
+    width:80vw;
+    height:60vh;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    display:flex;
+    overflow-y: scroll;
+    padding:30px;
+    box-sizing: border-box;
+}
+.problem_input{
+    width:80vw;
+    height:200px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    display:flex;
+    overflow-y: scroll;
+    padding:30px;
+    box-sizing: border-box;
+}
+.problem_output{
+    width:80vw;
+    height:200px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    display:flex;
+    overflow-y: scroll;
+    padding:30px;
+    box-sizing: border-box;
+}
+.text-area{
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-family: 'SCoreDream';
+    font-weight:300;
+}
+
+.submit_main{
+    height:100%;
+    display:flex;
+    flex-direction: column;
+
+}
+
+
+.language_box{ 
+    margin-bottom:10px;
+
+}
+
+.language_box>a{
+    font-size:24px;
+    color:#415CF2;
+    font-family: 'SCoreDream';
+    font-weight: 600; 
+    margin-bottom:10px;
+}
+
+
+.submit_main>a{
+    font-size:24px;
+    color:#415CF2;
+    font-family: 'SCoreDream';
+    font-weight: 600; 
+    margin-bottom:10px;
+}
+#dropbox{
+    font-family: 'SCoreDream';
+    font-weight:600;
+    font-size:20px;
+    padding: 5px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.submit_box{
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: 'SCoreDream';
+    font-weight:600;
+    font-size:15px;
+    border:none;
+    outline: none;
+    width:80vw;
+    height: 500px;
+    background-color:white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.submitbutton{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width:100%;
+    height: 50px;
+    background-color: #415CF2;
+    color: white;
+    font-family: 'SCoreDream';
+    font-weight:600;
+    font-size: 20px;
+    border:none;
+}
+
+/* 예시입력, 예시출력~*/
+.input_main{
+    margin:0;
+    width:80vw;
+    height: 500px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ex_inputbox{
+    width:50%;
+    height: 70%;
+}
+
+.input_name{
+    font-size:24px;
+    color:#415CF2;
+    font-family: 'SCoreDream';
+    font-weight: 600; 
+    margin-bottom: 10px;
+
+}
+.ex_input{
+    width:100%;
+    height:100%;
+    padding:30px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: 'SCoreDream';
+    font-weight: 600; 
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
+}
+.ex_outputbox{
+    width:50%;
+    height: 70%;
+    margin-left:40px;
+
+}
+
+
+.ex_output{
+    width:100%;
+    height:100%;
+    padding:30px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: 'SCoreDream';
+    font-weight: 600; 
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;  
+}
+.output_name{
+    font-size:24px;
+    color:#415CF2;
+    font-family: 'SCoreDream';
+    font-weight: 600; 
+    margin-bottom: 10px;
+}
+
+
+
+#lineCounter:focus-visible,
+#codeEditor:focus-visible {
+    outline:none;
+}
+
+#lineCounter {
+    display: flex;
+    border-color: transparent;
+    overflow-y: hidden;
+    text-align: right;
+    box-shadow: none;
+    color: #707070;
+    background-color: #d8d8d8;
+    position: absolute;
+    width: 3.5rem;
+    /* Determine appearance of line counter */
+    background-color:#3E3D32;
+    border-color:#3E3D32;
+    color:#928869;
+}
+
+#codeEditor {
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: 'SCoreDream';
+    font-weight:600;
+    font-size:15px;
+    border:none;
+    outline: none;
+    width:80vw;
+    height: 500px;
+    background-color:white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}

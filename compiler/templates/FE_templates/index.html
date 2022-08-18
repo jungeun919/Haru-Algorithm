@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haru Algorithm</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+    <script src="jquery-linedtextarea.js"></script>
+</head>
+<body>
+
+    <!-- <form action="{% url 'compiler' %}" method="post"> -->
+        <div>
+
+        {% include "./component/TopNav.html" %}
+        
+        <div class="content">
+        <div class="main_box">
+            <div class="main">
+                
+                <div class="name">문제</div>
+                
+                <div class="problem">
+                    <div class="text-area">
+                        {% autoescape off %}
+                        {{ problem_description }}
+                        {% endautoescape %}
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="main">
+                
+                <div class="name">입력</div>
+                
+                <div class="problem_input">
+                    <div class="text-area">
+                        {% autoescape off %}
+                        {{ problem_input }}
+                        {% endautoescape %}
+                    </div>
+                </div>
+            
+            </div>
+            <div class="main">
+                
+                <div class="name">출력</div>
+                
+                <div class="problem_output">
+                    <div class="text-area">
+                        {% autoescape off %}
+                        {{ problem_output }}<br>
+                        {% endautoescape %}
+                    </div>
+                </div>
+            
+            </div>
+
+            <div class="input_main">
+                <div class="ex_inputbox">
+                    <div class="input_name">
+                        예시입력
+                    </div>
+                <div class="ex_input">
+                    {% for sample_input in problem_sample_input %}
+                    {{sample_input}}<br>
+                    {% endfor %}
+                </div>
+                </div>
+                    
+            
+                <div class="ex_outputbox">
+                    <div class="output_name">
+                        예시출력
+                    </div>
+                    <div class="ex_output">
+                        {% for sample_output in problem_sample_output %}
+                        {{sample_output}}<br>
+                        {% endfor %}
+                    </div>
+            
+                </div>
+            </div>
+            
+
+            <form action="compiler?level={{level}}" method="post">
+            {% csrf_token %}
+            <div class="submit_main">
+                <div class="language_box">
+                    <a>언어</a>
+                    <div class="language_dropbox">
+                        <div name="language" id="dropbox">{{ form.language }}</div>                      
+                    </div>
+                </div>
+                <a>소스코드</a>
+                <div class="textarea_wrap"><textarea id='lineCounter' wrap='off' readonly>1</textarea>
+                    <div class="form_wrap" wrap='off'>{{ form.code }}</div></div>              
+
+                <div class="button_wrap">
+                    <input class="submitbutton" value ="제출하기" type="submit"/>
+                </div>
+            </div>
+            </form>
+            
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- </form> -->
+    <script type="text/javascript">
+        var codeEditor = document.getElementById('id_code');
+var lineCounter = document.getElementById('lineCounter');
+codeEditor.addEventListener('scroll', () => {
+    lineCounter.scrollTop = codeEditor.scrollTop;
+    lineCounter.scrollLeft = codeEditor.scrollLeft;
+});
+codeEditor.addEventListener('keydown', (e) => {
+       let { keyCode } = e;
+       let { value, selectionStart, selectionEnd } = codeEditor;
+if (keyCode === 9) {  // TAB = 9
+         e.preventDefault();
+         codeEditor.value = value.slice(0, selectionStart) + '\t' + value.slice(selectionEnd);
+         codeEditor.setSelectionRange(selectionStart+2, selectionStart+2)
+       }
+ });
+ var lineCountCache = 0;
+function line_counter() {
+      var lineCount = codeEditor.value.split('\n').length;
+      var outarr = new Array();
+      if (lineCountCache != lineCount) {
+         for (var x = 0; x < lineCount; x++) {
+            outarr[x] = (x + 1);
+         }
+         lineCounter.value = outarr.join('\n');
+      }
+      lineCountCache = lineCount;
+}
+codeEditor.addEventListener('input', () => {
+    line_counter();
+});
+    </script>
+
+</body>
+</html>

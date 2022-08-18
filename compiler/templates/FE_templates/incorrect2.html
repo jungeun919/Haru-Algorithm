@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'incorrect2.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+        <title>Haru Algorithm</title>
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+</head>
+
+<body>
+    {% include "./component/TopNav.html" %}
+
+    <section>
+        <img src="{% static 'xlogo.png' %}" class="xlogo">
+        <p class="incorrect1">오답입니다! (2/2)</p>
+        <p class="category">코드 컴파일 시간</p>
+        <div class="box1">
+            <p class="box1_font">0:00</a>
+        </div>
+
+        <div>
+            <p class="sscode">제출한 코드</p>
+            <div>
+                <input type='button' value='복사' id="copybutton" class="copybutton" />
+            </div>
+
+            <div class="code_box">
+                <input type="text" id="input_text" value="input:text영역입니다.">
+            </div>
+        </div>
+
+        <form action="{% url 'incorrect1' %}">
+            {% csrf_token %}
+
+            <input type='button' value='정답 확인하기' class="rescore" />
+        </form>
+    </section>
+
+    <script>//복사버튼 구현-전체복사
+        document.getElementById("copybutton").onclick = function(){
+            const input_text = document.getElementById("input_text");
+            input_text.select();
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+
+</html>

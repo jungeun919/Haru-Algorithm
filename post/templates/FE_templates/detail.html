@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haru Algorithm</title>
+    <link rel="stylesheet" href="{% static 'detail.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+    <link rel="stylesheet" type="text/css" href="./detail.css">
+</head>
+<body>
+    <div>
+        {% include "./component/TopNav.html" %}
+
+        <div class="MiddleNav">
+            
+                <li><a href="{% url 'posts' %}">검색</a></li>
+        </div>
+        <div class="content">
+            <div class="main">
+                <div class="detail_top" >
+                    <div class="title">{{post.title}}</div>
+                    <div class="date">
+                        <li class="shop">#</li><div class="box"><input id="level" value="{{post.level}}" disabled></div>
+                        <li><img class="img" src="{% static 'img.png' %}">{{post.pub_date | date:'Y-m-d'}}</li>
+                        <!-- <li>#{{post.category}}</li> -->
+                    </div>
+                </div>
+                </div>
+
+                <div class="detail_content">
+                    <div class="code_box">
+                        {{post.code | linebreaksbr}}
+                    </div>
+                    <div class="code_detail">
+                        {{post.body | linebreaksbr}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- {% block content %}
+        {% endblock %} -->
+    </div>
+
+    <script type="text/javascript">
+    
+            var key =  document.getElementById("level").value;
+            if(key=="bronze"){
+            document.all["level"].style.color="#ad5600";
+            }
+            if(key=="silver"){
+            document.all["level"].style.color="#38546e";
+            }
+            if(key=="gold"){
+            document.all["level"].style.color="#f9a518";
+            }
+            if(key=="platinum"){
+            document.all["level"].style.color="#51fdbd";
+            }
+            if(key=="diamond"){
+            document.all["level"].style.color="#41caff";
+            }
+            if(key=="ruby"){
+            document.all["level"].style.color="#ff3071";
+            }
+    
+    </script>
+
+</body>
+</html>

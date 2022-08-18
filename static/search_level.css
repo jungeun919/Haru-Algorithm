@@ -1,0 +1,272 @@
+@import url('http://fonts.cdnfonts.com/css/gilbert');
+@font-face {
+    font-family: 'SCoreDream';
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff2) format('woff2'),
+         url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff) format('woff');
+    font-display: swap;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+html,body{
+    height:100vh;
+}
+body{
+    margin:0;
+    overflow:hidden;
+
+}
+.MiddleNav{
+    position:absolute;
+    top:96px;
+    position: fixed;
+    width:100%;
+    height:79px;
+    background-color: #415CF2;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 25px;
+    display:flex;
+    align-items: center;
+    list-style:none;
+    
+}
+.MiddleNav > li>a{
+    text-decoration: none;
+    background-color: none;
+    width: 60px;
+    height: 100%;
+    text-decoration: none;
+    color:rgba(225, 225, 238, 0.406);
+    padding-left:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu-link3{
+    color:white;
+}
+.active {
+    color:white;
+}
+
+
+.content{
+    position:absolute;
+    top:175px;
+    background:rgba(128, 128, 128, 0.115);
+    height: 100vh;
+    width:100%;
+} 
+input[type=search]::-webkit-search-cancel-button {
+
+    width: 60px; height: 60px;
+    cursor: pointer;
+    margin-right: 10%;
+
+}
+.search-box{
+    padding-top: 6%;
+    width:100%;
+    height: 80px;
+    display:flex;
+    justify-content: center;
+}
+.search-box >form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.search-text{
+    font-size:16px;
+    appearance:none ;/* 화살표 없애기 */
+    height: 60px;
+    width: 50%;
+    border-radius: 50px;
+    padding-left: 20px;
+    font-family: 'SCoreDream';
+    font-weight: 600;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    outline: none;
+}
+
+.search-btn{
+    cursor: pointer;
+    height: 62px;
+    width: 60px;
+    border-radius: 0 50px 50px 0;
+    /* margin-left: -60px; */
+    border: none;
+    padding: 15px;
+    background-color: #415cf257;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.search-img{
+    width:100%;
+    height:100%;
+}
+
+.post{
+    /* width: 100%;
+    height: 34vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    flex-wrap: wrap; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+.post_name{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.post_name>li{
+    width: 50%;
+    justify-content: center;
+    display:flex;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    list-style:none;
+}
+.post_wrap{
+    display: flex;
+    align-items: center;
+    height: 34vh;
+    width: 100%;
+    flex-direction: column;
+}
+#box_href{
+    color:black;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    display:flex;
+    align-items: center;
+    width: 70%;
+    height: 75px;
+    background-color: white;
+    margin-top:15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+#box_href > .post_box{ 
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post_box >li{
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    list-style:none;
+}
+
+/* .post_box{
+    display:flex;
+    align-items: center;
+    width: 70%;
+    height: 75px;
+    background-color: white;
+    margin-top:15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+} */
+
+#box_href:hover{
+    transition: all 0.2s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #818080d8;
+    background-color: white;
+    width: 71%;
+    /* transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+      0 24px 46px var(--box-shadow-color); */
+}
+
+.page{
+    margin-top: 25px;
+    width:100%;
+    display:flex;
+    justify-content: center;    
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 15px;
+}
+
+.page > .now_page{
+    border-radius: 50%;
+    margin-left:6px;
+    margin-right:6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(128, 128, 128, 0.179);
+}
+
+#pre{
+    border-radius: 50%;
+    margin-left:-40px;
+    margin-right:10px;
+    color: black;
+    text-decoration: none;
+    outline:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #415cf257;
+}
+
+#next{
+    border-radius: 50%;
+    margin-right:-38px;
+    margin-left:10px;
+    color: black;
+    text-decoration: none;
+    outline:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #415cf257;
+}
+#level >option{
+    border:none;
+}
+
+.close_btn{
+    width: 50px;
+    height: 60px;
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 19px;
+    text-decoration: none;
+    margin-left: -109px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+}
+
+.button_wrap{
+    /* width:30px;
+    height:30px; */
+}

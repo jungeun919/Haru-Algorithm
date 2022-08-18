@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haru Algorithm</title>
+    <link rel="stylesheet" href="{% static 'search.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'MiddelNav.css' %}"> -->
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+</head>
+<body>
+
+    <div>
+        {% include "./component/TopNav.html" %}
+
+        <div class="MiddleNav">
+            <li ><a id="menu-link1" onclick="click()" href="{% url 'posts' %}">제목</a></li>
+            <li><a id="menu-link2" href="{% url 'postDate' %}">날짜</a></li>
+            <li><a id="menu-link3" href="{% url 'postLevel' %}">레벨</a></li>
+        </div>
+        <div class="content">
+            <div class="main">
+               <div class="search-box">
+                    <form action="{% url 'posts' %}" method="get">
+                        {% csrf_token %}
+                        <input class="search-text" type="text" placeholder="검색어를 입력해주세요" name="qTitle" value="{{qTitle}}">
+                        <a class = "close_btn" href="{% url 'posts'%}">x</a>
+                        <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
+                    </form>
+               </div>
+
+               <div class="post">
+                <div class="post_name">
+                    <li>제목</li>
+                    <li>레벨</li>
+                    <li>날짜</li>
+                </div>
+
+                <div class="post_wrap">
+                {% for post in posts %}
+                <a id="box_href" href="{% url 'detail' post.id %}">
+                    <div class="post_box">
+                        <li>{{post.title}}</li>                        
+                        <li>{{post.level}}</li>
+                        <li>{{post.pub_date | date:'Y-m-d'}}</li>
+
+                    </div>
+                </a>
+                {% endfor %}
+                </div>
+               </div>
+               <div class="page">
+               {% if posts.has_previous %}
+               <!-- <a id ="start" href="?page=1"><<</a> -->
+               <a id ="pre" href="?page={{posts.previous_page_number}}"><</a>
+               {% endif %}
+                
+
+               <span class="now_page">{{posts.number}}</span>
+
+               <!-- <span>of</span> -->
+               <!-- <span>{{posts.paginator.num_pages}}</span> -->
+           
+               {% if posts.has_next %}
+               <a id ="next" href="?page={{posts.next_page_number}}">></a>
+               <!-- <a id ="last" href="?page={{posts.paginator.num_pages}}">>></a> -->
+               {% endif %}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
