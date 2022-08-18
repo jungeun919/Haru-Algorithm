@@ -1,6 +1,6 @@
 # 하루 알고리즘 (팀명: DA풀어)
 
-![image](./haru.gif)
+![image](./static/haru.gif)
 
 <br>
 
@@ -12,13 +12,19 @@ haru algorithm은 로그인 과정 없이 간단하게 하루마다 하나의 �
 
 <br>
 
-## 팀원
+## Development Tools
+* Frontend: HTML/CSS, Javascript
+* Backend: Django Framework
+* Infra: cloudtype
+
+<br>
+
+## Members
 * Frontend : 김지연, 박미란
 * Backend : 이지수, 최정은
 * Design : 박근영
 
-<br>
-
+<!--
 ## URL 정리
 |url|기능|
 |---|---|
@@ -29,3 +35,4 @@ haru algorithm은 로그인 과정 없이 간단하게 하루마다 하나의 �
 |localhost:8000/solution|코드 공개 게시글 띄우기 + 제목 검색|
 |localhost:8000/solutionDate|코드 공개 게시글 띄우기 + 날짜 검색|
 |localhost:8000/solution/게시글번호|게시글 상세보기|
+-->
