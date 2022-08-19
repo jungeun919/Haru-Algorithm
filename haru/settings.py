@@ -23,8 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-sigis16%11uf3+)^q!flve9sppt#k0l-udx8re0qubz3gmb&@0'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
+# security.W018
 DEBUG = False
+
 # security.W016
 CSRF_COOKIE_SECURE = True
 
@@ -42,7 +44,7 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-ALLOWED_HOSTS = ['https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/', '*', 'https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/compiler']
+ALLOWED_HOSTS = ['https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/']
 
 
 # Application definition
