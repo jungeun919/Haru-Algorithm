@@ -163,7 +163,7 @@ def crawling(level):
         level_list = list(map(int, level_list_set.diamond[1:-1].split(', ')))
     if level == 'ruby':
         level_list = list(map(int, level_list_set.ruby[1:-1].split(', ')))
-    print(level_list)
+    # print(level_list)
 
     while True:
         num = str(random.choice(level_list))
@@ -205,7 +205,7 @@ def crawling(level):
     else: 
         try:   
             problem_title = soup.select('#problem_title')[0].text
-            print(problem_title)
+            # print(problem_title)
 
             problem_description_cw = soup.select('#problem_description')
             problem_description = str(problem_description_cw)[1:-1]

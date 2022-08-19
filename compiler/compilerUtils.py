@@ -41,7 +41,7 @@ def generate_test_case(input_data, expected_output):
     for x in expected_output:
         outputs += x + "\r\n"
 
-    print(inputs + outputs)
+    # print(inputs + outputs)
     test_case = TestCase(inputs, outputs)
     return test_case
 
@@ -68,7 +68,7 @@ class Compiler:
     maxExecTime = 5
 
     def add_test_case(self, test_case):
-        print("** Test case added **")
+        # print("** Test case added **")
         if isinstance(test_case, TestCase):
             self.test_case = test_case
         else:
@@ -132,21 +132,21 @@ class Compiler:
         actual_output = self.outputs[0]
 
         # Debug
-        print("## len(self.outputs) = " + str(len(self.outputs)))
-        print("# EX: " + expected_output)
-        print("# len : " + str(len(str(expected_output))))
-        print("# AC: " + actual_output)
-        print("# len : " + str(len(str(actual_output))))
-        print("# Comparison : " + str(expected_output == actual_output))
-        print("\n")
+        # print("## len(self.outputs) = " + str(len(self.outputs)))
+        # print("# EX: " + expected_output)
+        # print("# len : " + str(len(str(expected_output))))
+        # print("# AC: " + actual_output)
+        # print("# len : " + str(len(str(actual_output))))
+        # print("# Comparison : " + str(expected_output == actual_output))
+        # print("\n")
         # Debug
 
         values.append(expected_output == actual_output)
 
         # Debug
-        print("Values .... ")
-        for v in values:
-            print(str(v))
+        # print("Values .... ")
+        # for v in values:
+        #     print(str(v))
         # Debug
 
         return values

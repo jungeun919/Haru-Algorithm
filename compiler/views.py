@@ -35,9 +35,9 @@ def runCode(request):
 
     problem = Problem.objects.filter(problem_date=today, problem_level=level).first()
     example = Example.objects.get(problem=problem)
-    print("level",problem_data_set)
-    print("problem:", problem.problem_text)
-    print("example", example.example_input)
+    # print("level",problem_data_set)
+    # print("problem:", problem.problem_text)
+    # print("example", example.example_input)
 
 
     if request.method == 'POST':
