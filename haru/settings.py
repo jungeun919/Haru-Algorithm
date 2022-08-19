@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-sigis16%11uf3+)^q!flve9sppt#k0l-udx8re0qubz3gmb&@0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/']
+ALLOWED_HOSTS = ['https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/', '*', 'https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/compiler']
 
 
 # Application definition
