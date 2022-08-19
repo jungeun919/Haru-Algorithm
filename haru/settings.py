@@ -45,7 +45,7 @@ SECURE_HSTS_PRELOAD = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
 ALLOWED_HOSTS = ['port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app', '*', 'https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/compiler', 'https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/']
-
+CSRF_TRUSTED_ORIGINS = ['https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/']
 
 # Application definition
 
