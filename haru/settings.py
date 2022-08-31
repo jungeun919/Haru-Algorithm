@@ -24,10 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-sigis16%11uf3+)^q!flve9sppt#k0l-udx8re0qubz3gmb&@0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".cloudtype.app","https://port-0-haru-algorithm-152f4b25l70anhpw.gksl1.cloudtype.app/"]
-CSRF_TRUSTED_ORIGINS = ['https://*.cloudtype.app']
+ALLOWED_HOSTS = []
 
 # Application definition
 
