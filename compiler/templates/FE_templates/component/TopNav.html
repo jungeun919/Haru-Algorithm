@@ -15,9 +15,13 @@
         
         <!-- 백엔드 확인용 -->
         {% if user.is_authenticated %}
-        <a href="{% url 'member:logout' %}">{{ user.username }} (로그아웃)</a>
+            <a href="{% url 'member:logout' %}">{{ user.username }} (로그아웃)</a>
         {% else %}
-        <a href="{% url 'member:login' %}">로그인</a>
+            <a href="{% url 'member:login' %}">로그인</a>
+        {% endif %}
+
+        {% if not user.is_authenticated %}
+            <a class="nav-link" href="{% url 'member:signup' %}">회원가입</a>
         {% endif %}
         <!-- ---------- -->
     </div>
