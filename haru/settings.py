@@ -28,6 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# 로그인 성공후 이동하는 URL
+LOGIN_REDIRECT_URL = '/'
+
+# 로그아웃시 이동하는 URL
+LOGOUT_REDIRECT_URL = '/'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +46,7 @@ INSTALLED_APPS = [
     'problem',
     'compiler',
     'post',
+    'member',
 ]
 
 MIDDLEWARE = [
