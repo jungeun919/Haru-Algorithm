@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.utils import timezone
+from datetime import datetime, timedelta
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
-from problem.models import Problem
 from .models import Post
 from django.db.models import Q
 
@@ -80,4 +82,36 @@ def getPostLevel(request):
 # 풀이 상세
 def detailPost(request, id):
     post = get_object_or_404(Post, pk=id)
-    return render(request, 'FE_templates/detail.html', {'post': post})
+
+    # 쿠키 이용하여 조회수
+    expire_date, now = datetime.now(), datetime.now() # 2022-09-06 14:51:16
+    expire_date += timedelta(days=1) # 2022-09-07 14:51:16
+    expire_date = expire_date.replace(hour=0, minute=0, second=0, microsecond=0) # 2022-09-07 00:00:00
+    expire_date -= now # 9:08:44.597768
+    max_age = expire_date.total_seconds() # 남은 시간을 초로 환산
+
+    cookie_value = request.COOKIES.get('hitboard', '_')
+    response = render(request, 'FE_templates/detail.html', {'post': post})
+
+    if f'_{id}_' not in cookie_value:
+        cookie_value += f'{id}_'
+        response.set_cookie('hitboard', value=cookie_value, max_age=max_age, httponly=True)
+        post.hits += 1
+        post.save()
+    return response
+
+# 좋아요
+def likes(request, id):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, pk=id)
+
+        if post.like_users.filter(pk=request.user.pk).exists():
+            post.like_users.remove(request.user)
+            post.likes -= 1
+            post.save()
+        else:
+            post.like_users.add(request.user)
+            post.likes += 1
+            post.save()
+        return HttpResponseRedirect(reverse('detail', args=[str(id)]))
+    return redirect('login')
