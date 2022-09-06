@@ -80,6 +80,7 @@ def runCode(request):
             post.code = request.POST['code']
             post.pub_date = timezone.now()
             post.disclosure = 'private'
+            post.writer = login_user
             post.title = 0
             post.body = 0
             post.save()
