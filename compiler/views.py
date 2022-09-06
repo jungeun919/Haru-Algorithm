@@ -3,15 +3,15 @@ from django.http import HttpResponse
 from django.utils import timezone
 from .forms import CodeExecutorForm
 from post.models import Post
-from .models import User
+from .models import UserCheck
+# from django.contrib.auth.models import User
 from .compilerUtils import Compiler, Language, generate_test_case
 
 from problem.models import Problem, Example
 from datetime import date
 from problem.views import crawling
-
-import socket
 from django.db.models import Q
+
 
 def intro(request):
     return render(request, 'FE_templates/main.html')
@@ -25,8 +25,11 @@ def runCode(request):
     problem_data_set = crawling(level)
 
     # 유저 판별 (최대 입력 횟수 : 2)
-    hostname = socket.gethostbyname(socket.gethostname())
-    print("hostname: " + hostname)
+    if request.user.is_authenticated:
+        login_user = request.user
+        print("login_user:", login_user)
+    else:
+        print("User is not logged in.")
 
     template_data = {}
 
@@ -35,24 +38,20 @@ def runCode(request):
 
     problem = Problem.objects.filter(problem_date=today, problem_level=level).first()
     example = Example.objects.get(problem=problem)
-    # print("level",problem_data_set)
-    # print("problem:", problem.problem_text)
-    # print("example", example.example_input)
-
 
     if request.method == 'POST':
-        if User.objects.all().filter(hostname=hostname, current_date=today, level=level):
-            user = User.objects.all().filter(hostname=hostname, current_date=today, level=level).get()
+        if UserCheck.objects.all().filter(username=login_user, current_date=today, level=level):
+            user = UserCheck.objects.all().filter(username=login_user, current_date=today, level=level).get()
 
         else: # 유저 없으면 저장
-            user = User(
-                hostname = hostname,
+            user = UserCheck(
+                username = login_user.username,
                 fail = 0, # 실패횟수
                 current_date = today,
                 level = level
             )
             user.save()
-
+            
         form = CodeExecutorForm(request.POST)
 
         if form.is_valid():
@@ -103,7 +102,7 @@ def runCode(request):
                     checked_values = executor.compare_outputs()
                     if checked_values[0] == False:
                         # 실패했을 경우에만 횟수 업데이트
-                        user.hostname = hostname
+                        user.username = user.username
                         user.fail += 1
                         user.current_date = today
                         user.level = level
