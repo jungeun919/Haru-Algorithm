@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,17 +11,18 @@
     <link rel="stylesheet" href="{% static 'TopNav.css' %}">
     <link rel="stylesheet" type="text/css" href="./detail.css">
 </head>
+
 <body>
     <div>
         {% include "./component/TopNav.html" %}
 
         <div class="MiddleNav">
-            
-                <li><a href="{% url 'posts' %}">검색</a></li>
+
+            <li><a href="{% url 'posts' %}">검색</a></li>
         </div>
         <div class="content">
             <div class="main">
-                <div class="detail_top" >
+                <div class="detail_top">
                     <div class="title">{{post.title}}</div>
                     <div class="date">
                         <div class="box"><input id="level" value="{{post.level}}" disabled></div>
@@ -28,48 +30,60 @@
                         <!-- <li>#{{post.category}}</li> -->
                     </div>
                 </div>
+            </div>
+
+            <div>조회수 {{post.hits}}</div>
+            <div>
+                <div>좋아요 개수 {{post.likes}}</div>
+                <form action="{% url 'likes' post.id %}" method='POST'>
+                    {% csrf_token %}
+                    {% if user in post.like_users.all %}
+                    <input type="submit" value='좋아요 취소'>
+                    {% else %}
+                    <input type="submit" value='좋아요'>
+                    {% endif %}
+                </form>
+            </div>
+
+            <div class="detail_content">
+                <div class="code_box">
+                    {{post.code | linebreaksbr}}
+                </div>
+                <div class="code_detail">
+                    {{post.body | linebreaksbr}}
                 </div>
 
-                <div>조회수 {{post.hits}}</div>
-
-                <div class="detail_content">
-                    <div class="code_box">
-                        {{post.code | linebreaksbr}}
-                    </div>
-                    <div class="code_detail">
-                        {{post.body | linebreaksbr}}
-                    </div>
-
-                </div>
             </div>
         </div>
-        <!-- {% block content %}
+    </div>
+    <!-- {% block content %}
         {% endblock %} -->
     </div>
 
     <script type="text/javascript">
-    
-            var key =  document.getElementById("level").value;
-            if(key=="bronze"){
-            document.all["level"].style.color="#ad5600";
-            }
-            if(key=="silver"){
-            document.all["level"].style.color="#38546e";
-            }
-            if(key=="gold"){
-            document.all["level"].style.color="#f9a518";
-            }
-            if(key=="platinum"){
-            document.all["level"].style.color="#51fdbd";
-            }
-            if(key=="diamond"){
-            document.all["level"].style.color="#41caff";
-            }
-            if(key=="ruby"){
-            document.all["level"].style.color="#ff3071";
-            }
-    
+
+        var key = document.getElementById("level").value;
+        if (key == "bronze") {
+            document.all["level"].style.color = "#ad5600";
+        }
+        if (key == "silver") {
+            document.all["level"].style.color = "#38546e";
+        }
+        if (key == "gold") {
+            document.all["level"].style.color = "#f9a518";
+        }
+        if (key == "platinum") {
+            document.all["level"].style.color = "#51fdbd";
+        }
+        if (key == "diamond") {
+            document.all["level"].style.color = "#41caff";
+        }
+        if (key == "ruby") {
+            document.all["level"].style.color = "#ff3071";
+        }
+
     </script>
 
 </body>
+
 </html>

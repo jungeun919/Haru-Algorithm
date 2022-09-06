@@ -1,8 +1,9 @@
-from urllib import response
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.utils import timezone
 from datetime import datetime, timedelta
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 from .models import Post
 from django.db.models import Q
@@ -98,3 +99,19 @@ def detailPost(request, id):
         post.hits += 1
         post.save()
     return response
+
+# 좋아요
+def likes(request, id):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, pk=id)
+
+        if post.like_users.filter(pk=request.user.pk).exists():
+            post.like_users.remove(request.user)
+            post.likes -= 1
+            post.save()
+        else:
+            post.like_users.add(request.user)
+            post.likes += 1
+            post.save()
+        return HttpResponseRedirect(reverse('detail', args=[str(id)]))
+    return redirect('login')

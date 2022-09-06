@@ -7,4 +7,5 @@ urlpatterns = [
     path('solutionDate', views.getPostDate, name="postDate"),
     path('solutionLevel', views.getPostLevel, name="postLevel"),
     path('soultion/<int:id>', views.detailPost, name="detail"),
+    path('solution/<int:id>/like', views.likes, name="likes"),
 ]
