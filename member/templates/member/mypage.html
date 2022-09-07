@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>회원정보</div>
+    <p>username: {{ username }}</p>
+    <p>email: {{ email }}</p>
+
+    <a href="{% url 'member:submitCodeCorrect' %}">자신이 제출한 코드(정답)</a> <br>
+    <a href="{% url 'member:likePost' %}">자신이 좋아요한 게시글</a> <br>
+</body>
+</html>

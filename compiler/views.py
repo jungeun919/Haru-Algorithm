@@ -72,30 +72,11 @@ def runCode(request):
             executor.add_test_case(test_case)
             lan = Language(int(form.cleaned_data['language']))
 
-            # 게시물 저장
-            post = Post()
-            post.question = problem.problem_num
-            post.category = 'greedy'
-            post.level = problem.problem_level
-            post.code = request.POST['code']
-            post.pub_date = timezone.now()
-            post.disclosure = 'private'
-            post.writer = login_user
-            post.title = 0
-            post.body = 0
-            post.save()
-
             # 채점
             if lan == Language.PYTHON:
                 executor.set_code(code)
                 executor.set_language(lan)
                 execution_result = executor.execute()
-
-                template_data['post_id'] = post.id
-                template_data['question'] = post.question
-                template_data['category'] = post.category
-                template_data['code'] = post.code
-                template_data['fail'] = user.fail
 
                 template_data['result'] = execution_result.name
                 executor.delete_code_file()
@@ -122,7 +103,24 @@ def runCode(request):
                         display_data.append(temp_tuple)
                     template_data['display_data'] = display_data
 
-                    if template_data['result'] == 'ACC':                   
+                    if template_data['result'] == 'ACC':
+                        # 게시물 저장
+                        post = Post()
+                        post.question = problem.problem_num
+                        post.category = 'greedy'
+                        post.level = problem.problem_level
+                        post.code = request.POST['code']
+                        post.pub_date = timezone.now()
+                        post.disclosure = 'private'
+                        post.writer = login_user
+                        post.title = 0
+                        post.body = 0
+                        post.save()
+
+                        template_data['post_id'] = post.id
+                        template_data['question'] = post.question
+                        template_data['category'] = post.category
+                        template_data['code'] = post.code
                         return render(request, 'FE_templates/correct.html', template_data)
                     else:
                         form = CodeExecutorForm()
