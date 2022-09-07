@@ -36,7 +36,13 @@ def postUpdate(request):
 
 # 전체 풀이 + 제목 검색
 def getPosts(request):
-    post_list = Post.objects.all().filter(disclosure='public').order_by('-pub_date')
+    sort = request.GET.get('sort', '')
+    if sort == 'likes':
+        post_list = Post.objects.all().filter(disclosure='public').order_by('-likes', '-pub_date')
+    elif sort == 'hits':
+        post_list = Post.objects.all().filter(disclosure='public').order_by('-hits', '-pub_date')
+    else:
+        post_list = Post.objects.all().filter(disclosure='public').order_by('-pub_date')
 
     qTitle = request.GET.get('qTitle', '')
     if qTitle:
@@ -51,8 +57,14 @@ def getPosts(request):
 
 # 전체 풀이 + 날짜 검색
 def getPostDate(request):
-    post_list = Post.objects.all().filter(disclosure='public').order_by('-pub_date')
-
+    sort = request.GET.get('sort', '')
+    if sort == 'likes':
+        post_list = Post.objects.all().filter(disclosure='public').order_by('-likes', '-pub_date')
+    elif sort == 'hits':
+        post_list = Post.objects.all().filter(disclosure='public').order_by('-hits', '-pub_date')
+    else:
+        post_list = Post.objects.all().filter(disclosure='public').order_by('-pub_date')
+    
     qDate = request.GET.get('qDate', '')
     if qDate:
         posts = post_list.filter(Q(pub_date__icontains=qDate))
@@ -66,7 +78,13 @@ def getPostDate(request):
 
 # 전체 풀이 + 레벨 검색
 def getPostLevel(request):
-    post_list = Post.objects.all().filter(disclosure='public').order_by('-pub_date')
+    sort = request.GET.get('sort', '')
+    if sort == 'likes':
+        post_list = Post.objects.all().filter(disclosure='public').order_by('-likes', '-pub_date')
+    elif sort == 'hits':
+        post_list = Post.objects.all().filter(disclosure='public').order_by('-hits', '-pub_date')
+    else:
+        post_list = Post.objects.all().filter(disclosure='public').order_by('-pub_date')
 
     qLevel = request.GET.get('qLevel', '')
     if qLevel:
