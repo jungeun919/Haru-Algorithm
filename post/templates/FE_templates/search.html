@@ -30,6 +30,17 @@
                         <input class="search-text" type="text" placeholder="검색어를 입력해주세요" name="qTitle" value="{{qTitle}}">
                         <a class = "close_btn" href="{% url 'posts'%}">x</a>
                         <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
+
+                        <!-- 추가 -->
+                        <div>
+                            <select name="sort" id="sort">
+                                <option value="recently" id="recently">최신순</option>
+                                <option value="likes" id="likes">좋아요순</option>
+                                <option value="hits" id="hits">조회수순</option>
+                            </select>
+                        </div>
+                        <!-- 추가 -->
+                        
                     </form>
                </div>
 
