@@ -1,5 +1,4 @@
 from imp import reload
-from urllib import response
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from bs4 import BeautifulSoup
@@ -7,7 +6,8 @@ from datetime import date
 from .models import *
 import random
 import requests
-from django.db.models import Q
+import urllib.request
+import json
 
 # Create your views here.
 def list_crawling(level):
@@ -124,8 +124,20 @@ def list_crawling(level):
         else:
             Level.objects.all().update(ruby = list(map(int, ruby)))
         # print(len(list(map(int, ruby))))
-    
 
+def category_api(num):
+    url = f'https://solved.ac/api/v3/problem/show?problemId={num}'
+    request = urllib.request.Request(url)
+    response = urllib.request.urlopen(request)
+    rescode = response.getcode()
+    if(rescode==200):
+        response_body = response.read()
+        problem_api_str = response_body.decode('utf-8')
+        problem_api = json.loads(problem_api_str)
+        category_list = []
+        for category in problem_api['tags']:
+            category_list.append(category['displayNames'][0]['name'])
+    return category_list
 
 def crawling(level):
     if Level.objects.all().count() == 0:
@@ -194,6 +206,7 @@ def crawling(level):
 
         problem_data_set = {
             'problem_title': problem_set.problem_title,
+            'problem_category': problem_set.problem_category,
             'problem_description': problem_set.problem_text, 
             'problem_input': problem_set.problem_input,
             'problem_output': problem_set.problem_output,
@@ -230,10 +243,13 @@ def crawling(level):
             problem_sample_output_1 = sample_output_list[0].split('\n')
             problem_sample_output = [output.strip() for output in problem_sample_output_1]
 
+            problem_category = str(category_api(num))[1:-1].replace('\'', '')
+
             Problem(problem_date = problem_date,
                     problem_num = num,
                     problem_level = level,
                     problem_title = problem_title,
+                    problem_category = problem_category,
                     problem_text = problem_description,
                     problem_input = problem_input,
                     problem_output = problem_output).save()
@@ -244,6 +260,7 @@ def crawling(level):
 
             problem_data_set = {
                 'problem_title': problem_title,
+                'problem_category': problem_category,
                 'problem_description': problem_description, 
                 'problem_input': problem_input,
                 'problem_output': problem_output,
