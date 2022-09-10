@@ -61,6 +61,7 @@
                 </div>
 
                 <div class="post_wrap">
+                {% if posts %}
                 {% for post in posts %}
                 <a id="box_href" href="{% url 'detail' post.id %}">
                     <div class="post_box">
@@ -71,6 +72,11 @@
                     </div>
                 </a>
                 {% endfor %}
+                    {% else %}
+                        {% if qLevel %}
+                        <div>검색된 결과없음</div>
+                        {% endif %}
+                {% endif %}
                 </div>
                </div>
                <div class="page">

@@ -11,15 +11,14 @@
     display: none;
   }
   
-html,body{
-    height:100vh;
-}
+
 body{
     margin:0;
-    overflow:hidden;
+    background:rgba(128, 128, 128, 0.115);
 
 }
 .MiddleNav{
+    z-index: 10;
     position:absolute;
     top:96px;
     position: fixed;
@@ -58,9 +57,8 @@ body{
 .content{
     position:absolute;
     top:175px;
-    background:rgba(128, 128, 128, 0.115);
-    height: 100vh;
     width:100%;
+
 } 
 input[type=search]::-webkit-search-cancel-button {
 
@@ -75,6 +73,7 @@ input[type=search]::-webkit-search-cancel-button {
     height: 80px;
     display:flex;
     justify-content: center;
+    flex-direction: column;
 }
 .search-box >form{
     width: 100%;
@@ -121,7 +120,18 @@ input[type=text]::-ms-clear{
     background-color: #415cf257;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
+#sort{
+    height: 60px;
+    width: 50%;
+    border-radius: 50px;
+    padding-left: 20px;
+    font-family: 'SCoreDream';
+    font-weight: 600;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    outline: none;
 
+}
 .search-img{
     width:100%;
     height:100%;
@@ -214,6 +224,7 @@ input[type=text]::-ms-clear{
 
 .page{
     margin-top: 25px;
+    margin-bottom: 25px;
     width:100%;
     display:flex;
     justify-content: center;    

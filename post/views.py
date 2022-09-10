@@ -50,6 +50,7 @@ def getPosts(request):
     else:
         posts = post_list
 
+
     paginator = Paginator(posts, 4)
     pagenum = request.GET.get('page')
     posts = paginator.get_page(pagenum)

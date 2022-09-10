@@ -11,8 +11,37 @@
     <link rel="stylesheet" href="{% static 'TopNav.css' %}">
     <!-- <link rel="stylesheet" href="{% static 'MiddelNav.css' %}"> -->
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
+
+
 <body>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $( "select[name=sort]" ).val( "{{ sort }}" );
+            $('select[name=sort]').change(function () {
+            console.log($('select[name=sort]').val());
+            sort = $('select[name=sort]').val();
+            $('.form').submit();
+        });
+    });
+
+    function Change(){
+            var likes = document.getElementById(likes);
+            var sort = document.getElementById(sort);
+            if(sort=="recently"){
+                document.getElementById("recently").selected = true;
+            }
+            if(sort=="likes"){
+                document.getElementById("likes").selected = true;
+            }
+            if(sort=="hits"){
+                document.getElementById("hits").selected = true;
+            }
+    
+        }
+    </script>
+    
 
     <div>
         {% include "./component/TopNav.html" %}
@@ -30,17 +59,13 @@
                         <input class="search-text" type="text" placeholder="검색어를 입력해주세요" name="qTitle" value="{{qTitle}}">
                         <a class = "close_btn" href="{% url 'posts'%}">x</a>
                         <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
-
-                        <!-- 추가 -->
-                        <div>
-                            <select name="sort" id="sort">
-                                <option value="recently" id="recently">최신순</option>
-                                <option value="likes" id="likes">좋아요순</option>
-                                <option value="hits" id="hits">조회수순</option>
-                            </select>
-                        </div>
-                        <!-- 추가 -->
-                        
+                    </form>
+                    <form class="form" action="{% url 'posts' %}" method="get">
+                        <select id="sort" name="sort" onChange="Change()" id="sort">
+                            <option value="recently" id="recently">최신순</option>
+                            <option id="likes" value="likes" id="likes">좋아요순</option>
+                            <option value="hits" id="hits">조회수순</option>
+                        </select>
                     </form>
                </div>
 
@@ -52,6 +77,7 @@
                 </div>
 
                 <div class="post_wrap">
+                {% if posts %}
                 {% for post in posts %}
                 <a id="box_href" href="{% url 'detail' post.id %}">
                     <div class="post_box">
@@ -62,6 +88,11 @@
                     </div>
                 </a>
                 {% endfor %}
+                {% else %}
+                    {% if qTitle %}
+                    <div>검색된 결과없음</div>
+                    {% endif %}
+                {% endif%}
                 </div>
                </div>
                <div class="page">
@@ -86,6 +117,7 @@
         </div>
 
     </div>
+
 
 </body>
 

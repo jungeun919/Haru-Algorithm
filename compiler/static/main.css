@@ -88,9 +88,6 @@
 /*공통으로 적용되는 header css*/
 
 #circle1 {
-    display:flex;
-    align-items: center;
-    justify-content: center;
     width: 48%;
     height: 90%;
     border-radius: 50%;
@@ -101,6 +98,16 @@
     left: -200px;
     z-index: -1;
 }
+/* 
+.font{
+    padding: 100px;
+    width: 100%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+
+} */
 
 #circle2 {
     /* width : 1500px;
