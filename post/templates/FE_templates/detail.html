@@ -25,9 +25,9 @@
                 <div class="detail_top">
                     <div class="title">{{post.title}}</div>
                     <div class="date">
-                        <div class="box"><input id="level" value="{{post.level}}" disabled></div>
+                        <div class="box"><input id="level" value="{{post.problem.problem_level}}" disabled></div>
                         <li><img class="img" src="{% static 'img.png' %}">{{post.pub_date | date:'Y-m-d'}}</li>
-                        <li>#{{post.category}}</li>
+                        <li>#{{post.problem.problem_category}}</li>
                     </div>
                 </div>
             </div>

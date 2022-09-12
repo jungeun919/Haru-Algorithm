@@ -106,9 +106,7 @@ def runCode(request):
                     if template_data['result'] == 'ACC':
                         # 게시물 저장
                         post = Post()
-                        post.question = problem.problem_num
-                        post.category = problem.problem_category
-                        post.level = problem.problem_level
+                        post.problem = problem
                         post.code = request.POST['code']
                         post.pub_date = timezone.now()
                         post.disclosure = 'private'
@@ -118,8 +116,7 @@ def runCode(request):
                         post.save()
 
                         template_data['post_id'] = post.id
-                        template_data['question'] = post.question
-                        template_data['category'] = post.category
+                        template_data['problem'] = post.problem
                         template_data['code'] = post.code
                         return render(request, 'FE_templates/correct.html', template_data)
                     else:

@@ -89,7 +89,7 @@ def getPostLevel(request):
 
     qLevel = request.GET.get('qLevel', '')
     if qLevel:
-        posts = post_list.filter(Q(level__icontains=qLevel))
+        posts = post_list.filter(Q(problem__problem_level__icontains=qLevel))
     else:
         posts = post_list
 

@@ -1,11 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from problem.models import Problem
 
 # Create your models here.
 class Post(models.Model):
-    question = models.CharField(max_length=100)
-    category = models.CharField(max_length=50)
-    level = models.CharField(max_length=30)
+    problem = models.ForeignKey(Problem, on_delete=models.PROTECT)
     code = models.TextField()
     pub_date = models.DateTimeField()
     disclosure = models.CharField(max_length=10, null=True) # 공개여부
