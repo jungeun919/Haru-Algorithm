@@ -107,7 +107,7 @@ def runCode(request):
                         # 게시물 저장
                         post = Post()
                         post.question = problem.problem_num
-                        post.category = 'greedy'
+                        post.category = problem.problem_category
                         post.level = problem.problem_level
                         post.code = request.POST['code']
                         post.pub_date = timezone.now()
