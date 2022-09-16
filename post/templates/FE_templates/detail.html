@@ -25,24 +25,27 @@
                 <div class="detail_top">
                     <div class="title">{{post.title}}</div>
                     <div class="date">
-                        <div class="box"><input id="level" value="{{post.problem.problem_level}}" disabled></div>
                         <li><img class="img" src="{% static 'img.png' %}">{{post.pub_date | date:'Y-m-d'}}</li>
+                         <li>조회수 {{post.hits}}회</li>
                         <li>#{{post.problem.problem_category}}</li>
                     </div>
-                </div>
-            </div>
+                    <div class="like_hits">   
+                        <div class="box"><input id="level" value="{{post.problem.problem_level}}" disabled></div>
+                            <div class="like_box">
+                                <form action="{% url 'likes' post.id %}" method='POST'>
+                                    {% csrf_token %}
+                                    {% if user in post.like_users.all %}
+                                    <input id="like_btn1" type="submit">
+                                    {% else %}
+                                    <input id="like_btn2" type="submit">
+                                    {% endif %}
+                                </form>
+                            <div>{{post.likes}}</div>
+                        </div>
 
-            <div>조회수 {{post.hits}}</div>
-            <div>
-                <div>좋아요 개수 {{post.likes}}</div>
-                <form action="{% url 'likes' post.id %}" method='POST'>
-                    {% csrf_token %}
-                    {% if user in post.like_users.all %}
-                    <input type="submit" value='좋아요 취소'>
-                    {% else %}
-                    <input type="submit" value='좋아요'>
-                    {% endif %}
-                </form>
+            
+                        </div>
+                </div>
             </div>
 
             <div class="detail_content">
@@ -51,6 +54,7 @@
                 </div>
                 <div class="code_detail">
                     {{post.body | linebreaksbr}}
+                    
                 </div>
 
             </div>
@@ -61,7 +65,7 @@
     </div>
 
     <script type="text/javascript">
-
+        
         var key = document.getElementById("level").value;
         if (key == "bronze") {
             document.all["level"].style.color = "#ad5600";

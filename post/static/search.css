@@ -60,6 +60,8 @@ body{
     width:100%;
 
 } 
+
+
 input[type=search]::-webkit-search-cancel-button {
 
     width: 60px; height: 60px;
@@ -73,12 +75,19 @@ input[type=search]::-webkit-search-cancel-button {
     height: 80px;
     display:flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 .search-box >form{
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
+}
+
+.search-box > .form{
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
 }
 .search-text{
     height: 60px;
@@ -120,9 +129,12 @@ input[type=text]::-ms-clear{
     background-color: #415cf257;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
+
 #sort{
+    float:right;
+    margin-top: 20px;
     height: 60px;
-    width: 50%;
+    width: 10%;
     border-radius: 50px;
     padding-left: 20px;
     font-family: 'SCoreDream';
