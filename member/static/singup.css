@@ -1,0 +1,168 @@
+@import url('http://fonts.cdnfonts.com/css/gilbert');
+@font-face {
+    font-family: 'SCoreDream';
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff2) format('woff2'),
+         url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff) format('woff');
+    font-display: swap;
+}
+::-webkit-scrollbar {
+    display: none;
+  }
+html
+  {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+body{
+    height: 100%;
+    font-family: 'SCoreDream';
+    margin:0;
+    background:rgba(128, 128, 128, 0.115);
+}
+
+.topnav{
+    height: 96px;
+}
+.full{
+    /* margin-top: 96px; */
+    /* display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: center; */
+    width: 100%;
+    height: -webkit-fill-available;
+
+}
+.error_msg{
+    margin-top:30px;
+}
+.title{
+    margin-top:20px;
+    height:40px;
+    width:40%;
+    display:flex;
+    color:rgba(0, 0, 0, 0.43);
+    font-family: 'Gilbert', sans-serif;
+    font-weight: 600;
+    font-size:40px;
+
+}
+.login_main{
+
+    width:100%;
+    height:100%;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_wrap{
+    /* width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center; */
+/* 
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+form{
+    width:40%;
+}
+
+.id_wrap{
+    margin-top:20px;
+    position:relative;
+    width: 100%;
+}
+
+.username{
+    color: #000;
+    top:7px;
+    left:16px;
+    font-size:13px;
+    font-family: 'SCoreDream';
+    position:absolute;
+
+}
+#username{
+    box-sizing: border-box;
+    font-size:13px;
+    width: 100%;
+    border: 0;
+    border-radius: 4px;
+    outline:none;
+    font-family: 'SCoreDream';
+    height: 70px;
+    line-height: 50px;
+    padding: 16px 20px 0;
+} 
+#password1{
+    box-sizing: border-box;
+    font-size:13px;
+    width: 100%;
+    border: 0;
+    border-radius: 4px;
+    outline:none;
+    font-family: 'SCoreDream';
+    height: 70px;
+    line-height: 50px;
+    padding: 16px 20px 0;
+}
+#password2{
+    box-sizing: border-box;
+    font-size:13px;
+    width: 100%;
+    border: 0;
+    border-radius: 4px;
+    outline:none;
+    font-family: 'SCoreDream';
+    height: 70px;
+    line-height: 50px;
+    padding: 16px 20px 0;
+}
+#email{
+    box-sizing: border-box;
+    font-size:13px;
+    width: 100%;
+    border: 0;
+    border-radius: 4px;
+    outline:none;
+    font-family: 'SCoreDream';
+    height: 70px;
+    line-height: 50px;
+    padding: 16px 20px 0;
+}
+.password_wrap{
+    margin-top:20px;
+    position:relative;
+}
+.password{
+    font-family: 'SCoreDream';
+    font-weight: 600;
+    font-size:20px;
+    
+}
+
+.submit_btn{
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 66px;
+    border-radius: 4px;
+    width:100%;
+    border:none;
+    color:white;
+    background-color:#415CF2;;
+    font-family: 'SCoreDream';
+    font-weight: 600;
+    font-size:20px;
+    margin-bottom:30px;
+}

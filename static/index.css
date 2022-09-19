@@ -13,6 +13,7 @@
   
 html,body{
     height:100vh;
+    overflow-y: scroll;
 }
 body{
     margin:0;
@@ -122,7 +123,7 @@ body{
 }
 .problem{
     width:80vw;
-    height:60vh;
+    /* height:60vh; */
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     display:flex;
@@ -132,7 +133,7 @@ body{
 }
 .problem_input{
     width:80vw;
-    height:200px;
+    /* height:200px; */
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     display:flex;
@@ -142,7 +143,7 @@ body{
 }
 .problem_output{
     width:80vw;
-    height:200px;
+    /* height:200px; */
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     display:flex;
@@ -151,6 +152,7 @@ body{
     box-sizing: border-box;
 }
 .text-area{
+    overflow: scroll;
     align-items: center;
     justify-content: center;
     font-size: 18px;
@@ -187,16 +189,22 @@ body{
     font-weight: 600; 
     margin-bottom:10px;
 }
-#dropbox{
-    font-family: 'SCoreDream';
-    font-weight:600;
-    font-size:20px;
-    padding: 5px;
+#dropbox>select{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    outline: none;
+    border:none;
+    width: 10%;
+    height: 30%;
     margin-bottom:10px;
     margin-top:10px;
+    font-family: 'SCoreDream';
+    font-weight:600;
+    padding: 5px;
+    font-size: 18px;
 }
 
-.submit_box{
+
+/* .submit_box{
     padding: 40px;
     box-sizing: border-box;
     font-family: 'SCoreDream';
@@ -208,19 +216,25 @@ body{
     height: 500px;
     background-color:white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-}
-
+} */
+/* .button_wrap{
+    display:flex;
+    width: 100%;
+    justify-content: center;
+} */
 .submitbutton{
     margin-top: 30px;
     margin-bottom: 50px;
+    /* border-radius: 30px; */
     width:100%;
-    height: 50px;
+    height: 60px;
     background-color: #415CF2;
     color: white;
     font-family: 'SCoreDream';
     font-weight:600;
     font-size: 20px;
     border:none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;    
 }
 
 /* 예시입력, 예시출력~*/
@@ -248,6 +262,9 @@ body{
 
 }
 .ex_input{
+    display:flex;
+    overflow-y: scroll;
+    box-sizing: border-box;
     width:100%;
     height:100%;
     padding:30px;
@@ -266,6 +283,8 @@ body{
 
 
 .ex_output{
+    overflow: scroll;
+    display:flex;
     width:100%;
     height:100%;
     padding:30px;
@@ -283,7 +302,11 @@ body{
     margin-bottom: 10px;
 }
 
-
+.textarea_wrap{
+    width:80vw;
+    display: flex;
+    overflow-y:scroll;
+}
 
 #lineCounter:focus-visible,
 #codeEditor:focus-visible {
@@ -291,22 +314,11 @@ body{
 }
 
 #lineCounter {
-    display: flex;
-    border-color: transparent;
-    overflow-y: hidden;
-    text-align: right;
-    box-shadow: none;
-    color: #707070;
-    background-color: #d8d8d8;
-    position: absolute;
-    width: 3.5rem;
-    /* Determine appearance of line counter */
-    background-color:#3E3D32;
-    border-color:#3E3D32;
-    color:#928869;
-}
 
-#codeEditor {
+    line-height: 26px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    resize: none;
+    margin:0;
     padding: 40px;
     box-sizing: border-box;
     font-family: 'SCoreDream';
@@ -314,8 +326,31 @@ body{
     font-size:15px;
     border:none;
     outline: none;
-    width:80vw;
+    width:5%;
+    height: 500px;
+    background-color:#3E3D32;
+    color: #707070;
+    background-color: #d8d8d8;
+}
+.form_wrap{
+    width:95%;
+    /* display:flex; */
+}
+#id_code {
+
+    /* overflow: scroll; */
+    line-height: 26px;
+    resize: none;
+    margin:0;
+    padding: 40px;
+    box-sizing: border-box;
+    font-family: 'SCoreDream';
+    font-weight:600;
+    font-size:15px;
+    border:none;
+    outline: none;
+    width:100%;
     height: 500px;
     background-color:white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }

@@ -1,3 +1,12 @@
+@import url('http://fonts.cdnfonts.com/css/gilbert');
+@font-face {
+    font-family: 'SCoreDream';
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff2) format('woff2'),
+         url(https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream6.woff) format('woff');
+    font-display: swap;
+}
+
 .TopNav{
     background-color: white;
     width:100%;
@@ -20,7 +29,7 @@
     width: 273px;
     height: 55px;
 }
-#about_link{
+/* #about_link{
     display:flex;
     align-items: center;
     background-color: #c7c9d59f;
@@ -34,13 +43,44 @@
     margin-right: 30px;
     font-size:30px;
     font-family: 'Gilbert', sans-serif;
+} */
+
+#about_link{
+    color: black;
+    display:flex;
+    align-items: center;
+    text-decoration: 0;
+    height:55px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-right: 30px;
+    font-size:20px;
+    font-family: 'SCoreDream';
 }
 
-#about_link:hover{
-    background-color: #415CF2;
-    color:white;
-    /* transition: 1s; */
-    transform: scale(1.1);
-    /* height:60px;
-    width: 140px; */
+.mypage{
+    color: black;
+    display:flex;
+    align-items: center;
+    text-decoration: 0;
+    height:55px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-right: 30px;
+    font-size:20px;
+    font-family: 'SCoreDream';
 }
+
+#user_name{
+    color: black;
+    display:flex;
+    align-items: center;
+    text-decoration: 0;
+    height:55px;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-right: 30px;
+    font-size:20px;
+    font-family: 'SCoreDream';
+}
+

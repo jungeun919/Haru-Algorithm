@@ -13,6 +13,7 @@
   
 html,body{
     height:100vh;
+    overflow-y: scroll;
 }
 body{
     margin:0;
@@ -122,7 +123,7 @@ body{
 }
 .problem{
     width:80vw;
-    height:60vh;
+    /* height:60vh; */
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     display:flex;
@@ -132,7 +133,7 @@ body{
 }
 .problem_input{
     width:80vw;
-    height:200px;
+    /* height:200px; */
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     display:flex;
@@ -142,7 +143,7 @@ body{
 }
 .problem_output{
     width:80vw;
-    height:200px;
+    /* height:200px; */
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     display:flex;
@@ -151,6 +152,7 @@ body{
     box-sizing: border-box;
 }
 .text-area{
+    overflow: scroll;
     align-items: center;
     justify-content: center;
     font-size: 18px;
@@ -260,6 +262,9 @@ body{
 
 }
 .ex_input{
+    display:flex;
+    overflow-y: scroll;
+    box-sizing: border-box;
     width:100%;
     height:100%;
     padding:30px;
@@ -278,6 +283,8 @@ body{
 
 
 .ex_output{
+    overflow: scroll;
+    display:flex;
     width:100%;
     height:100%;
     padding:30px;
@@ -298,6 +305,7 @@ body{
 .textarea_wrap{
     width:80vw;
     display: flex;
+    overflow-y:scroll;
 }
 
 #lineCounter:focus-visible,
@@ -306,6 +314,7 @@ body{
 }
 
 #lineCounter {
+
     line-height: 26px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     resize: none;
@@ -325,8 +334,11 @@ body{
 }
 .form_wrap{
     width:95%;
+    /* display:flex; */
 }
 #id_code {
+
+    /* overflow: scroll; */
     line-height: 26px;
     resize: none;
     margin:0;
@@ -341,8 +353,4 @@ body{
     height: 500px;
     background-color:white;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-
-.hi{
-    width:100%;
 }

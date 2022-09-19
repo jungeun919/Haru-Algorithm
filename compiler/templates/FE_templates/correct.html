@@ -12,13 +12,14 @@
 </head>
 <body>
 
+    <div class="topnav">
+        {% include "./component/TopNav.html" %}
+    </div>
 
-    <div>
+    <div class="full">
         <form action="{% url 'postUpdate' %}" method="get">
         {% csrf_token %}
-        {% include "./component/TopNav.html" %}
-            <div class="content">
-            <div class="main">
+            <!-- <div class="main"> -->
                 <div class="correct_title">
                     <img class="check_img" src="{% static 'check.png' %}">
                     정답입니다
@@ -65,8 +66,7 @@
 
             </div>
 
-            </div>
-        </div>
+            <!-- </div> -->
         <!-- {% block content %}
         {% endblock %} -->
     </form>

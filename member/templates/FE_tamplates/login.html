@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+<body>
+    {% include "./component/TopNav.html" %}
+    <div class="login_main">
+    <div class="login_wrap">
+    <div class="title">login</div>
+    <form method="post" action="{% url 'member:login' %}">
+        {% csrf_token %}
+        {% include "member/form_errors.html" %}
+        <div class="label_wrap"> 
+        <div class="id_wrap">
+            <input type="text" class="form-control" name="username" id="username"
+                   value="{{ form.username.value|default_if_none:'' }}"/>
+            <div class="username">아이디</div>
+        </div>
+        </div>
+        <div class="password_wrap"> 
+            <div class="id_wrap">
+                <input type="password" class="form-control" name="password" id="password"
+                   value="{{ form.password.value|default_if_none:'' }}"/>
+                <div class="username">비밀번호</div>
+            </div>
+        </div>
+
+        <button type="submit" class="submit_btn">로그인</button>
+    </form>
+    </div>
+</div>
+</body>
+</html>

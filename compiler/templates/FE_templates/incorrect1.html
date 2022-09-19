@@ -35,7 +35,8 @@
                     {% endif %}
                         <h2 class ="error_title">에러</h2>
 
-                        <div class="error_box">{{ error | safe | linebreaksbr}}</div>
+                        <div class="error_box">
+                            {{ error | safe | linebreaksbr}}</div>
 
                 {% endfor %}
                 <div class="main_box">
@@ -86,9 +87,11 @@
                                 예시입력
                             </div>
                         <div class="ex_input">
+                            <div class="text-area">
                             {% for sample_input in problem_sample_input %}
                             {{sample_input}}<br>
                             {% endfor %}
+                            </div>
                         </div>
                         </div>
                             
@@ -98,9 +101,11 @@
                                 예시출력
                             </div>
                             <div class="ex_output">
+                                <div class="text-area">
                                 {% for sample_output in problem_sample_output %}
                                 {{sample_output}}<br>
                                 {% endfor %}
+                                </div>
                             </div>
                     
                         </div>

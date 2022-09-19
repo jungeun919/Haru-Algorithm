@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'singup.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+</head>
+<body>
+    <div class="topnav">
+        {% include "./component/TopNav.html" %}
+    </div>
+        <div class="full">
+        <div class="login_main"> 
+            <div class="title">singup</div>
+            <form method="post" action="{% url 'member:signup' %}">
+                {% csrf_token %}
+                <div class="error_msg">
+                {% include "member/form_errors.html" %}
+                </div>
+                <div class="label_wrap"> 
+                <div class="id_wrap">
+                    <input type="text" class="form-control" name="username" id="username"
+                           value="{{ form.username.value|default_if_none:'' }}">
+                    <div class="username">사용자 이름</div>
+                </div>
+                </div>
+    
+                <div class="label_wrap"> 
+                <div class="id_wrap">
+                    
+                    <input type="password" class="form-control" name="password1" id="password1"
+                           value="{{ form.password1.value|default_if_none:'' }}">
+                    <div class="username">비밀번호</div>
+                </div>
+                </div>
+    
+                <div class="label_wrap"> 
+                <div class="id_wrap">
+                    <input type="password" class="form-control" name="password2" id="password2"
+                           value="{{ form.password2.value|default_if_none:'' }}">
+                    <div class="username">비밀번호 확인</div>
+                </div>
+                </div>
+    
+                <div class="label_wrap"> 
+                <div class="id_wrap">
+                    <input type="text" class="form-control" name="email" id="email"
+                           value="{{ form.email.value|default_if_none:'' }}">
+                    <div class="username">이메일</div>
+                </div>
+                </div>
+    
+                <button type="submit" class="submit_btn">생성하기</button>
+            </form>
+    </div>
+    </div>
+</body>
+</html>
