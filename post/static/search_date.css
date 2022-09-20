@@ -67,10 +67,20 @@ body{
     padding-top: 6%;
     width:100%;
     height: 80px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .search-box >form{
+    width: 80%;
     display: flex;
     justify-content: center;
+}
+.search-box > .form{
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
 }
 .search-btn{
     cursor: pointer;
@@ -260,4 +270,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 35px;
     height: 35px;
     background-color: #415cf257;
+}
+
+#sort{
+    float:right;
+    margin-top: 20px;
+    height: 60px;
+    width: 10%;
+    border-radius: 50px;
+    padding-left: 20px;
+    font-family: 'SCoreDream';
+    font-weight: 600;
+    border:none;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    outline: none;
+
 }

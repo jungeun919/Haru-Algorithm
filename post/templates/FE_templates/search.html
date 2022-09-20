@@ -25,6 +25,20 @@
             $('.form').submit();
         });
     });
+// const $form = $('#form');
+// const $select = $('#select');
+
+// $select.change(e => {
+//   if ($select.val() === '') return;
+  
+//   $.ajax({
+//     url: $form.attr('action'),
+//     method: $form.attr('method'),
+//     data: {
+//       [$select.attr('name')]: $select.val()
+//     }
+//   });
+// });
 
     function Change(){
             var likes = document.getElementById(likes);
@@ -60,7 +74,7 @@
                         <a class = "close_btn" href="{% url 'posts'%}">x</a>
                         <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
                     </form>
-                    <form class="form" action="{% url 'posts' %}" method="get">
+                    <form id="form" class="form" action="{% url 'posts' %}" method="get">
                         <select id="sort" name="sort" onChange="Change()" id="sort">
                             <option value="recently" id="recently">최신순</option>
                             <option id="likes" value="likes" id="likes">좋아요순</option>

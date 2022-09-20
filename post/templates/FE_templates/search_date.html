@@ -39,6 +39,46 @@
             window.onload = function() {
             getDate();
             };
+
+
+        $(document).ready(function() {
+            $( "select[name=sort]" ).val( "{{ sort }}" );
+            $('select[name=sort]').change(function () {
+            console.log($('select[name=sort]').val());
+            sort = $('select[name=sort]').val();
+            $('.form').submit();
+        });
+    });
+// const $form = $('#form');
+// const $select = $('#select');
+
+// $select.change(e => {
+//   if ($select.val() === '') return;
+  
+//   $.ajax({
+//     url: $form.attr('action'),
+//     method: $form.attr('method'),
+//     data: {
+//       [$select.attr('name')]: $select.val()
+//     }
+//   });
+// });
+
+    function Change(){
+            var likes = document.getElementById(likes);
+            var sort = document.getElementById(sort);
+            if(sort=="recently"){
+                document.getElementById("recently").selected = true;
+            }
+            if(sort=="likes"){
+                document.getElementById("likes").selected = true;
+            }
+            if(sort=="hits"){
+                document.getElementById("hits").selected = true;
+            }
+    
+        }
+
     </script>
     <div>
         {% include "./component/TopNav.html" %}
@@ -57,16 +97,13 @@
                         <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
                         <!-- <button type="button" class="search-btn" type="sumit"><img class="search-img" src="./search.png"></button> -->
 
-                        <!-- 추가 -->
-                        <div>
-                            <select name="sort" id="sort">
-                                <option value="recently" id="recently">최신순</option>
-                                <option value="likes" id="likes">좋아요순</option>
-                                <option value="hits" id="hits">조회수순</option>
-                            </select>
-                        </div>
-                        <!-- 추가 -->
-
+                    </form>
+                    <form id="form" class="form" action="{% url 'posts' %}" method="get">
+                        <select id="sort" name="sort" onChange="Change()" id="sort">
+                            <option value="recently" id="recently">최신순</option>
+                            <option id="likes" value="likes" id="likes">좋아요순</option>
+                            <option value="hits" id="hits">조회수순</option>
+                        </select>
                     </form>
                </div>
 
