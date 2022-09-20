@@ -73,6 +73,7 @@
                 <div class="post_name">
                     <li>제목</li>
                     <li>레벨</li>
+                    <li>카테고리</li>
                     <li>날짜</li>
                 </div>
 
@@ -81,8 +82,9 @@
                 {% for post in posts %}
                 <a id="box_href" href="{% url 'detail' post.id %}">
                     <div class="post_box">
-                        <li>{{post.title}}</li>                        
-                        <li>{{post.level}}</li>
+                        <li>{{post.title}}</li>
+                        <li>{{post.problem.problem_level}}</li>                        
+                        <li>#{{post.problem.problem_category}}</li>
                         <li>{{post.pub_date | date:'Y-m-d'}}</li>
 
                     </div>
