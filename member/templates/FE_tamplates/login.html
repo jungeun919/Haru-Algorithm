@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="{% static 'login.css' %}">
 </head>
 <body>
+    <div class="topnav">
     {% include "./component/TopNav.html" %}
+    </div>
+    <div class="full">
     <div class="login_main">
-    <div class="login_wrap">
     <div class="title">login</div>
     <form method="post" action="{% url 'member:login' %}">
         {% csrf_token %}
@@ -34,7 +36,7 @@
 
         <button type="submit" class="submit_btn">로그인</button>
     </form>
-    </div>
+</div>
 </div>
 </body>
 </html>

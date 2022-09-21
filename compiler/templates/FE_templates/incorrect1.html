@@ -25,7 +25,9 @@
         <img src="{% static 'xlogo.png' %}" class="xlogo">
         <p class="incorrect1">오답입니다! </p>      
     </div>
+        {% if user.is_authenticated %}
         <p class="fail_count"><br>실패횟수: {{ fail }}</p>
+        {% endif %}
   
         <div>
             {% for i, status, output, error in display_data %}

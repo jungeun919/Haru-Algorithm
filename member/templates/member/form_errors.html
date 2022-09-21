@@ -9,13 +9,15 @@
 <body>
     <!-- 필드 오류와 넌필드 오류를 출력한다. -->
     {% if form.errors %}
-    <div class="alert alert-danger">
+    <div class="alert_alert-danger">
         {% for field in form %}
         <!-- 필드 오류 -->
         {% if field.errors %}
         <div>
-            <strong>{{ field.label }}</strong>
-            {{ field.errors }}
+            <strong style="
+            display: flex;
+            align-items: center;
+        ">{{ field.label }}:{{ field.errors }}</strong>
         </div>
         {% endif %}
         {% endfor %}
