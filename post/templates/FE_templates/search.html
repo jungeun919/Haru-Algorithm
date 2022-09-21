@@ -61,9 +61,11 @@
         {% include "./component/TopNav.html" %}
 
         <div class="MiddleNav">
+            <div class="hi">
             <li ><a id="menu-link1" onclick="click()" href="{% url 'posts' %}">제목</a></li>
             <li><a id="menu-link2" href="{% url 'postDate' %}">날짜</a></li>
             <li><a id="menu-link3" href="{% url 'postLevel' %}">레벨</a></li>
+            </div>
         </div>
         <div class="content">
             <div class="main">

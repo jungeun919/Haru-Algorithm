@@ -20,6 +20,7 @@ body{
 
 }
 .MiddleNav{
+    z-index: 10;
     position:absolute;
     top:96px;
     position: fixed;
@@ -30,23 +31,26 @@ body{
     font-family: 'SCoreDream';
     font-size: 25px;
     display:flex;
+    justify-content: center;
     align-items: center;
     list-style:none;
     
 }
-.MiddleNav > li>a{
+.MiddleNav > .hi{
+    display:flex;
+    width:80%;
+}
+.MiddleNav > .hi>li>a{
     text-decoration: none;
     background-color: none;
-    width: 60px;
     height: 100%;
     text-decoration: none;
     color:rgba(225, 225, 238, 0.406);
-    padding-left:50px;
+    padding-right:50px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 #menu-link2{
     color:white;
 }
@@ -78,7 +82,7 @@ body{
     justify-content: center;
 }
 .search-box > .form{
-    width: 70%;
+    width: 80%;
     display: flex;
     justify-content: flex-end;
 }
@@ -143,7 +147,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 .post_name{
     display: flex;
-    width: 70%;
+    width: 80%;
     justify-content: space-between;
 }
 
@@ -165,7 +169,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: center;
     display:flex;
     align-items: center;
-    width: 70%;
+    width: 80%;
     height: 75px;
     background-color: white;
     margin-top:15px;
@@ -189,7 +193,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     top: -4px;
     border: 1px solid #818080d8;
     background-color: white;
-    width: 71%;
+    width: 79%;
     /* transform: translateY(-5px) scale(1.005) translateZ(0);
     box-shadow: 0 24px 36px rgba(0,0,0,0.11),
       0 24px 46px var(--box-shadow-color); */
