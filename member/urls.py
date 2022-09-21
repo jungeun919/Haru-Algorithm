@@ -10,5 +10,7 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('mypage/', views.submitCodeCorrect, name="mypage"),
     path('mypage/submitCodeCorrect/', views.submitCodeCorrect, name="submitCodeCorrect"),
+    path('mypage/submitCodeIncorrect/', views.submitCodeIncorrect, name="submitCodeIncorrect"),
+    path('mypage/retryCode/<int:id>', views.retryCode, name="retryCode"),
     path('mypage/likePost/', views.likePost, name="likePost"),
 ]

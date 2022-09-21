@@ -40,15 +40,17 @@ def runCode(request):
     example = Example.objects.get(problem=problem)
 
     if request.method == 'POST':
-        if UserCheck.objects.all().filter(username=login_user, current_date=today, level=level):
-            user = UserCheck.objects.all().filter(username=login_user, current_date=today, level=level).get()
+        if UserCheck.objects.all().filter(user=login_user, current_date=today, level=level):
+            user = UserCheck.objects.all().filter(user=login_user, current_date=today, level=level).get()
 
         else: # 유저 없으면 저장
             user = UserCheck(
-                username = login_user.username,
+                problem = problem,
+                user = login_user,
                 fail = 0, # 실패횟수
                 current_date = today,
-                level = level
+                level = level,
+                is_correct = 0
             )
             user.save()
             
@@ -84,10 +86,8 @@ def runCode(request):
                     checked_values = executor.compare_outputs()
                     if checked_values[0] == False:
                         # 실패했을 경우에만 횟수 업데이트
-                        user.username = user.username
                         user.fail += 1
                         user.current_date = today
-                        user.level = level
                         user.save()
                         template_data['fail'] = user.fail
 
@@ -114,6 +114,10 @@ def runCode(request):
                         post.title = 0
                         post.body = 0
                         post.save()
+
+                        # 성공 여부 업데이트
+                        user.is_correct = 1
+                        user.save()
 
                         template_data['post_id'] = post.id
                         template_data['problem'] = post.problem
