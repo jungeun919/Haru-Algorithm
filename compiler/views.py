@@ -40,19 +40,23 @@ def runCode(request):
     example = Example.objects.get(problem=problem)
 
     if request.method == 'POST':
-        if UserCheck.objects.all().filter(user=login_user, current_date=today, level=level):
-            user = UserCheck.objects.all().filter(user=login_user, current_date=today, level=level).get()
+        if request.user.is_authenticated:
+            login_user = request.user
+            print("login_user:", login_user)
 
-        else: # 유저 없으면 저장
-            user = UserCheck(
-                problem = problem,
-                user = login_user,
-                fail = 0, # 실패횟수
-                current_date = today,
-                level = level,
-                is_correct = 0
-            )
-            user.save()
+            if UserCheck.objects.all().filter(user=login_user, current_date=today, level=level):
+                user = UserCheck.objects.all().filter(user=login_user, current_date=today, level=level).get()
+
+            else: # 유저 없으면 저장
+                user = UserCheck(
+                    problem = problem,
+                    user = login_user,
+                    fail = 0, # 실패횟수
+                    current_date = today,
+                    level = level,
+                    is_correct = 0
+                )
+                user.save()
             
         form = CodeExecutorForm(request.POST)
 
@@ -85,11 +89,14 @@ def runCode(request):
                 if executor.hasExecuted:
                     checked_values = executor.compare_outputs()
                     if checked_values[0] == False:
-                        # 실패했을 경우에만 횟수 업데이트
-                        user.fail += 1
-                        user.current_date = today
-                        user.save()
-                        template_data['fail'] = user.fail
+                        if request.user.is_authenticated:
+                            login_user = request.user
+                            print("login_user:", login_user)
+                            # 실패했을 경우에만 횟수 업데이트
+                            user.fail += 1
+                            user.current_date = today
+                            user.save()
+                            template_data['fail'] = user.fail
 
                     display_data = []
                     outputs = executor.get_output()
@@ -104,26 +111,33 @@ def runCode(request):
                     template_data['display_data'] = display_data
 
                     if template_data['result'] == 'ACC':
-                        # 게시물 저장
-                        post = Post()
-                        post.problem = problem
-                        post.code = request.POST['code']
-                        post.pub_date = timezone.now()
-                        post.disclosure = 'private'
-                        post.writer = login_user
-                        post.title = 0
-                        post.body = 0
-                        post.save()
+                        if request.user.is_authenticated:
+                            login_user = request.user
+                            print("login_user:", login_user)
 
-                        # 성공 여부 업데이트
-                        user.is_correct = 1
-                        user.save()
+                            # 게시물 저장
+                            post = Post()
+                            post.problem = problem
+                            post.code = request.POST['code']
+                            post.pub_date = timezone.now()
+                            post.disclosure = 'private'
+                            post.writer = login_user
+                            post.title = 0
+                            post.body = 0
+                            post.save()
+                            
+                            # 성공 여부 업데이트
+                            user.is_correct = 1
+                            user.save()
 
-                        template_data['post_id'] = post.id
-                        template_data['problem'] = post.problem
-                        template_data['code'] = post.code
-                        return render(request, 'FE_templates/correct.html', template_data)
-                    else:
+                            template_data['post_id'] = post.id
+                            template_data['problem'] = post.problem
+                            template_data['code'] = post.code
+                            return render(request, 'FE_templates/correct.html', template_data)
+                        
+                        else:
+                            return redirect('posts')
+                    else:                            
                         form = CodeExecutorForm()
                         template_data['form'] = form
                         template_data['level'] = level
@@ -134,7 +148,7 @@ def runCode(request):
                         template_data['problem_sample_input'] = problem_data_set['problem_sample_input']
                         template_data['problem_sample_output'] = problem_data_set['problem_sample_output']
                         
-                        return render(request, 'FE_templates/incorrect1.html', template_data)
+                        return render(request, 'FE_templates/incorrect1.html', template_data)                        
 
         else:
             return HttpResponse("Form is not valid")
