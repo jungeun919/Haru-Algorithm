@@ -115,13 +115,13 @@ def runCode(request):
                             login_user = request.user
                             print("login_user:", login_user)
 
-                            # 게시물 저장
+                            # 게시물 저장 (회원)
                             post = Post()
                             post.problem = problem
                             post.code = request.POST['code']
                             post.pub_date = timezone.now()
                             post.disclosure = 'private'
-                            post.writer = login_user
+                            post.writer = login_user.username
                             post.title = 0
                             post.body = 0
                             post.save()
@@ -129,14 +129,24 @@ def runCode(request):
                             # 성공 여부 업데이트
                             user.is_correct = 1
                             user.save()
-
-                            template_data['post_id'] = post.id
-                            template_data['problem'] = post.problem
-                            template_data['code'] = post.code
-                            return render(request, 'FE_templates/correct.html', template_data)
                         
                         else:
-                            return redirect('posts')
+                            # 게시물 저장 (비회원)
+                            post = Post()
+                            post.problem = problem
+                            post.code = request.POST['code']
+                            post.pub_date = timezone.now()
+                            post.disclosure = 'private'
+                            post.writer = 0
+                            post.title = 0
+                            post.body = 0
+                            post.save()
+
+                        template_data['post_id'] = post.id
+                        template_data['problem'] = post.problem
+                        template_data['code'] = post.code
+                        return render(request, 'FE_templates/correct.html', template_data)
+
                     else:                            
                         form = CodeExecutorForm()
                         template_data['form'] = form

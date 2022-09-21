@@ -46,7 +46,7 @@ def submitCodeCorrect(request):
     if request.user.is_authenticated:
         login_user = request.user
 
-    post_list = Post.objects.all().filter(writer=login_user).order_by('-pub_date')
+    post_list = Post.objects.all().filter(writer=login_user.username).order_by('-pub_date')
 
     paginator1 = Paginator(post_list, 9)
     pagenum = request.GET.get('page')
