@@ -30,8 +30,10 @@
                          <li>조회수 {{post.hits}}회</li>
                         <li>#{{post.problem.problem_category}}</li>
                     </div>
+                    
                     <div class="like_hits">   
                         <div class="box"><input id="level" value="{{post.problem.problem_level}}" disabled></div>
+                            {% if user.is_authenticated %}
                             <div class="like_box">
                                 <form action="{% url 'likes' post.id %}" method='POST'>
                                     {% csrf_token %}
@@ -43,7 +45,7 @@
                                 </form>
                             <div>{{post.likes}}</div>
                         </div>
-
+                    {% endif %}
             
                         </div>
                 </div>

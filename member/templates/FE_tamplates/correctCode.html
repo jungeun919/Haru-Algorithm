@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'correctCode.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+
+</head>
+<body>
+    <div class="top_middle">
+    {% include "./component/TopNav.html" %}
+    <div class="MiddleNav">
+        <div class="hi">
+        <li ><a id="menu-link1" onclick="click()" href="{% url 'member:submitCodeCorrect' %}">제출한 게시글</a></li>
+        <li><a id="menu-link2" href="{% url 'member:likePost' %}">좋아요한 게시글</a></li>
+        <li><a id="menu-link3" href="{% url 'member:submitCodeIncorrect' %}">틀린 문제 재시도</a></li>
+        </div>
+    </div>
+    </div>
+    <div class="mypage_main">
+
+
+        <div class="correct_code_wrap">
+            <div class="title_wrap">
+            <a class="correct_code_title" >제출한 게시글</a>
+            <a class="more" href="{% url 'member:submitCodeCorrect' %}"><div>더보기</div></a>
+            </div>
+            <!-- <div class="line"></div> -->
+            <div class="post_wrap">
+            {% for post in post_list %}
+            <div class="correct_code_box">
+            <a class="post_title">{{ post.title }}</a>
+            <!-- <div class="line"></div> -->
+            <a class="arrow_wrap"href="{% url 'detail' post.id %}">
+                <div class="cercle">→ </div>
+            </a>
+            <div class="post_category">#{{post.problem.problem_category}}</div>
+            </div>
+
+            <!-- <span>{{ post.question }}</span> -->          
+            </a>
+            {% endfor %}
+            </div>
+            
+        </div>
+
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'mypage.css' %}">
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+
+</head>
+<body>
+    <div class="top_middle">
+    {% include "./component/TopNav.html" %}
+    <div class="MiddleNav">
+        <div class="hi">
+        <li ><a id="menu-link1" onclick="click()" href="{% url 'member:submitCodeCorrect' %}">제출한 게시글</a></li>
+        <li><a id="menu-link2" href="{% url 'member:likePost' %}">좋아요한 게시글</a></li>
+        <li><a id="menu-link3" href="{% url 'member:submitCodeIncorrect' %}">틀린 문제 재시도</a></li>
+        </div>
+    </div>
+    </div>
+    <div class="mypage_main">
+        <!-- <div class="information">
+            <div class="information_wrap">
+                <div class="my_username">{{ data.username }}</div>
+                <div class="my_email">{{ data.email }}</div>
+            </div>
+        </div> -->
+        <!-- {% for usercheck in incorrect_list %}
+        <div>
+            <span><a href="{% url 'member:retryCode' usercheck.problem.id %}">{{ usercheck.problem }}</a></span>
+            <span>문제 : {{ usercheck.problem.id }}</span>
+        </div>
+        <br>
+    {% endfor %} -->
+
+        <div class="correct_code_wrap">
+            <a class="correct_code_title" >제출한 게시글</a>
+            <div class="line"></div>
+            <div class="post_wrap">
+            {% for usercheck in incorrect_list %}
+            <a class="correct_code_box" href="{% url 'member:retryCode' usercheck.problem.id %}">
+            <div class="post_title">{{ usercheck.problem }}</div>
+            <!-- <div class="line"></div> -->
+            <div class="post_category">#{{usercheck.problem.problem_category}}</div>
+            <!-- <span>{{ post.question }}</span> -->          
+            </a>
+            {% endfor %}
+            </div>
+            
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+</html>
