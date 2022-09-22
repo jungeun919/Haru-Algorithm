@@ -8,6 +8,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'correctCode.css' %}">
     <link rel="stylesheet" href="{% static 'TopNav.css' %}">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -15,9 +18,11 @@
     {% include "./component/TopNav.html" %}
     <div class="MiddleNav">
         <div class="hi">
+        <li><a href="{% url 'member:mypage' %}"><i class="fa-solid fa-chevron-left"></i></a></li>
         <li ><a id="menu-link1" onclick="click()" href="{% url 'member:submitCodeCorrect' %}">제출한 게시글</a></li>
         <li><a id="menu-link2" href="{% url 'member:likePost' %}">좋아요한 게시글</a></li>
-        <li><a id="menu-link3" href="{% url 'member:submitCodeIncorrect' %}">틀린 문제 재시도</a></li>
+        <li><a id="menu-link3" href="{% url 'member:submitCodeIncorrect' %}">오답노트</a></li>
+        <li class="last"><a href="{% url 'posts' %}"><i class="fa-regular fa-magnifying-glass"></i></a></li>
         </div>
     </div>
     </div>

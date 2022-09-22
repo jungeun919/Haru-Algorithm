@@ -11,7 +11,7 @@
   }
 body{
     margin:0;
-    background:rgba(128, 128, 128, 0.115);
+    background:rgba(128, 128, 128, 0.059);
 }
 .top_middle{
     height:175px;
@@ -44,10 +44,11 @@ body{
     text-decoration: none;
     color:rgba(225, 225, 238, 0.406);
     padding-right:50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
+.MiddleNav > .hi>li>a:hover{
+    color:rgba(255, 255, 255, 0.649);
+}
+
 
 #menu-link2{
     color:white;
@@ -66,67 +67,97 @@ body{
 }
 
 .information{
-    width:100%;
+    width: 80%;
     font-family: 'SCoreDream';
-    font-weight:600;
-    font-size: 20px;
-    background-color: rgba(0, 0, 0, 0.171);
-    height: 110px;
-    display:flex;
-    align-items: center;
+    font-weight: 600;
+    font-size: 28px;
+    /* height: 110px; */
+    display: flex;
+    justify-content: flex-end;
     flex-direction: column;
-    justify-content: center;
+    margin-top: 35px;
+
 }
 
 .information_wrap{
-    width:80%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
 }
-
+.my_email{
+    font-size:15px;
+    margin-top: 20px;
+}
 .correct_code_wrap{
-    margin-top:20px;
-    display:flex;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    width:80%;
+    width: 80%;
+    /* padding: 40px; */
+    /* box-sizing: border-box;
+    padding-bottom: 20px; */
 }
 .correct_code_title{
+    width:100%;
     text-decoration: none;
     color:black;
     font-family: 'SCoreDream';
     font-weight:600;
-    font-size: 20px;
+    font-size: 25px;
+    margin-left: 40px;
+    
 }
-
-
+.title_wrap{
+    height: 80px;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0 0 ;
+    background-color: #415cf22c;
+}
+.arrow_wrap{
+    text-decoration: none;
+    display: flex;
+    position: absolute;
+    justify-content: flex-end;
+    right: 15px;
+}
 .post_wrap{
-    margin-top: 20px;
+    padding: 40px;
+    box-sizing: border-box;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns:1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     flex-wrap: wrap;
     width: 100%;
-    gap:15px;
+    gap: 15px;
 
 }
 .post_title{
     font-family: 'SCoreDream';
     text-decoration: none;
     color:black;
-    font-size:20px;
+    font-size:18px;
     margin-bottom: 10px;
     
 }
 .correct_code_box{
-    display:flex;
+    position:relative;
+    display: flex;
     flex-direction: column;
     justify-items: center;
-    align-items:center;
+    /* align-items: center; */
     justify-content: center;
     border-radius: 10px;
     text-decoration: none;
-    width:100%;
-    height:120px;
-    background-color:white;
+    width: 100%;
+    height: 135px;
+    background-color: rgba(0, 0, 0, 0.049);
     padding: 15px;
     box-sizing: border-box;
 }
@@ -139,4 +170,50 @@ body{
     font-family: 'SCoreDream';
     text-decoration: none;
     color:rgba(0, 0, 0, 0.428);
+    width:80%;
 }
+
+.line{
+    border-bottom: 1px dashed  gray;
+    width:80%;
+}
+
+.cercle{
+    color:black;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cercle:hover{
+    transition: all 0.5s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.cercle > img{
+    width:50%;
+    height:50%;
+}
+
+.more{
+    width: 80px;
+    background-color: white;
+    height: 40px;
+    display:flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-right:40px;
+    text-decoration: none;
+    font-family: 'SCoreDream';
+    color: black;
+}
+

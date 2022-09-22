@@ -8,39 +8,51 @@
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'likePost.css' %}">
     <link rel="stylesheet" href="{% static 'TopNav.css' %}">
-
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="top_middle">
     {% include "./component/TopNav.html" %}
     <div class="MiddleNav">
         <div class="hi">
-        <li ><a id="menu-link1" onclick="click()" href="{% url 'member:submitCodeCorrect' %}">제출한 게시글</a></li>
-        <li><a id="menu-link2" href="{% url 'member:likePost' %}">좋아요한 게시글</a></li>
+            <li><a href="{% url 'member:mypage' %}"><i class="fa-solid fa-chevron-left"></i></a></li>
+            <li ><a id="menu-link1" onclick="click()" href="{% url 'member:submitCodeCorrect' %}">제출한 게시글</a></li>
+            <li><a id="menu-link2" href="{% url 'member:likePost' %}">좋아요한 게시글</a></li>
+            <li><a id="menu-link3" href="{% url 'member:submitCodeIncorrect' %}">오답노트</a></li>
+            <li class="last"><a href="{% url 'posts' %}"><i class="fa-regular fa-magnifying-glass"></i></a></li>
         </div>
     </div>
     </div>
     <div class="mypage_main">
-        <div class="information">
-            <div class="information_wrap">
-                <div>{{ data.username }}</div>
-                <div>{{ data.email }}</div>
-            </div>
-        </div>
+
 
         <div class="correct_code_wrap">
+            <div class="title_wrap">
             <a class="correct_code_title" >좋아요한 게시글</a>
+            <a class="more" href="{% url 'member:likePost' %}"><div>더보기</div></a>
+            </div>
+            <!-- <div class="line"></div> -->
             <div class="post_wrap">
             {% for post in post_list %}
-            <a class="correct_code_box" href="{% url 'detail' post.id %}">
-            <div class="post_title">{{ post.title }}</div>
-            <div class="line"></div>
+            <div class="correct_code_box">
+            <a class="post_title">{{ post.title }}</a>
+            <!-- <div class="line"></div> -->
+            <a class="arrow_wrap"href="{% url 'detail' post.id %}">
+                <div class="cercle">→ </div>
+            </a>
             <div class="post_category">#{{post.problem.problem_category}}</div>
+            </div>
+
             <!-- <span>{{ post.question }}</span> -->          
             </a>
             {% endfor %}
             </div>
+            
         </div>
+
+
 
 
     </div>

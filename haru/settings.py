@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'compiler',
     'post',
     'member',
+    'fontawesomefree',
 ]
 
 MIDDLEWARE = [
