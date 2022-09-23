@@ -16,7 +16,7 @@ html,body{
 }
 body{
     margin:0;
-    overflow:hidden;
+    background:rgba(128, 128, 128, 0.115);
 
 }
 .MiddleNav{
@@ -57,22 +57,33 @@ body{
 .active {
     color:white;
 }
+.MiddleNav > .hi>li>a:hover{
+    color:rgba(255, 255, 255, 0.649);
+}
+
 
 
 .content{
-    position:absolute;
-    top:175px;
-    background:rgba(128, 128, 128, 0.115);
-    height: 100vh;
+    padding-top:175px;
     width:100%;
+    height:100vh;
+    box-sizing: border-box;
+
+} 
+.main{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    box-sizing: border-box;
 }
 
 .search-box{
-    padding-top: 6%;
     width:100%;
     height: 80px;
     display:flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -131,17 +142,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .post{
+    height: 45vh;
     width: 100%;
     display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    /* justify-content: center; */
+    margin-top: 88px;
     flex-direction: column;
     align-items: center;
 }
 .post_wrap{
     display: flex;
     align-items: center;
-    height: 34vh;
     width: 100%;
     flex-direction: column;
 }
@@ -200,7 +211,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .page{
-    margin-top: 25px;
     width:100%;
     display:flex;
     justify-content: center;    
@@ -289,4 +299,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     outline: none;
 
+}
+.no_search{
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    height: 34vh;
+    width: 100%;
+    justify-content: center;
+}
+
+.no_search > a{
+    color:red;
 }

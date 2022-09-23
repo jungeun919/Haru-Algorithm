@@ -50,6 +50,9 @@ body{
     justify-content: center;
 }
 
+.MiddleNav > .hi>li>a:hover{
+    color:rgba(255, 255, 255, 0.649);
+}
 
 #menu-link1{
     color:white;
@@ -60,12 +63,21 @@ body{
 
 
 .content{
-    position:absolute;
-    top:175px;
+    padding-top:175px;
     width:100%;
+    height:100vh;
+    box-sizing: border-box;
 
 } 
-
+.main{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    box-sizing: border-box;
+}
 
 input[type=search]::-webkit-search-cancel-button {
 
@@ -75,11 +87,10 @@ input[type=search]::-webkit-search-cancel-button {
 
 }
 .search-box{
-    padding-top: 6%;
     width:100%;
     height: 80px;
     display:flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
 }
@@ -95,6 +106,9 @@ input[type=search]::-webkit-search-cancel-button {
     justify-content: flex-end;
 }
 .search-text{
+    padding-top:0;
+    padding-bottom:0;
+    padding-right:0;
     height: 60px;
     width: 50%;
     border-radius: 50px;
@@ -155,16 +169,11 @@ input[type=text]::-ms-clear{
 }
 
 .post{
-    /* width: 100%;
-    height: 34vh;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    flex-wrap: wrap; */
+    height: 45vh;
     width: 100%;
     display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    /* justify-content: center; */
+    margin-top: 88px;
     flex-direction: column;
     align-items: center;
 }
@@ -184,9 +193,9 @@ input[type=text]::-ms-clear{
 }
 .post_wrap{
     display: flex;
-    align-items: center;
-    height: 34vh;
+    /* height: 45vh; */
     width: 100%;
+    align-items: center;
     flex-direction: column;
 }
 #box_href{
@@ -240,8 +249,8 @@ input[type=text]::-ms-clear{
 }
 
 .page{
-    margin-top: 25px;
-    margin-bottom: 25px;
+    /* margin-top: 25px; */
+    /* margin-bottom: 25px; */
     width:100%;
     display:flex;
     justify-content: center;    
@@ -298,4 +307,19 @@ input[type=text]::-ms-clear{
     font-weight: 600; 
     font-family: 'SCoreDream';
     font-size: 20px;
+}
+
+.no_search{
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    height: 34vh;
+    width: 100%;
+    justify-content: center;
+}
+
+.no_search > a{
+    color:red;
 }

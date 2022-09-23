@@ -15,7 +15,7 @@
         <div class="menu_wrap">
         <a href="{% url 'aboutus'%}" id="about_link">About us</a>
         
-        <!-- 백엔드 확인용 -->
+
         {% if user.is_authenticated %}
             <a class="mypage" href="{% url 'member:mypage' %}">My Page</a>
             <a id="user_name" href="{% url 'member:logout' %}">{{ user.username }} (로그아웃)</a>
@@ -26,7 +26,7 @@
         {% if not user.is_authenticated %}
             <a class="mypage" class="nav-link" href="{% url 'member:signup' %}">회원가입</a>
         {% endif %}
-        <!-- ---------- -->
+
         </div>
     </div>
     

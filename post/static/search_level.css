@@ -16,7 +16,7 @@ html,body{
 }
 body{
     margin:0;
-    overflow:hidden;
+    background:rgba(128, 128, 128, 0.115);
 
 }
 .MiddleNav{
@@ -51,6 +51,10 @@ body{
     align-items: center;
     justify-content: center;
 }
+.MiddleNav > .hi>li>a:hover{
+    color:rgba(255, 255, 255, 0.649);
+}
+
 #menu-link3{
     color:white;
 }
@@ -60,12 +64,21 @@ body{
 
 
 .content{
-    position:absolute;
-    top:175px;
-    background:rgba(128, 128, 128, 0.115);
-    height: 100vh;
+    padding-top:175px;
     width:100%;
+    height:100vh;
+    box-sizing: border-box;
+
 } 
+.main{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    box-sizing: border-box;
+}
 input[type=search]::-webkit-search-cancel-button {
 
     width: 60px; height: 60px;
@@ -74,11 +87,9 @@ input[type=search]::-webkit-search-cancel-button {
 
 }
 .search-box{
-    padding-top: 6%;
     width:100%;
     height: 80px;
     display:flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -110,7 +121,7 @@ input[type=search]::-webkit-search-cancel-button {
     font-size:16px;
     appearance:none ;/* 화살표 없애기 */
     height: 60px;
-    width: 50%;
+    width: 52%;
     border-radius: 50px;
     padding-left: 20px;
     font-family: 'SCoreDream';
@@ -125,7 +136,6 @@ input[type=search]::-webkit-search-cancel-button {
     height: 62px;
     width: 60px;
     border-radius: 0 50px 50px 0;
-    /* margin-left: -60px; */
     border: none;
     padding: 15px;
     background-color: #415cf257;
@@ -138,16 +148,11 @@ input[type=search]::-webkit-search-cancel-button {
 }
 
 .post{
-    /* width: 100%;
-    height: 34vh;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    flex-wrap: wrap; */
+    height: 45vh;
     width: 100%;
     display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    /* justify-content: center; */
+    margin-top: 88px;
     flex-direction: column;
     align-items: center;
 }
@@ -168,7 +173,6 @@ input[type=search]::-webkit-search-cancel-button {
 .post_wrap{
     display: flex;
     align-items: center;
-    height: 34vh;
     width: 100%;
     flex-direction: column;
 }
@@ -223,7 +227,6 @@ input[type=search]::-webkit-search-cancel-button {
 }
 
 .page{
-    margin-top: 25px;
     width:100%;
     display:flex;
     justify-content: center;    
@@ -294,4 +297,18 @@ input[type=search]::-webkit-search-cancel-button {
 .button_wrap{
     /* width:30px;
     height:30px; */
+}
+.no_search{
+    font-weight: 600; 
+    font-family: 'SCoreDream';
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    height: 34vh;
+    width: 100%;
+    justify-content: center;
+}
+
+.no_search > a{
+    color:red;
 }

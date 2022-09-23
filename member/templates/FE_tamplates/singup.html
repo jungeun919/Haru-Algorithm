@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="{% static 'TopNav.css' %}">
 </head>
 <body>
-    <div class="topnav">
+
         {% include "./component/TopNav.html" %}
-    </div>
+
         <div class="full">
+            <div class="full_wrap">
         <div class="login_main"> 
             <div class="title">singup</div>
             <form method="post" action="{% url 'member:signup' %}">
@@ -57,6 +58,7 @@
                 <button type="submit" class="submit_btn">생성하기</button>
             </form>
     </div>
-    </div>
+</div>
+</div>
 </body>
 </html>

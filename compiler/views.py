@@ -14,7 +14,7 @@ from django.db.models import Q
 
 
 def intro(request):
-    return render(request, 'FE_templates/main.html')
+    return render(request, 'FE_templates/main2.html')
 
 def aboutus(request):
     return render(request, 'FE_templates/aboutus.html')

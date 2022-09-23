@@ -22,17 +22,18 @@ body{
     background:rgba(128, 128, 128, 0.115);
 }
 
-.topnav{
+/* .topnav{
     height: 96px;
-}
+} */
 .full{
     /* margin-top: 96px; */
+    padding-top:96px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
-    position: absolute;
     justify-content: center;
     width: 100%;
-    height: -webkit-fill-available;
+    height: 100%;
 
 }
 .error_msg{
@@ -60,6 +61,17 @@ body{
     flex-direction: column;
     align-items: center;
 }
+.full_wrap{
+    height: 100%;
+    width:100%;     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* padding: 100px;
+    box-sizing: border-box; */
+}
+
 .error_msg>.alert_alert-danger{
     display:flex;
     flex-wrap:wrap;
