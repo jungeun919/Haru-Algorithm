@@ -6,12 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HaruAlgorithm</title>
+    <link rel="stylesheet" href="{% static 'TopNav.css' %}">
 </head>
 <body>
     <div class="TopNav">
         <a href="{% url 'intro' %}"><div class="logo"><img class="logo_img" src="{% static 'logo.png' %}"></div></a>
+        
+        <div class="menu_wrap">
         <a href="{% url 'aboutus'%}" id="about_link">About us</a>
+        
+        <!-- 백엔드 확인용 -->
+        {% if user.is_authenticated %}
+            <a class="mypage" href="{% url 'member:mypage' %}">My Page</a>
+            <a id="user_name" href="{% url 'member:logout' %}">{{ user.username }} (로그아웃)</a>
+        {% else %}
+            <a class="mypage" href="{% url 'member:login' %}">로그인</a>
+        {% endif %}
+
+        {% if not user.is_authenticated %}
+            <a class="mypage" class="nav-link" href="{% url 'member:signup' %}">회원가입</a>
+        {% endif %}
+        <!-- ---------- -->
+        </div>
     </div>
+    
 
 </body>
 </html>

@@ -79,9 +79,14 @@ body{
 }
 
 .information_wrap{
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: center; */
+    align-items: center;
+}
+.my_username{
+    font-size:30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .my_email{
     font-size:15px;

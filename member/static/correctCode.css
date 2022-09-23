@@ -36,9 +36,11 @@ body{
 .MiddleNav > .hi{
     display:flex;
     width:80%;
-    justify-content: space-between;
+    position:relative;
 }
-
+.MiddleNav >.hi>li{
+    padding-right:50px;
+}
 .MiddleNav > .hi>li>a{
     padding:0;
     text-decoration: none;
@@ -46,13 +48,16 @@ body{
     height: 100%;
     text-decoration: none;
     color:rgba(225, 225, 238, 0.406);
-    /* padding-right:50px; */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
+.MiddleNav > .hi>li:last-child{
+    position:absolute;
+    right: 0;
+    padding-right:0;
+}
 
 .MiddleNav > .hi>li>a:hover{
     color:rgba(255, 255, 255, 0.649);

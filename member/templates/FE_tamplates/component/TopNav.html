@@ -11,6 +11,8 @@
 <body>
     <div class="TopNav">
         <a href="{% url 'intro' %}"><div class="logo"><img class="logo_img" src="{% static 'logo.png' %}"></div></a>
+        
+        <div class="menu_wrap">
         <a href="{% url 'aboutus'%}" id="about_link">About us</a>
         
         <!-- 백엔드 확인용 -->
@@ -25,6 +27,7 @@
             <a class="mypage" class="nav-link" href="{% url 'member:signup' %}">회원가입</a>
         {% endif %}
         <!-- ---------- -->
+        </div>
     </div>
     
 

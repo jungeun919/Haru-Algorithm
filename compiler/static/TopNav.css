@@ -18,6 +18,9 @@
     z-index: 1;
 }
 
+.menu_wrap > a:hover{
+    color:black;
+}
 .logo{
     margin:0;
     display:flex;
@@ -57,7 +60,10 @@
     font-size:20px;
     font-family: 'SCoreDream';
 }
+.menu_wrap{
+    display:flex;
 
+}
 .mypage{
     color: black;
     display:flex;
