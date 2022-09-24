@@ -80,20 +80,20 @@
                     <button type="submit" class="search-btn"><img class="search-img" src="{% static 'search.png '%}"></button>
                     </div>  
                 </form>
-                <form id="form" class="form" action="{% url 'posts' %}" method="get">
+                <!-- <form id="form" class="form" action="{% url 'posts' %}" method="get">
                     <select id="sort" name="sort" onChange="Change()" id="sort">
                         <option value="recently" id="recently">최신순</option>
                         <option id="likes" value="likes" id="likes">좋아요순</option>
                         <option value="hits" id="hits">조회수순</option>
                     </select>
-                </form>
+                </form> -->
                </div>
 
                <div class="post">
                 <div class="post_name">
                     <li>제목</li>
-                    <li>카테고리</li>
                     <li>레벨</li>
+                    <li>카테고리</li>
                     <li>날짜</li>
                 </div>
 
@@ -118,23 +118,20 @@
                 </div>
                </div>
                <div class="page">
-               {% if posts.has_previous %}
-               <!-- <a id ="start" href="?page=1"><<</a> -->
-               <a id ="pre" href="?page={{posts.previous_page_number}}"><</a>
-               {% endif %}
-                
-
-               <span class="now_page">{{posts.number}}</span>
-
-               <!-- <span>of</span> -->
-               <!-- <span>{{posts.paginator.num_pages}}</span> -->
-           
-               {% if posts.has_next %}
-               <a id ="next" href="?page={{posts.next_page_number}}">></a>
-               <!-- <a id ="last" href="?page={{posts.paginator.num_pages}}">>></a> -->
-               {% endif %}
-
+                <div class="previous">
+                {% if posts.has_previous %}
+                    <!-- <a id ="start" href="?page=1"><<</a> -->
+                    <a href="?page={{posts.previous_page_number}}"><</a>
+                {% endif %}
                 </div>
+                <div class="now_page">{{posts.number}}</div>
+                <div class="next_page">        
+                {% if posts.has_next %}
+                        <a href="?page={{posts.next_page_number}}">></a>
+                        <!-- <a id ="last" href="?page={{posts.paginator.num_pages}}">>></a> -->
+                {% endif %}
+                </div>
+            </div>
             </div>
         </div>
 

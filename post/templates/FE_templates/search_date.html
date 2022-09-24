@@ -41,14 +41,6 @@
             };
 
 
-        $(document).ready(function() {
-            $( "select[name=sort]" ).val( "{{ sort }}" );
-            $('select[name=sort]').change(function () {
-            console.log($('select[name=sort]').val());
-            sort = $('select[name=sort]').val();
-            $('.form').submit();
-        });
-    });
 // const $form = $('#form');
 // const $select = $('#select');
 
@@ -63,7 +55,20 @@
 //     }
 //   });
 // });
+    $(document).ready(function() {
+            $( "select[name=sort]" ).val( "{{ sort }}" );
+            $('select[name=sort]').change(function () {
+            console.log($('select[name=sort]').val());
+            sort = $('select[name=sort]').val();
+            $('.form').submit();
+        });
+    });
 
+    function pagenation(){
+            var now_page = document.getElementById(now_page).val("{{p}}");
+            alert(now_page);
+
+    }
     function Change(){
             var likes = document.getElementById(likes);
             var sort = document.getElementById(sort);
@@ -100,20 +105,20 @@
                         <!-- <button type="button" class="search-btn" type="sumit"><img class="search-img" src="./search.png"></button> -->
 
                     </form>
-                    <form id="form" class="form" action="{% url 'posts' %}" method="get">
+                    <!-- <form id="form" class="form" action="{% url 'posts' %}" method="get">
                         <select id="sort" name="sort" onChange="Change()" id="sort">
                             <option value="recently" id="recently">최신순</option>
                             <option id="likes" value="likes" id="likes">좋아요순</option>
                             <option value="hits" id="hits">조회수순</option>
                         </select>
-                    </form>
+                    </form> -->
                </div>
 
                <div class="post">
                 <div class="post_name">
                     <li>제목</li>
-                    <li>카테고리</li>
                     <li>레벨</li>
+                    <li>카테고리</li>
                     <li>날짜</li>
                 </div>
                 <div class="post_wrap">
@@ -137,23 +142,20 @@
 
                </div>
                <div class="page">
+                <div class="previous">
                 {% if posts.has_previous %}
-                <!-- <a id ="start" href="?page=1"><<</a> -->
-                <a id ="pre" href="?page={{posts.previous_page_number}}"><</a>
+                    <!-- <a id ="start" href="?page=1"><<</a> -->
+                    <a href="?page={{posts.previous_page_number}}"><</a>
                 {% endif %}
-                 
- 
-                <span class="now_page">{{posts.number}}</span>
- 
-                <!-- <span>of</span> -->
-                <!-- <span>{{posts.paginator.num_pages}}</span> -->
-            
+                </div>
+                <div class="now_page">{{posts.number}}</div>
+                <div class="next_page">        
                 {% if posts.has_next %}
-                <a id ="next" href="?page={{posts.next_page_number}}">></a>
-                <!-- <a id ="last" href="?page={{posts.paginator.num_pages}}">>></a> -->
+                        <a href="?page={{posts.next_page_number}}">></a>
+                        <!-- <a id ="last" href="?page={{posts.paginator.num_pages}}">>></a> -->
                 {% endif %}
- 
-                 </div>
+                </div>
+            </div>
             </div>
         </div>
 

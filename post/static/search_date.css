@@ -211,12 +211,101 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .page{
-    width:100%;
+    width:80%;
     display:flex;
-    justify-content: center;    
+    justify-content: center;   
+    align-items: center; 
     font-weight: 600; 
     font-family: 'SCoreDream';
+    text-decoration: none;
     font-size: 15px;
+}
+
+.previous{
+    width:80px;
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    font-family: 'SCoreDream';
+    text-decoration: none;
+    font-size: 15px;
+
+
+}
+
+.previous>a{
+    margin-right:10px;
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    color:black;
+    width:30px;
+    height:30px;
+    background-color: #415cf234;
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.now_page{
+    font-family: 'SCoreDream';
+    text-decoration: none;
+    font-size: 15px;
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    margin-right:10px;
+    width:30px;
+    height:30px;
+    background-color: rgba(0, 0, 0, 0.101);
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+  
+.now_page>a{
+
+}
+a{
+    text-decoration: none;
+    color:black;
+    
+}
+.next_page{
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    width:80px;
+    font-family: 'SCoreDream';
+    text-decoration: none;
+    font-size: 15px;
+
+}
+.next_page >a{
+    margin-right:10px;
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    color:black;
+    width:30px;
+    height:30px;
+    background-color: #415cf234;
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.previous>a:hover{
+    /* transition: all 0.5s ease-out; */
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #415cf297;
+    color:white;
+}    
+    
+.next_page>a:hover{
+    /* transition: all 0.5s ease-out; */
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #415cf297;
+    color:white;
+}
+.next_page >a:first-child{
+
 }
 .close_btn{
     width: 50px;
@@ -234,7 +323,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 
-.page{
+/* .page{
     margin-top: 25px;
     width:100%;
     display:flex;
@@ -254,9 +343,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 35px;
     height: 35px;
     background-color: rgba(128, 128, 128, 0.179);
-}
+} */
 
-#pre{
+/* #pre{
     border-radius: 50%;
     margin-left:-40px;
     margin-right:10px;
@@ -284,7 +373,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 35px;
     height: 35px;
     background-color: #415cf257;
-}
+} */
 
 #sort{
     float:right;

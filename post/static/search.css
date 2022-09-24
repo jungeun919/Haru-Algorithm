@@ -249,56 +249,95 @@ input[type=text]::-ms-clear{
 }
 
 .page{
-    /* margin-top: 25px; */
-    /* margin-bottom: 25px; */
-    width:100%;
+    width:80%;
     display:flex;
-    justify-content: center;    
+    justify-content: center;   
+    align-items: center; 
     font-weight: 600; 
     font-family: 'SCoreDream';
+    text-decoration: none;
     font-size: 15px;
 }
 
-.page > .now_page{
-    border-radius: 50%;
-    margin-left:6px;
-    margin-right:6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    background-color: rgba(128, 128, 128, 0.179);
+.previous{
+    width:80px;
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    font-family: 'SCoreDream';
+    text-decoration: none;
+    font-size: 15px;
+
+
 }
 
-#pre{
-    border-radius: 50%;
-    margin-left:-40px;
+.previous>a{
     margin-right:10px;
-    color: black;
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    color:black;
+    width:30px;
+    height:30px;
+    background-color: #415cf234;
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.now_page{
+    font-family: 'SCoreDream';
     text-decoration: none;
-    outline:none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    background-color: #415cf257;
+    font-size: 15px;
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    margin-right:10px;
+    width:30px;
+    height:30px;
+    background-color: rgba(0, 0, 0, 0.101);
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-#next{
-    border-radius: 50%;
-    margin-right:-38px;
-    margin-left:10px;
-    color: black;
+  
+.previous>a:hover{
+    /* transition: all 0.5s ease-out; */
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #415cf297;
+    color:white;
+}    
+    
+.next_page>a:hover{
+    /* transition: all 0.5s ease-out; */
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #415cf297;
+    color:white;
+}
+a{
     text-decoration: none;
-    outline:none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    background-color: #415cf257;
+    color:black;
+    
+}
+.next_page{
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    width:80px;
+    font-family: 'SCoreDream';
+    text-decoration: none;
+    font-size: 15px;
+
+}
+.next_page >a{
+    margin-right:10px;
+    display:flex;
+    justify-content: center;   
+    align-items: center; 
+    color:black;
+    width:30px;
+    height:30px;
+    background-color: #415cf234;
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 #level{
     background: transparent;
