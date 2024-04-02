@@ -9,7 +9,6 @@ from post.models import Post,Problem
 from compiler.models import UserCheck
 from problem.models import Problem, Example
 
-from problem.views import crawling
 
 def signup(request):
     if request.method == "POST":

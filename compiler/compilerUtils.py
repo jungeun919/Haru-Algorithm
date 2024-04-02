@@ -35,11 +35,11 @@ class TestCase:
 def generate_test_case(input_data, expected_output):    
     inputs = ""
     for x in input_data:
-        inputs += x + "\r\n"
+        inputs += x + "\n"
 
     outputs = ""
     for x in expected_output:
-        outputs += x + "\r\n"
+        outputs += x + "\n"
 
     # print(inputs + outputs)
     test_case = TestCase(inputs, outputs)

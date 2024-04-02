@@ -9,7 +9,7 @@ from .compilerUtils import Compiler, Language, generate_test_case
 
 from problem.models import Problem, Example
 from datetime import date
-from problem.views import crawling
+from problem.views import get_today_problem_data
 from django.db.models import Q
 
 
@@ -22,7 +22,7 @@ def aboutus(request):
 # 컴파일 실행
 def runCode(request):
     level = request.GET.get('level')
-    problem_data_set = crawling(level)
+    problem_data_set = get_today_problem_data(level)
 
     # 유저 판별 (최대 입력 횟수 : 2)
     if request.user.is_authenticated:
