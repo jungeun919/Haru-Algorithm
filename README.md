@@ -2,8 +2,6 @@
 
 ![image](./static/haru.gif)
 
-<br>
-
 ## 프로젝트 소개
 haru algorithm은 로그인 과정 없이 간단하게 하루마다 하나의 랜덤 알고리즘 문제를 제공하여 채점을 받아볼 수 있습니다.<br>
 정답 풀이는 포인트 사용 및 다른 패널티 없이 언제든 누구나 확인 가능합니다.<br>
@@ -12,27 +10,39 @@ haru algorithm은 로그인 과정 없이 간단하게 하루마다 하나의 �
 
 <br>
 
-## Development Tools
+## 개발 환경
 * Frontend: HTML/CSS, Javascript
-* Backend: Django Framework
-* Infra: cloudtype
+* Backend: Django, sqlite3
+* Infra: Naver Cloud Platform
 
 <br>
 
-## Members
+## 팀원
 * Frontend : 김지연, 박미란
 * Backend : 이지수, 최정은
 * Design : 박근영
 
-<!--
-## URL 정리
-|url|기능|
-|---|---|
-|localhost:8000/|인트로|
-|localhost:8000/compiler|컴파일 실행|
-|localhost:8000/problem/|crawling한 문제 정보 표시|
-|localhost:8000/post/postUpdate → redirect|공개/비공개 업데이트|
-|localhost:8000/solution|코드 공개 게시글 띄우기 + 제목 검색|
-|localhost:8000/solutionDate|코드 공개 게시글 띄우기 + 날짜 검색|
-|localhost:8000/solution/게시글번호|게시글 상세보기|
--->
+<br>
+
+## 실행 방법
+1. 가상 환경 생성 및 활성화
+```bash
+# macOS user의 경우
+python3 -m venv [가상환경명]
+source [가상환경명]/bin/activate
+
+# window user의 경우
+python -m venv [가상환경명]
+source [가상환경명]/scripts/activate
+```
+
+2. 관련 패키지 설치
+```bash
+pip3 install -r requirements.txt
+```
+
+3. 마이그레이션 적용 후 서버 실행
+```bash
+python3 manage.py migrate
+python3 manage.py runserver
+```
